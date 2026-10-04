@@ -8,6 +8,12 @@ export function normalize(text: string): string {
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/ı/g, 'i');
 }
+/** Bare acknowledgements are not follow-up questions; a question mark stays significant. */
+export function isAcknowledgement(text: string): boolean {
+  return /^(peki|tamam|anladim|olur|tesekkurler|tesekkur ederim)[.!…]*$/.test(
+    normalize(text).trim(),
+  );
+}
 const stop = new Set(
   've veya bir bu su icin ile de da mi mu ne nasil nedir kac kadar benim ben bana bize var olan olarak hangi hakkinda misin bilgi verir misiniz lutfen sirket sirketin uplico yapmaliyim yapilir edilir etmek edersem verilmeli icinde istiyorum ogrenmek soyle soylesene bana kac gunluk calisanlar calisanlarin benim tercihim beslenme alabilir miyim olur olursa mi ne zaman ne kadar hakkimiz soruyorum bildirilmeli bildiriliyor bilmeli bildirilir bilmeliyim vermeliyim kalir is ise neler'.split(
     ' ',

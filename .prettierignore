@@ -7,3 +7,5 @@ delivery
 playwright-report
 test-results
 frontend/next-env.d.ts
+
+docs/ai-sessions/*.jsonl

@@ -1,0 +1,74 @@
+{
+  "local": {
+    "target": "local",
+    "completedAt": "2026-10-04T15:46:24.432Z",
+    "action": "reset",
+    "counts": {
+      "users": 0,
+      "threads": 0,
+      "messages": 0,
+      "memories": 0,
+      "documents": 4,
+      "document_chunks": 24,
+      "migrations": 4
+    },
+    "fixtureSlugs": [
+      "01-izin-politikasi.md",
+      "02-yemek-karti.md",
+      "03-ofis-kurallari.md",
+      "04-calisma-duzeni.md"
+    ],
+    "embeddingKeys": [
+      {
+        "embedding_key": "mock:sha256-tf:normalize-v3:1536",
+        "count": 24
+      }
+    ],
+    "fixtureContentMatches": true,
+    "migrationsPreserved": true,
+    "protectedFilesUnchanged": true
+  },
+  "supabase": {
+    "target": "supabase",
+    "completedAt": "2026-10-04T15:46:25.432Z",
+    "action": "reset",
+    "counts": {
+      "users": 0,
+      "threads": 0,
+      "messages": 0,
+      "memories": 0,
+      "documents": 4,
+      "document_chunks": 24,
+      "migrations": 4
+    },
+    "fixtureSlugs": [
+      "01-izin-politikasi.md",
+      "02-yemek-karti.md",
+      "03-ofis-kurallari.md",
+      "04-calisma-duzeni.md"
+    ],
+    "embeddingKeys": [
+      {
+        "embedding_key": "mock:sha256-tf:normalize-v3:1536",
+        "count": 24
+      }
+    ],
+    "fixtureContentMatches": true,
+    "migrationsPreserved": true,
+    "protectedFilesUnchanged": true
+  },
+  "backupRestoreRehearsalPassed": true,
+  "renderCompatibility": {
+    "renderDocumentIdsMatchSupabase": true,
+    "headAndWorkingTreeIndexCodeIdentical": true,
+    "embeddingInputVectorsIdentical": 28,
+    "supabaseMigrationNames": [
+      "Initial1730000000000",
+      "BackendOnly1791020000000",
+      "LibraryEditing1791040000000",
+      "ConversationContext1791120000000"
+    ],
+    "renderContextEndpoint": 404,
+    "note": "Deployed Render lacks new summary endpoint; existing schema already has additive summary columns. Data-only reset and unchanged mock index remain compatible. New summary UI/answer fixes require user deployment."
+  }
+}

@@ -1241,3 +1241,40 @@ a {
   color: #994932;
   font-size: 12px;
 }
+
+/* Reserve the same space before and after compaction; the popover never shifts messages. */
+.summary-slot {
+  position: relative;
+  min-height: 32px;
+  font-size: 11px;
+  color: #68765f;
+}
+.summary-slot > button {
+  text-decoration: underline;
+  background: none;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+}
+.summary-popover {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  max-height: 180px;
+  overflow: auto;
+  background: #f7f8f2;
+  color: #344033;
+  border: 1px solid #dce3d1;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 8px 24px #0002;
+}
+.summary-popover p {
+  margin: 0 0 12px;
+  line-height: 1.6;
+}
+.summary-popover button {
+  cursor: pointer;
+}

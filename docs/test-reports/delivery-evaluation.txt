@@ -1,0 +1,14 @@
+ Container office-delivery-test-test-db-1 Starting 
+ Container office-delivery-test-test-db-1 Started 
+ Container office-delivery-test-test-db-1 Waiting 
+ Container office-delivery-test-test-db-1 Healthy 
+ Container office-delivery-test-evaluation-run-d2f49c620cef Creating 
+ Container office-delivery-test-evaluation-run-d2f49c620cef Created 
+
+> backend@1.0.0 test:evaluation /app/backend
+> tsx test/evaluation/run.ts
+
+[32m[Nest] 35  - [39m10/04/2026, 3:44:18 PM [32m    LOG[39m [38;5;3m[KnowledgeService] [39m[32mBilgi tabanı hazır: 4 doküman, 4 güncelleme (mock:sha256-tf:normalize-v3:1536).[39m
+[32m[Nest] 35  - [39m10/04/2026, 3:44:19 PM [32m    LOG[39m [38;5;3m[KnowledgeService] [39m[32mBilgi tabanı hazır: 4 doküman, 4 güncelleme (evaluation:other).[39m
+[32m[Nest] 35  - [39m10/04/2026, 3:44:20 PM [32m    LOG[39m [38;5;3m[KnowledgeService] [39m[32mBilgi tabanı hazır: 4 doküman, 4 güncelleme (mock:sha256-tf:normalize-v3:1536).[39m
+{"report":"ci-mock","passed":137,"failed":0}

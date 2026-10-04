@@ -1,0 +1,33 @@
+
+> uplico-office-assistant@ test:e2e /Users/sergenhaysal/Desktop/uplico
+> playwright test
+
+
+Running 21 tests using 1 worker
+
+(node:83662) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [chromium] › tests/e2e/chat-navigation.spec.ts:3:5 › first message keeps the composer, focus and messages without reloading session/history (968ms)
+  ✓   2 [chromium] › tests/e2e/chat-navigation.spec.ts:53:5 › promoted URL supports reload, old threads, back/forward and active conversation deletion (1.2s)
+  ✓   3 [chromium] › tests/e2e/chat-navigation.spec.ts:93:5 › a failed first message keeps its thread and allows retry without creating another one (383ms)
+  ✓   4 [chromium] › tests/e2e/chat-scroll.spec.ts:8:7 › long chat scrolls inside its panel at 1440x900 (320ms)
+  ✓   5 [chromium] › tests/e2e/chat-scroll.spec.ts:8:7 › long chat scrolls inside its panel at 1440x500 (507ms)
+  ✓   6 [chromium] › tests/e2e/chat-scroll.spec.ts:8:7 › long chat scrolls inside its panel at 390x844 (215ms)
+  ✓   7 [chromium] › tests/e2e/conversation-summary.spec.ts:7:7 › P3 summary opens without remounting, moving the composer or scrolling at 1440px (1.3s)
+  ✓   8 [chromium] › tests/e2e/conversation-summary.spec.ts:7:7 › P3 summary opens without remounting, moving the composer or scrolling at 390px (725ms)
+  ✓   9 [chromium] › tests/e2e/conversation-summary.spec.ts:57:5 › P1 UI delete below threshold retains topic, clears personalization and preserves old messages (670ms)
+  ✓  10 [chromium] › tests/e2e/library-editing.spec.ts:9:5 › creates, edits and removes library content and deletes a conversation (1.3s)
+  ✓  11 [chromium] › tests/e2e/manual-regressions.spec.ts:12:7 › manual mock question: Yıllık izin hakkım kaç iş günü? (311ms)
+  ✓  12 [chromium] › tests/e2e/manual-regressions.spec.ts:12:7 › manual mock question: Toplantı odasını nasıl rezerve ederim? (333ms)
+  ✓  13 [chromium] › tests/e2e/manual-regressions.spec.ts:12:7 › manual mock question: Ofiste telefon görüşmelerini nerede yapabilirim? (332ms)
+  ✓  14 [chromium] › tests/e2e/manual-regressions.spec.ts:23:5 › bare acknowledgement does not interrupt leave follow-up context (703ms)
+  ✓  15 [chromium] › tests/e2e/office-assistant.spec.ts:3:5 › sources, memory save/delete, and memory across new conversations (1.4s)
+  ✓  16 [chromium] › tests/e2e/office-assistant.spec.ts:39:5 › mobile layout exposes conversation and knowledge panels without overflow (284ms)
+  -  17 [chromium] › tests/e2e/openai-live.spec.ts:10:7 › Live OpenAI through browser, Next proxy, Nest agent and pgvector › P1 Turkish answers, sources, memory update/delete, summary continuity and user isolation
+  -  18 [chromium] › tests/e2e/openai-live.spec.ts:106:7 › Live OpenAI through browser, Next proxy, Nest agent and pgvector › P1 live embedding after document create/edit/delete returns only current evidence
+  ✓  19 [chromium] › tests/e2e/side-panels.spec.ts:8:7 › side panels keep long content accessible at 1440x500 (468ms)
+  ✓  20 [chromium] › tests/e2e/side-panels.spec.ts:8:7 › side panels keep long content accessible at 320x568 (590ms)
+  ✓  21 [chromium] › tests/e2e/side-panels.spec.ts:8:7 › side panels keep long content accessible at 844x390 (508ms)
+
+  2 skipped
+  19 passed (13.2s)

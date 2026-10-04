@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-04T14:54:32.895Z",
+  "environment": "Only isolated uplico-summary/render_test; normal localhost:3000 and Supabase unchanged",
+  "manualURL": "http://localhost:3003",
+  "health": {
+    "status": "ok",
+    "provider": "mock"
+  },
+  "counts": {
+    "users": 0,
+    "threads": 0,
+    "messages": 0,
+    "memories": 0
+  },
+  "documents": [
+    {
+      "slug": "01-izin-politikasi.md",
+      "title": "İzin politikası",
+      "exactFixtureMatch": true
+    },
+    {
+      "slug": "02-yemek-karti.md",
+      "title": "Yemek kartı ve yemek seçenekleri",
+      "exactFixtureMatch": true
+    },
+    {
+      "slug": "03-ofis-kurallari.md",
+      "title": "Ofis kuralları",
+      "exactFixtureMatch": true
+    },
+    {
+      "slug": "04-calisma-duzeni.md",
+      "title": "Çalışma düzeni",
+      "exactFixtureMatch": true
+    }
+  ],
+  "chunks": [
+    {
+      "embedding_key": "mock:sha256-tf:normalize-v3:1536",
+      "chunks": 24,
+      "dimensions": 1536
+    }
+  ]
+}

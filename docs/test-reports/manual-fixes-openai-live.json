@@ -1,0 +1,695 @@
+{
+  "date": "2026-10-04T15:16:58.650Z",
+  "environment": "Real OpenAI API + isolated local PostgreSQL/pgvector; no Supabase changes",
+  "models": {
+    "chat": "gpt-4.1-mini",
+    "embedding": "text-embedding-3-small"
+  },
+  "results": [
+    {
+      "priority": "P1",
+      "input": "İzin başvurusu nasıl yapılır?",
+      "expected": "Live embedding/retrieval selects leave policy with sources",
+      "actual": {
+        "threadId": "2d61eb8a-3663-44bd-a8e3-2529f3adaa8c",
+        "role": "assistant",
+        "contextRevision": 0,
+        "content": "Yıllık izin başvurusu için, izin talebinizi başlangıç tarihinden en az 5 iş günü önce ekip yöneticinize iletmeniz gerekmektedir. İzin onaylandıktan sonra şirket takvimine eklenir. İzne çıkmadan önce devam eden işler, yaklaşan teslim tarihleri ve ilgili dosya bağlantılarını ekip ile paylaşmalısınız. Ayrıca acil işler için bir yedek sorumlu belirlenir ve takvimde dönüş tarihiniz ile e-posta otomatik yanıtınız belirtilir.",
+        "status": "completed",
+        "metadata": {
+          "tools": [
+            "search_docs"
+          ],
+          "sources": [
+            {
+              "title": "İzin politikası",
+              "chunkId": "0390f940-fdc0-4c85-b7df-aa1154222ff9",
+              "excerpt": "# İzin politikası\n## Yıllık izin\n\nUplico çalışanlarının yıllık ücretli izin hakkı 20 iş günüdür. Yıllık izin talebi, başlangıç tarihinden en az 5 iş günü önce ekip yöneticisine iletilir. Onaylanan izinler şirket takvimine eklenir. Hafta sonları yıllık izin günlerinden düşülmez.",
+              "documentId": "41423907-41a3-4489-96be-689c99a40de0"
+            },
+            {
+              "title": "İzin politikası",
+              "chunkId": "b81a02b1-0d88-4519-86f3-fb286b27587d",
+              "excerpt": "# İzin politikası\n## İzin öncesi iş devri\n\nİzne çıkmadan önce devam eden işler, yaklaşan teslim tarihleri ve ilgili dosya bağlantıları ekip ile paylaşılır. Acil işler için bir yedek sorumlu belirlenir. Takvimde ve e-posta otomatik yanıtında dönüş tarihi belirtilir. İzin sırasında rutin toplantılara katılım beklenmez.",
+              "documentId": "41423907-41a3-4489-96be-689c99a40de0"
+            }
+          ]
+        },
+        "contextOrder": "416",
+        "id": "a456f467-081f-4566-809e-b937b19eab28",
+        "createdAt": "2026-10-04T15:16:16.715Z"
+      },
+      "passed": true
+    },
+    {
+      "priority": "P2",
+      "input": "İzin başvurusu → Peki. → Peki kaç gün önceden?",
+      "expected": "Bare acknowledgement does not clarify or retrieve; real follow-up still uses the leave source",
+      "actual": {
+        "acknowledgement": {
+          "threadId": "2d61eb8a-3663-44bd-a8e3-2529f3adaa8c",
+          "role": "assistant",
+          "contextRevision": 0,
+          "content": "Başka bir konuda yardımcı olabilir miyim?",
+          "status": "completed",
+          "metadata": {
+            "tools": [],
+            "sources": []
+          },
+          "contextOrder": "418",
+          "id": "1035bc94-6e10-4347-9f9c-f00b8eb32b53",
+          "createdAt": "2026-10-04T15:16:17.506Z"
+        },
+        "followup": {
+          "threadId": "2d61eb8a-3663-44bd-a8e3-2529f3adaa8c",
+          "role": "assistant",
+          "contextRevision": 0,
+          "content": "Yıllık izin talebi, izin başlangıç tarihinden en az 5 iş günü önce ekip yöneticisine iletilmelidir.",
+          "status": "completed",
+          "metadata": {
+            "tools": [
+              "search_docs"
+            ],
+            "sources": [
+              {
+                "title": "İzin politikası",
+                "chunkId": "0390f940-fdc0-4c85-b7df-aa1154222ff9",
+                "excerpt": "# İzin politikası\n## Yıllık izin\n\nUplico çalışanlarının yıllık ücretli izin hakkı 20 iş günüdür. Yıllık izin talebi, başlangıç tarihinden en az 5 iş günü önce ekip yöneticisine iletilir. Onaylanan izinler şirket takvimine eklenir. Hafta sonları yıllık izin günlerinden düşülmez.",
+                "documentId": "41423907-41a3-4489-96be-689c99a40de0"
+              }
+            ]
+          },
+          "contextOrder": "420",
+          "id": "4a13008d-46a8-4ee5-ac81-7c5bbc3d1823",
+          "createdAt": "2026-10-04T15:16:20.236Z"
+        }
+      },
+      "passed": true
+    },
+    {
+      "priority": "P1",
+      "input": "Veganım → panelden sil → Peki kaç gün önceden?",
+      "expected": "Below threshold: no vegan raw history; leave context and fresh source survive",
+      "actual": {
+        "context": {
+          "summary": "Konuşulan konular: İzin başvuru süreci. Özetlenen bölümdeki son konu: İzin başvuru süreci. Bu özet kişisel bilgi veya şirket kuralı kanıtı değildir."
+        },
+        "answer": {
+          "threadId": "2d61eb8a-3663-44bd-a8e3-2529f3adaa8c",
+          "role": "assistant",
+          "contextRevision": 2,
+          "content": "Yıllık izin talebi, başlangıç tarihinden en az 5 iş günü önce ekip yöneticisine iletilmelidir.",
+          "status": "completed",
+          "metadata": {
+            "tools": [
+              "search_docs"
+            ],
+            "sources": [
+              {
+                "title": "İzin politikası",
+                "chunkId": "0390f940-fdc0-4c85-b7df-aa1154222ff9",
+                "excerpt": "# İzin politikası\n## Yıllık izin\n\nUplico çalışanlarının yıllık ücretli izin hakkı 20 iş günüdür. Yıllık izin talebi, başlangıç tarihinden en az 5 iş günü önce ekip yöneticisine iletilir. Onaylanan izinler şirket takvimine eklenir. Hafta sonları yıllık izin günlerinden düşülmez.",
+                "documentId": "41423907-41a3-4489-96be-689c99a40de0"
+              }
+            ]
+          },
+          "contextOrder": "424",
+          "id": "26719ac4-5f98-47f7-bfc4-3bb1b051dcb3",
+          "createdAt": "2026-10-04T15:16:27.188Z"
+        }
+      },
+      "passed": true
+    },
+    {
+      "priority": "P1",
+      "input": "Silme sonrası Yemek seçenekleri neler?",
+      "expected": "No deleted-preference personalization; current food sources",
+      "actual": {
+        "threadId": "2d61eb8a-3663-44bd-a8e3-2529f3adaa8c",
+        "role": "assistant",
+        "contextRevision": 2,
+        "content": "Ofis yemek alanında her gün vejetaryen yemek seçeneği bulunur. Vegan yemek seçenekleri için en geç bir önceki iş günü ofis ekibine haber verilmelidir. Haftalık yemek menüsü pazartesi sabahı ofis panosunda paylaşılır. Ayrıca, gıda alerjisi olan çalışanlar menüdeki alerjen bilgisini ve yemeğin içeriğini yemek hizmeti sorumlusundan doğrulamalıdır.",
+        "status": "completed",
+        "metadata": {
+          "tools": [
+            "search_docs"
+          ],
+          "sources": [
+            {
+              "title": "Yemek kartı ve yemek seçenekleri",
+              "chunkId": "aa6fb9f7-b41a-464d-8e1a-ef392a8c9a00",
+              "excerpt": "# Yemek kartı ve yemek seçenekleri\n## Yemek seçenekleri\n\nOfis yemek alanında her gün vejetaryen yemek seçeneği bulunur. Vegan yemek seçenekleri için en geç bir önceki iş günü ofis ekibine haber verilmelidir. Haftalık yemek menüsü pazartesi sabahı ofis panosunda paylaşılır. Beslenme tercihleri yemek seçiminde dikkate alınır; yemek kartı limiti bu tercihlerden bağımsızdır.",
+              "documentId": "ea7a62bb-0701-4e88-9689-a7f5ece8d563"
+            },
+            {
+              "title": "Yemek kartı ve yemek seçenekleri",
+              "chunkId": "81898ffc-8f12-46ca-9680-66dad5458225",
+              "excerpt": "# Yemek kartı ve yemek seçenekleri\n## Gıda alerjisi ve içerik bilgisi\n\nGıda alerjisi olan çalışanlar yemek seçmeden önce menüdeki alerjen bilgisini ve yemeğin içeriğini yemek hizmeti sorumlusundan doğrulamalıdır. Vejetaryen veya vegan etiketi alerjen bulunmadığı anlamına gelmez. Ortak hazırlama alanları nedeniyle çapraz temas ihtimali olabilir; kesin içerik bilgisi olmadan güvenli olduğu varsayılmaz.",
+              "documentId": "ea7a62bb-0701-4e88-9689-a7f5ece8d563"
+            }
+          ]
+        },
+        "contextOrder": "426",
+        "id": "73362fc6-608e-4585-b7ca-066adb7149dc",
+        "createdAt": "2026-10-04T15:16:31.353Z"
+      },
+      "passed": true
+    },
+    {
+      "priority": "P1",
+      "input": "Silme sonrası Beslenme tercihim ne?",
+      "expected": "Missing memory, no recreation",
+      "actual": "Beslenme tercihi bilgisi şu an hafızamda bulunmuyor.",
+      "passed": true
+    },
+    {
+      "priority": "P1",
+      "input": "Veganım → Eskiden vegandım, artık vejetaryenim → yemek seçenekleri",
+      "expected": "Only current vegetarian preference; no old vegan history",
+      "actual": {
+        "threadId": "2d61eb8a-3663-44bd-a8e3-2529f3adaa8c",
+        "role": "assistant",
+        "contextRevision": 4,
+        "content": "Ofis yemek alanında her gün vejetaryen yemek seçeneği bulunur. Vegan yemek seçenekleri için en geç bir önceki iş günü ofis ekibine haber verilmelidir. Haftalık yemek menüsü pazartesi sabahı ofis panosunda paylaşılır. Ayrıca, beslenme tercihleri yemek seçiminde dikkate alınır.",
+        "status": "completed",
+        "metadata": {
+          "tools": [
+            "search_docs"
+          ],
+          "sources": [
+            {
+              "title": "Yemek kartı ve yemek seçenekleri",
+              "chunkId": "aa6fb9f7-b41a-464d-8e1a-ef392a8c9a00",
+              "excerpt": "# Yemek kartı ve yemek seçenekleri\n## Yemek seçenekleri\n\nOfis yemek alanında her gün vejetaryen yemek seçeneği bulunur. Vegan yemek seçenekleri için en geç bir önceki iş günü ofis ekibine haber verilmelidir. Haftalık yemek menüsü pazartesi sabahı ofis panosunda paylaşılır. Beslenme tercihleri yemek seçiminde dikkate alınır; yemek kartı limiti bu tercihlerden bağımsızdır.",
+              "documentId": "ea7a62bb-0701-4e88-9689-a7f5ece8d563"
+            }
+          ]
+        },
+        "contextOrder": "434",
+        "id": "f389caf0-7e8c-4d7d-9e0a-b4f565b8eeab",
+        "createdAt": "2026-10-04T15:16:40.402Z"
+      },
+      "passed": true
+    },
+    {
+      "priority": "P1",
+      "input": "Arkadaşım vegan; benim kayıtlı tercihim ne?",
+      "expected": "Third-party statement cannot overwrite vegetarian memory",
+      "actual": "Beslenme tercihi: vejetaryen.",
+      "passed": true
+    },
+    {
+      "priority": "P2",
+      "input": "22 seeded completed messages → Peki kaç gün önceden?",
+      "expected": "Real OpenAI uses compacted leave topic with a current source",
+      "actual": {
+        "userMessage": {
+          "threadId": "eda6e764-9809-4576-a69c-67100696d7a3",
+          "role": "user",
+          "content": "Peki kaç gün önceden?",
+          "status": "completed",
+          "contextRevision": 0,
+          "metadata": {},
+          "contextOrder": "459",
+          "id": "b1dd6021-8215-4145-b493-654a407aa99e",
+          "createdAt": "2026-10-04T15:16:41.890Z"
+        },
+        "assistantMessage": {
+          "threadId": "eda6e764-9809-4576-a69c-67100696d7a3",
+          "role": "assistant",
+          "contextRevision": 0,
+          "content": "Yıllık izin talebi, izin başlangıç tarihinden en az 5 iş günü önce ekip yöneticisine iletilmelidir.",
+          "status": "completed",
+          "metadata": {
+            "tools": [
+              "search_docs"
+            ],
+            "sources": [
+              {
+                "title": "İzin politikası",
+                "chunkId": "0390f940-fdc0-4c85-b7df-aa1154222ff9",
+                "excerpt": "# İzin politikası\n## Yıllık izin\n\nUplico çalışanlarının yıllık ücretli izin hakkı 20 iş günüdür. Yıllık izin talebi, başlangıç tarihinden en az 5 iş günü önce ekip yöneticisine iletilir. Onaylanan izinler şirket takvimine eklenir. Hafta sonları yıllık izin günlerinden düşülmez.",
+                "documentId": "41423907-41a3-4489-96be-689c99a40de0"
+              }
+            ]
+          },
+          "contextOrder": "460",
+          "id": "21346b9b-b611-4cb9-a1b0-48c7fd641a26",
+          "createdAt": "2026-10-04T15:16:44.760Z"
+        },
+        "context": {
+          "summary": "Konuşulan konular: İzin başvuru süreci. Özetlenen bölümdeki son konu: İzin başvuru süreci. Bu özet kişisel bilgi veya şirket kuralı kanıtı değildir."
+        }
+      },
+      "passed": true
+    },
+    {
+      "priority": "P2",
+      "input": "Yeni açık yemek kartı konusu → Peki kaç gün önceden?",
+      "expected": "Clarification, no source and no extra OpenAI call for ambiguous followup",
+      "actual": {
+        "threadId": "2d61eb8a-3663-44bd-a8e3-2529f3adaa8c",
+        "role": "assistant",
+        "contextRevision": 4,
+        "content": "Hangi konuyu kastediyorsun? Biraz açabilir misin?",
+        "status": "completed",
+        "metadata": {
+          "tools": [],
+          "sources": []
+        },
+        "contextOrder": "464",
+        "id": "d5c5ca70-cd25-4080-8274-835d3cd44cd7",
+        "createdAt": "2026-10-04T15:16:47.884Z"
+      },
+      "passed": true
+    },
+    {
+      "priority": "P1",
+      "input": "Yıllık izin hakkım kaç iş günü?",
+      "expected": "Current fixture answer with the correct source",
+      "actual": {
+        "threadId": "06051308-3093-4f88-9bae-04dfd0f9a8b0",
+        "role": "assistant",
+        "contextRevision": 4,
+        "content": "Uplico çalışanlarının yıllık ücretli izin hakkı 20 iş günüdür. Yıllık izin talebi, başlangıç tarihinden en az 5 iş günü önce ekip yöneticisine iletilmelidir. Hafta sonları yıllık izin günlerinden sayılmaz.",
+        "status": "completed",
+        "metadata": {
+          "tools": [
+            "search_docs"
+          ],
+          "sources": [
+            {
+              "title": "İzin politikası",
+              "chunkId": "0390f940-fdc0-4c85-b7df-aa1154222ff9",
+              "excerpt": "# İzin politikası\n## Yıllık izin\n\nUplico çalışanlarının yıllık ücretli izin hakkı 20 iş günüdür. Yıllık izin talebi, başlangıç tarihinden en az 5 iş günü önce ekip yöneticisine iletilir. Onaylanan izinler şirket takvimine eklenir. Hafta sonları yıllık izin günlerinden düşülmez.",
+              "documentId": "41423907-41a3-4489-96be-689c99a40de0"
+            }
+          ]
+        },
+        "contextOrder": "466",
+        "id": "e34facf8-9d7c-4571-a8f4-dc563efc881f",
+        "createdAt": "2026-10-04T15:16:51.004Z"
+      },
+      "passed": true
+    },
+    {
+      "priority": "P1",
+      "input": "Toplantı odasını nasıl rezerve ederim?",
+      "expected": "Current fixture answer with the correct source",
+      "actual": {
+        "threadId": "27dcf9fb-e4c2-42d3-81b1-53326e84b6f5",
+        "role": "assistant",
+        "contextRevision": 4,
+        "content": "Toplantı odalarını şirket takviminden rezerve edebilirsiniz. Rezervasyon başlangıcından 10 dakika sonra kullanılmayan oda serbest bırakılır. Toplantı bitiminde ekipman kapatılır ve masa düzenlenir.",
+        "status": "completed",
+        "metadata": {
+          "tools": [
+            "search_docs"
+          ],
+          "sources": [
+            {
+              "title": "Ofis kuralları",
+              "chunkId": "b918fb65-298c-4cc4-b46e-279177551695",
+              "excerpt": "# Ofis kuralları\n## Toplantı odaları\n\nToplantı odaları şirket takviminden rezerve edilir. Rezervasyon başlangıcından 10 dakika sonra kullanılmayan oda serbest bırakılır. Toplantı bitiminde ekipman kapatılır ve masa düzenlenir.",
+              "documentId": "ab019e9d-25f4-48d8-a097-0755bea08f49"
+            }
+          ]
+        },
+        "contextOrder": "468",
+        "id": "0ada230a-6c06-418d-8041-4fb36a0a0cc4",
+        "createdAt": "2026-10-04T15:16:54.312Z"
+      },
+      "passed": true
+    },
+    {
+      "priority": "P1",
+      "input": "Ofiste telefon görüşmelerini nerede yapabilirim?",
+      "expected": "Current fixture answer with the correct source",
+      "actual": {
+        "threadId": "c3d8b760-8db6-4c34-9b05-f46415c6d194",
+        "role": "assistant",
+        "contextRevision": 4,
+        "content": "Ofiste telefon görüşmeleri sessiz çalışma alanlarında yapılamaz. Telefon görüşmelerinizi telefon kabinlerinde veya toplantı odalarında yapabilirsiniz.",
+        "status": "completed",
+        "metadata": {
+          "tools": [
+            "search_docs"
+          ],
+          "sources": [
+            {
+              "title": "Ofis kuralları",
+              "chunkId": "11348cb4-3795-4e81-9982-7c342bcbf60a",
+              "excerpt": "# Ofis kuralları\n## Ortak alanlar\n\nOfis sessiz çalışma alanlarında telefon görüşmesi yapılmaz. Görüşmeler telefon kabinlerinde veya toplantı odalarında yapılır. Ortak mutfak kullanımdan sonra temiz bırakılır. Ofise gelen misafirler resepsiyona kaydedilir.",
+              "documentId": "ab019e9d-25f4-48d8-a097-0755bea08f49"
+            }
+          ]
+        },
+        "contextOrder": "470",
+        "id": "18330034-2ccb-467b-9af4-08953e07e9b4",
+        "createdAt": "2026-10-04T15:16:57.487Z"
+      },
+      "passed": true
+    },
+    {
+      "priority": "P2",
+      "input": "Live model response in flight while memory is deleted",
+      "expected": "409 conflict and no stale answer published",
+      "actual": "Conflicting response rejected; memory remains empty",
+      "passed": true
+    }
+  ],
+  "usage": [
+    {
+      "kind": "embedding",
+      "input": 826,
+      "output": 0,
+      "estimatedUSD": 0.00001652
+    },
+    {
+      "kind": "embedding",
+      "input": 964,
+      "output": 0,
+      "estimatedUSD": 0.000019280000000000002
+    },
+    {
+      "kind": "embedding",
+      "input": 767,
+      "output": 0,
+      "estimatedUSD": 0.00001534
+    },
+    {
+      "kind": "embedding",
+      "input": 794,
+      "output": 0,
+      "estimatedUSD": 0.00001588
+    },
+    {
+      "kind": "chat",
+      "input": 855,
+      "output": 12,
+      "estimatedUSD": 0.0003612
+    },
+    {
+      "kind": "embedding",
+      "input": 12,
+      "output": 0,
+      "estimatedUSD": 2.4e-7
+    },
+    {
+      "kind": "chat",
+      "input": 1676,
+      "output": 239,
+      "estimatedUSD": 0.0010528000000000002
+    },
+    {
+      "kind": "chat",
+      "input": 593,
+      "output": 10,
+      "estimatedUSD": 0.00025320000000000003
+    },
+    {
+      "kind": "chat",
+      "input": 971,
+      "output": 32,
+      "estimatedUSD": 0.0004396
+    },
+    {
+      "kind": "chat",
+      "input": 1034,
+      "output": 19,
+      "estimatedUSD": 0.000444
+    },
+    {
+      "kind": "embedding",
+      "input": 18,
+      "output": 0,
+      "estimatedUSD": 3.6e-7
+    },
+    {
+      "kind": "chat",
+      "input": 1862,
+      "output": 80,
+      "estimatedUSD": 0.0008728000000000001
+    },
+    {
+      "kind": "chat",
+      "input": 426,
+      "output": 10,
+      "estimatedUSD": 0.0001864
+    },
+    {
+      "kind": "chat",
+      "input": 1154,
+      "output": 14,
+      "estimatedUSD": 0.000484
+    },
+    {
+      "kind": "chat",
+      "input": 1204,
+      "output": 42,
+      "estimatedUSD": 0.0005488000000000001
+    },
+    {
+      "kind": "chat",
+      "input": 950,
+      "output": 19,
+      "estimatedUSD": 0.0004104
+    },
+    {
+      "kind": "embedding",
+      "input": 18,
+      "output": 0,
+      "estimatedUSD": 3.6e-7
+    },
+    {
+      "kind": "chat",
+      "input": 1778,
+      "output": 79,
+      "estimatedUSD": 0.0008376
+    },
+    {
+      "kind": "chat",
+      "input": 425,
+      "output": 10,
+      "estimatedUSD": 0.000186
+    },
+    {
+      "kind": "chat",
+      "input": 964,
+      "output": 10,
+      "estimatedUSD": 0.0004016
+    },
+    {
+      "kind": "embedding",
+      "input": 11,
+      "output": 0,
+      "estimatedUSD": 2.2e-7
+    },
+    {
+      "kind": "chat",
+      "input": 1863,
+      "output": 227,
+      "estimatedUSD": 0.0011084
+    },
+    {
+      "kind": "chat",
+      "input": 621,
+      "output": 10,
+      "estimatedUSD": 0.0002644
+    },
+    {
+      "kind": "chat",
+      "input": 1068,
+      "output": 39,
+      "estimatedUSD": 0.0004896
+    },
+    {
+      "kind": "chat",
+      "input": 1215,
+      "output": 14,
+      "estimatedUSD": 0.0005084
+    },
+    {
+      "kind": "chat",
+      "input": 1204,
+      "output": 38,
+      "estimatedUSD": 0.0005424
+    },
+    {
+      "kind": "chat",
+      "input": 1170,
+      "output": 14,
+      "estimatedUSD": 0.0004904
+    },
+    {
+      "kind": "chat",
+      "input": 1215,
+      "output": 43,
+      "estimatedUSD": 0.0005547999999999999
+    },
+    {
+      "kind": "chat",
+      "input": 1056,
+      "output": 10,
+      "estimatedUSD": 0.00043840000000000003
+    },
+    {
+      "kind": "embedding",
+      "input": 11,
+      "output": 0,
+      "estimatedUSD": 2.2e-7
+    },
+    {
+      "kind": "chat",
+      "input": 1955,
+      "output": 190,
+      "estimatedUSD": 0.001086
+    },
+    {
+      "kind": "chat",
+      "input": 618,
+      "output": 10,
+      "estimatedUSD": 0.00026320000000000006
+    },
+    {
+      "kind": "chat",
+      "input": 1141,
+      "output": 120,
+      "estimatedUSD": 0.0006484
+    },
+    {
+      "kind": "chat",
+      "input": 1018,
+      "output": 19,
+      "estimatedUSD": 0.0004376
+    },
+    {
+      "kind": "embedding",
+      "input": 18,
+      "output": 0,
+      "estimatedUSD": 3.6e-7
+    },
+    {
+      "kind": "chat",
+      "input": 1846,
+      "output": 80,
+      "estimatedUSD": 0.0008664000000000001
+    },
+    {
+      "kind": "chat",
+      "input": 426,
+      "output": 10,
+      "estimatedUSD": 0.0001864
+    },
+    {
+      "kind": "chat",
+      "input": 1179,
+      "output": 12,
+      "estimatedUSD": 0.0004908
+    },
+    {
+      "kind": "embedding",
+      "input": 10,
+      "output": 0,
+      "estimatedUSD": 2.0000000000000002e-7
+    },
+    {
+      "kind": "chat",
+      "input": 2085,
+      "output": 102,
+      "estimatedUSD": 0.0009972
+    },
+    {
+      "kind": "chat",
+      "input": 564,
+      "output": 10,
+      "estimatedUSD": 0.00024160000000000002
+    },
+    {
+      "kind": "chat",
+      "input": 989,
+      "output": 11,
+      "estimatedUSD": 0.00041320000000000007
+    },
+    {
+      "kind": "embedding",
+      "input": 15,
+      "output": 0,
+      "estimatedUSD": 3e-7
+    },
+    {
+      "kind": "chat",
+      "input": 1812,
+      "output": 153,
+      "estimatedUSD": 0.0009696000000000001
+    },
+    {
+      "kind": "chat",
+      "input": 583,
+      "output": 10,
+      "estimatedUSD": 0.00024920000000000004
+    },
+    {
+      "kind": "chat",
+      "input": 991,
+      "output": 12,
+      "estimatedUSD": 0.0004156
+    },
+    {
+      "kind": "embedding",
+      "input": 15,
+      "output": 0,
+      "estimatedUSD": 3e-7
+    },
+    {
+      "kind": "chat",
+      "input": 1807,
+      "output": 127,
+      "estimatedUSD": 0.0009260000000000001
+    },
+    {
+      "kind": "chat",
+      "input": 561,
+      "output": 10,
+      "estimatedUSD": 0.00024040000000000002
+    },
+    {
+      "kind": "chat",
+      "input": 991,
+      "output": 8,
+      "estimatedUSD": 0.0004092
+    },
+    {
+      "kind": "embedding",
+      "input": 16,
+      "output": 0,
+      "estimatedUSD": 3.2e-7
+    },
+    {
+      "kind": "chat",
+      "input": 1806,
+      "output": 84,
+      "estimatedUSD": 0.0008568000000000001
+    },
+    {
+      "kind": "chat",
+      "input": 544,
+      "output": 10,
+      "estimatedUSD": 0.0002336
+    },
+    {
+      "kind": "chat",
+      "input": 1265,
+      "output": 10,
+      "estimatedUSD": 0.000522
+    },
+    {
+      "kind": "embedding",
+      "input": 11,
+      "output": 0,
+      "estimatedUSD": 2.2e-7
+    }
+  ],
+  "estimatedUSD": 0.02139852000000001,
+  "cleanup": "Only isolated test DB reset to four mock seed documents"
+}

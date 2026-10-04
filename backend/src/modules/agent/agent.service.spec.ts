@@ -236,3 +236,56 @@ describe('agent tool loop', () => {
     expect(memory.execute).not.toHaveBeenCalled();
   });
 });
+
+describe('P1 agent context revision boundary', () => {
+  it('drops old history and provider continuation immediately after its own memory write', async () => {
+    const { agent, llm, memory } = setup();
+    memory.execute.mockResolvedValue({
+      kind: 'memory',
+      key: 'dietary_preference',
+      value: 'vegetarian',
+      status: 'updated',
+      revision: 2,
+    });
+    llm.chat
+      .mockResolvedValueOnce({
+        kind: 'tool_calls',
+        state: { old: 'Veganım' },
+        calls: [
+          {
+            id: 'save',
+            name: 'save_memory',
+            arguments: { key: 'dietary_preference', value: 'vegetarian' },
+          },
+        ],
+      })
+      .mockResolvedValueOnce({ kind: 'final', content: 'Kaydedildi', citedChunkIds: [] });
+    const refresh = jest
+      .fn()
+      .mockResolvedValue({
+        revision: 2,
+        memories: [{ key: 'dietary_preference', value: 'vegetarian' }],
+        history: [],
+        summary: 'İzin başvuru süreci',
+      })
+      .mockResolvedValueOnce({
+        revision: 1,
+        memories: [{ key: 'dietary_preference', value: 'vegan' }],
+        history: [],
+        summary: 'İzin başvuru süreci',
+      });
+    await agent.run({
+      ...input,
+      currentMessage: 'Vejetaryenim',
+      contextRevision: 1,
+      history: [{ role: 'user', content: 'Veganım' }],
+      refreshContext: refresh,
+    });
+    expect(llm.chat.mock.calls[1][0]).toMatchObject({
+      history: [],
+      state: undefined,
+      memories: [{ key: 'dietary_preference', value: 'vegetarian' }],
+      summary: 'İzin başvuru süreci',
+    });
+  });
+});

@@ -1,0 +1,20 @@
+
+> uplico-office-assistant@ test:render /Users/sergenhaysal/Desktop/uplico
+> node --test tests/render/*.test.mjs
+
+✔ starts frontend only after backend readiness and keeps secrets out of frontend (408.528083ms)
+✔ drains frontend requests before closing backend on SIGTERM (3440.086167ms)
+✔ backend crash stops its peer and exits nonzero (161.481417ms)
+✔ frontend crash stops its peer and exits nonzero (160.341125ms)
+✔ backend startup failure never starts frontend (70.994917ms)
+✔ readiness timeout stops backend and fails the container (467.797041ms)
+✔ forces termination when a child ignores SIGTERM (492.986958ms)
+✔ SIGTERM during startup prevents frontend launch (94.346291ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5340.376542

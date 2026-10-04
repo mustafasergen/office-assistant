@@ -1,0 +1,30 @@
+{
+  "environment": "Existing localhost:3003 / render_test",
+  "unchanged": true,
+  "tables": {
+    "users": {
+      "count": 0,
+      "unchanged": true
+    },
+    "threads": {
+      "count": 0,
+      "unchanged": true
+    },
+    "messages": {
+      "count": 0,
+      "unchanged": true
+    },
+    "memories": {
+      "count": 0,
+      "unchanged": true
+    },
+    "documents": {
+      "count": 4,
+      "unchanged": true
+    },
+    "document_chunks": {
+      "count": 24,
+      "unchanged": true
+    }
+  }
+}

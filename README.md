@@ -1,88 +1,90 @@
-# Uplico · Ofis Asistanı
+# Ofis Asistanı
 
-Şirket dokümanlarından kaynak göstererek cevap veren, sohbet geçmişini saklayan ve kullanıcı tercihlerini yeni konuşmalarda hatırlayan bir ofis asistanı. Hafıza kayıtları görüntülenip silinebilir; konuşmalar silinebilir ve ortak bilgi kütüphanesine doküman eklenip mevcut dokümanlar düzenlenebilir.
+Şirket dokümanlarından kaynak göstererek cevap veren, konuşma geçmişini saklayan ve kullanıcı tercihlerini yeni konuşmalarda hatırlayan bir ofis asistanı.
 
-## Stack
+**[Canlı demo](https://office-assistant-2s8e.onrender.com/)** · Render ortamı **Supabase + deterministik mock LLM** kullanır. Opsiyonel OpenAI adapter'ı aynı agent döngüsü üzerinden çalışır ve env ile etkinleştirilebilir.
 
-Next.js, React, TypeScript, Tailwind · NestJS, TypeORM · PostgreSQL + pgvector · pnpm workspace · Docker Compose.
+## Stack ve kurulum
 
-## Kurulum ve çalıştırma
+Next.js App Router, React, TypeScript, Tailwind · NestJS, TypeORM · PostgreSQL + pgvector · pnpm · Docker Compose.
 
-Gereksinim: çalışan **Docker Desktop / Docker Engine** ve **Docker Compose v2+**. İlk kurulumda image ve paketleri indirmek için internet gerekir.
-
-Repo kökünde:
+Gereksinim: çalışan Docker Desktop / Docker Engine ve Docker Compose v2+. Repo kökünde:
 
 ```sh
 docker compose up
 ```
 
-Uygulama: **http://localhost:3000**
-
-İlk build birkaç dakika sürebilir. Migration ve dört örnek dokümanın indekslenmesi otomatik yapılır. Yerel Node kurulumu veya `.env` dosyası gerekmez. Varsayılan mod **mock + yerel PostgreSQL**; API anahtarı istemez.
+Uygulama **http://localhost:3000** adresinde açılır. İlk build için internet gerekir. Migration, dört başlangıç dokümanının yüklenmesi ve indeksleme otomatik yapılır. `.env` veya API anahtarı olmadan varsayılan **mock + local PostgreSQL** çalışır.
 
 ```sh
-# Arka planda başlat / değişikliklerden sonra yeniden derle
+# Kod değişikliğinden sonra yeniden derle ve arka planda başlat
 docker compose up --build -d --wait
 
-# Servisleri durdur; veriler korunur
+# Verileri koruyarak durdur
 docker compose down
 ```
 
-`docker compose down -v` yerel veritabanı verilerini siler.
+PostgreSQL verileri named volume'da kalır. `docker compose down -v` bu verileri siler.
 
-## Ortam ayarları ve OpenAI
+## Env ve OpenAI modu
 
-İsteğe bağlı ayarları `.env.example` dosyasını `.env` olarak kopyalayarak yapabilirsiniz. `.env` Git dışında tutulur.
+İsteğe bağlı ayarlar için [.env.example](.env.example) dosyasını `.env` olarak kopyalayın. `.env` Git dışında tutulur.
 
-OpenAI için `.env` içinde:
+| Değişken         | Kullanımı                                                                 |
+| ---------------- | ------------------------------------------------------------------------- |
+| `LLM_PROVIDER`   | `mock` (varsayılan) veya `openai`                                         |
+| `OPENAI_API_KEY` | Yalnız OpenAI modunda gerekli; sadece backend kullanır                    |
+| `DATABASE_URL`   | Boşsa Compose içindeki PostgreSQL; harici DB için TypeORM bağlantı URL'si |
+| `COOKIE_SECRET`  | Anonim oturum imzası; yayın ortamında uzun rastgele değer                 |
+| `COOKIE_SECURE`  | Local HTTP'de `false`, HTTPS'te `true`                                    |
+| `FRONTEND_PORT`  | Local erişim portu; varsayılan `3000`                                     |
+
+OpenAI'yi etkinleştirmek için:
 
 ```dotenv
 LLM_PROVIDER=openai
 OPENAI_API_KEY=<OPENAI_API_KEY>
 ```
 
-Ardından `docker compose up -d --wait` çalıştırın. Bu mod gerçek, ücretli API çağrıları yapar; anahtar yalnız backend tarafından kullanılır. Mock'a dönmek için `LLM_PROVIDER=mock` ayarlayın.
+Ardından `docker compose up -d --wait` çalıştırın. Gerçek API çağrıları ücretlidir. Model adları, retrieval eşikleri ve agent sınırları [config/defaults.ts](backend/src/config/defaults.ts) içindedir; varsayılan modeller `gpt-4.1-mini` ve `text-embedding-3-small`.
 
-| Ayar             | Kullanımı                                                            |
-| ---------------- | -------------------------------------------------------------------- |
-| `LLM_PROVIDER`   | `mock` (varsayılan) veya `openai`                                    |
-| `OPENAI_API_KEY` | Yalnız OpenAI modunda gerekli                                        |
-| `DATABASE_URL`   | Boşsa yerel PostgreSQL; Supabase gibi harici DB için bağlantı URL'si |
-| `COOKIE_SECRET`  | Oturum imzası; özel ortam için uzun rastgele bir değer               |
-| `COOKIE_SECURE`  | Yerel HTTP'de `false`, HTTPS'te `true`                               |
-| `FRONTEND_PORT`  | Varsayılan `3000`                                                    |
+Supabase Session Pooler URL şablonu `.env.example` içindedir. Aynı veritabanına bağlı aktif uygulamalar aynı embedding provider'ını kullanmalıdır; mock ve OpenAI geçişinde indeks yeniden hazırlanır. Local denemeler için canlı Supabase yerine ayrı local DB kullanın.
 
-Supabase session pooler URL şablonu ve diğer ortam ayarları `.env.example` içindedir. Model adları ve uygulamanın sabit davranışları `backend/src/config/defaults.ts` içinde tutulur: chat `gpt-4.1-mini`, embedding `text-embedding-3-small`.
-
-## Kısa mimari
+## Kısa mimari ve kararlar
 
 ```text
-Tarayıcı → Next.js frontend → NestJS backend → PostgreSQL + pgvector
-                                  ↕
-                         Mock / OpenAI + araçlar
+Local:  Tarayıcı → frontend container → backend container → PostgreSQL container
+Render: Tarayıcı → tek Docker Web Service [Next.js → NestJS] → Supabase
 ```
 
-`frontend/` sohbet, kaynak ve hafıza arayüzünü; `backend/` API, agent döngüsü, doküman araması ve kalıcılığı içerir. `fixtures/documents/` dört örnek dokümanı barındırır. Frontend API isteklerini backend'e iletir. Kullanıcılar anonim cookie ile ayrılır; yeni konuşmalar aynı kullanıcının hafızasını paylaşır.
+- **Repo:** `frontend/` arayüz ve API proxy'si; `backend/` NestJS modülleri, agent ve kalıcılık; `fixtures/documents/` dört Markdown dokümanı. Tek pnpm workspace/lockfile; küçük case için ortak contracts paketi, generic repository veya CQRS yok.
+- **Agent:** Model cevap ya da `search_docs` / `save_memory` çağrısı üretir. Backend tool argümanlarını doğrular, aracı çalıştırır ve eşleşen sonucu modele geri verir. En fazla 6 model adımı ve 60 saniye; tool çıktısı doğrudan nihai cevap sayılmaz. Cevabın kaynakları o çalıştırmanın retrieval sonuçlarına karşı doğrulanır.
+- **Arama:** Başlık/paragraf sınırlarını koruyan chunking; büyük bölümlerde yaklaşık 200 kelime ve 30 kelime overlap. Başlık, alt açıklama ve içerikten 1536 boyutlu embedding üretilir. pgvector cosine exact search kullanılır; küçük veri kümesi için ANN indeksi eklenmedi. Provider kimliği farklı vektörlerin karışmasını önler.
+- **Hafıza:** İmzalı HttpOnly cookie anonim kullanıcıyı tanımlar. İsim, departman ve beslenme tercihi kullanıcıya ait key/value kayıtlarıdır; yeni thread'lerde paylaşılır, panelden silinebilir. Kaynak mesajlar kullanıcı sahipliği kontrolüyle korunur.
+- **Konuşma özeti:** Uzun geçmişte kişisel bilgi içermeyen deterministik konu özeti ve yakın mesajlar kullanılır. Hafıza değişince eski kişisel ham bağlam çıkarılır; şirket konusu korunur. Özet ek API çağrısı yapmaz, kaynak yerine geçmez. UI'da **Özeti göster** ile açılır; eski mesajlar kalır. Belirsiz devam sorularında açıklama istenir.
+- **Provider sınırı:** Ortak `chat()` / `embed()` sözleşmesi. Mock sınırlı Türkçe kurallarla deterministik çalışır. OpenAI Responses function calling ve Embeddings API kullanır; model hatasında sessizce mock'a geçmez. İngilizce yönergelerle Türkçe cevap üretir.
+- **Kalıcılık:** TypeORM migration'ları, `synchronize: false`. Sohbet, hafıza ve doküman işlemleri ayrıdır. Kütüphane ortak çalışma alanıdır; doküman değişiklikleri tüm kullanıcıları etkiler.
 
-## Demo
+Login/register, streaming ve dosya upload kapsam dışında bırakıldı. Kütüphanede metin dokümanı ekleme/düzenleme/silme arayüzü bulunur. Örnek şirket politikaları kurgusaldır; mock genel amaçlı bir dil modeli değildir.
 
-1. **“Yıllık izin kaç gün?”** → kaynaklı cevap ve açılabilir doküman.
-2. **“Vejetaryenim”** → hafıza panelinde yeni tercih.
-3. Yeni konuşmada **“Yemek seçenekleri neler?”** → hatırlanan tercihe göre cevap.
-4. Tercihi hafızadan silip yeni konuşmada tekrar sorun → silinen hafıza kullanılmaz.
-5. Kütüphanedeki **+** ile doküman ekleyin; dokümanı açıp **Düzenle** ile başlık, açıklama ve içeriğini değiştirin. Kaydedilen içerik aramada kullanılır.
-6. Konuşmanın yanındaki çöp kutusuyla konuşmayı silebilirsiniz; hafıza ayrı olarak korunur.
-7. **“Vejetaryenim, yemek seçenekleri neler?”** → hafıza kaydı ve doküman araması birlikte çalışır.
+## Render
 
-Mock sınırlı Türkçe kurallarla çalışır. Hafıza her iki modda isim, departman ve beslenme tercihinin desteklenen açık beyanlarını kaydeder (ör. “Adım Deniz”, “Yazılım departmanında çalışıyorum”, “Vejetaryenim”). Örnek şirket politikaları kurgusaldır. Kütüphane ortak çalışma alanıdır; doküman değişiklikleri tüm konuşmalara yansır.
+[render.yaml](render.yaml) tek ücretli Web Service'i tanımlar. [Dockerfile.render](Dockerfile.render) Next.js ve NestJS'i aynı container'da çalıştırır; dışarıya frontend açılır, backend'e container içinden erişilir. Başlangıç sırası ve düzgün kapanış supervisor tarafından yönetilir; veritabanı harici Supabase'dir.
 
-Örnek dokümanlarda izin iptali, gıda alerjisi, misafir kabulü ve VPN desteği gibi ek konular da bulunur. Mevcut veritabanını değiştirilmiş Markdown dosyalarıyla güncellemek için [doküman senkronizasyonu](backend/supabase/README.md#seed-içeriğini-iki-ortamda-güncelleme) adımlarını kullanın.
+`/api/health/live` süreç canlılığını, `/api/health/ready` DB ve indeks hazırlığını kontrol eder. Compose healthcheck'leri ve Render healthcheck'i readiness endpoint'ini kullanır. `autoDeployTrigger: commit`, `main`'e push sonrası otomatik build/deploy içindir; Blueprint değişiklikleri Render'da sync edilmiş olmalıdır. Secret'lar Render Environment panelinden girilir. [Yayınlama rehberi](docs/render.md).
 
-## Geliştirme ve kontroller
+## Demo senaryoları
 
-Render'da tek ücretli Web Service için kökte `render.yaml` ve `Dockerfile.render` bulunur. Bu imaj Next.js ve NestJS'i birlikte çalıştırır; veritabanı mevcut Supabase'dir. Local `docker compose up` düzeni üç ayrı container olarak kalır. Blueprint kurulumu, secret alanları, plan/maliyet ve test komutları: [Render yayınlama rehberi](docs/render.md).
+1. **“Yıllık izin hakkım kaç iş günü?”** → 20 iş günü ve açılabilir kaynak.
+2. **“Toplantı odasını nasıl rezerve ederim?”** → Şirket takviminden rezervasyon.
+3. **“Vejetaryenim”** → Hafızaya kaydedilir; yeni konuşmadaki yemek sorusunda kullanılır.
+4. Tercihi panelden silip **“Beslenme tercihim ne?”** diye sorun → Eski mesajlarda geçse de kayıtlı sayılmaz.
+5. **“İzin başvurusu nasıl yapılır?” → “Peki.” → “Peki kaç gün önceden?”** → Konu korunur, güncel kaynaktan 5 iş günü cevabı gelir.
+6. Uzun konuşmada **Özeti göster** alanını açın; mesajların korunmasını kontrol edin. Kütüphanede doküman düzenleyerek sonraki cevapların güncel kaynağı kullanmasını deneyin.
 
-Docker dışında geliştirme/test için Node 22+ ve pnpm 10.34.6 gerekir.
+## Testler ve geliştirme
+
+Docker dışında Node 22+ ve pnpm 10.34.6 gerekir.
 
 ```sh
 corepack enable
@@ -91,25 +93,27 @@ pnpm lint
 pnpm typecheck
 pnpm test
 pnpm test:render
+node --test tests/session-export/*.test.mjs
 pnpm build
 
-# İzole PostgreSQL/pgvector entegrasyon testleri
-docker compose -p uplico-test -f compose.test.yaml up --build --abort-on-container-exit --exit-code-from integration
-docker compose -p uplico-test -f compose.test.yaml down -v
+# Ayrı PostgreSQL/pgvector: entegrasyon ve ürün davranışı testleri
+docker compose -p office-test -f compose.test.yaml up --build --abort-on-container-exit --exit-code-from integration
+docker compose -p office-test -f compose.test.yaml run --build --rm evaluation
+docker compose -p office-test -f compose.test.yaml down -v
 
-# Çalışan mock uygulamaya karşı tarayıcı testleri
+# Çalışan, test için ayrılmış mock uygulamada tarayıcı kontrolleri
 pnpm exec playwright install chromium
 pnpm test:e2e
 ```
 
-GitHub Actions lint, typecheck, unit, build, entegrasyon, 25 gruplu ürün davranışı değerlendirmesi, tarayıcı ve restart kontrollerini mock modunda çalıştırır; OpenAI anahtarı gerekmez.
+Testler agent/tool döngüsü, kaynak doğrulama, hafıza save/update/delete, kullanıcı ayrımı, özet, hata sınırları ve arayüz akışlarını kapsar. Gerçek PostgreSQL entegrasyonu, sahte SDK sözleşmeleri ve canlı OpenAI kontrolleri ayrı raporlanır. Canlı API testleri opt-in'dir; normal CI anahtar gerektirmez. GitHub Actions lint, typecheck, test, build, Docker, tarayıcı ve restart kontrollerini çalıştırır.
 
-```sh
-# Ayrı, geçici PostgreSQL üzerinde kapsamlı mock değerlendirmesi
-docker compose -p uplico-eval -f compose.test.yaml run --build --rm evaluation
-docker compose -p uplico-eval -f compose.test.yaml down -v
-```
+Son sonuçlar: [doğrulama raporu](docs/verification.md). Eşik/topK/chunk karşılaştırmaları ve ölçümlere dayalı kararlar: [değerlendirme raporu](docs/evaluation/REPORT.md).
 
-Ölçümler ve ayarların gerekçeleri: [değerlendirme raporu](docs/evaluation/REPORT.md).
+## AI oturumu
 
-AI oturumu teslim bilgisi: [docs/ai-sessions.md](docs/ai-sessions.md).
+Yalnız bu case'e ait ham Codex konuşması: **[Case1 JSONL](docs/ai-sessions/case1.jsonl)**. Mesajlar, araç çağrıları, sonuçlar ve sıra korunur; yalnız secret değerleri `[REDACTED]` ile maskelenir. Kopyanın zaman sınırı ve tarama bilgisi: [oturum teslim kaydı](docs/ai-sessions.md).
+
+## Daha fazla vaktim olsaydı
+
+Mevcut edge case ve yük kontrollerini daha geniş senaryolar ve uzun süreli yük testleriyle genişletirdim. Yeni ölçümlere göre performansı, API maliyetini ve yanıt süresini optimize ederdim.

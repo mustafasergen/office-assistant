@@ -1,5 +1,5 @@
 import { ChatInput, ChatResult, type LLMProvider } from '../llm.types';
-import { hashEmbedding, normalize } from '../text';
+import { hashEmbedding, isAcknowledgement, normalize } from '../text';
 import { groundedMockMatches, focusedMockAnswer } from '../mock-grounding';
 import { extractMemoryFacts } from '../../memory/facts';
 
@@ -32,7 +32,8 @@ export class MockLLM implements LLMProvider {
         ],
       };
 
-    const normalized = normalize(input.currentMessage);
+    const query = input.query ?? input.currentMessage;
+    const normalized = normalize(query);
     const recallKey = /\b(adim|ismim)\b.*\b(ne|nedir|neydi)\b/.test(normalized)
       ? 'name'
       : /\btercihim\b.*\b(ne|nedir|neydi)\b/.test(normalized)
@@ -58,11 +59,11 @@ export class MockLLM implements LLMProvider {
       normalized,
     );
     const searches = input.toolResults.filter((r) => r.output.kind === 'search');
-    const queryParts = input.currentMessage
+    const queryParts = query
       .split(/\s+ve\s+|[,;]/iu)
       .map((part) => part.trim())
       .filter((part) => part && !extractMemoryFacts(part).length);
-    const questionParts = queryParts.length > 1 ? queryParts : [input.currentMessage];
+    const questionParts = queryParts.length > 1 ? queryParts : [query];
     const pendingQuery = questionParts.find(
       (query) =>
         !(questionParts.length === 1 && searches.length) &&
@@ -82,7 +83,7 @@ export class MockLLM implements LLMProvider {
 
     if (searches.length) {
       const matches = groundedMockMatches(
-        input.currentMessage,
+        query,
         searches.flatMap((result) =>
           result.output.kind === 'search' ? result.output.matches : [],
         ),
@@ -120,6 +121,12 @@ export class MockLLM implements LLMProvider {
         kind: 'final',
         content:
           'Bu bilgiyi hafızama kaydettim. Yeni konuşmalarımızda da dikkate alacağım. Hafıza panelinden görebilir veya silebilirsin.',
+        citedChunkIds: [],
+      };
+    if (isAcknowledgement(input.currentMessage))
+      return {
+        kind: 'final',
+        content: 'Tamam. Başka bir sorunda yardımcı olabilirim.',
         citedChunkIds: [],
       };
     return {

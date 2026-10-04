@@ -22,7 +22,12 @@ export class SaveMemoryTool {
   constructor(@Inject(MemoryService) private readonly memory: MemoryService) {}
   async execute(
     args: z.infer<typeof memoryArgs>,
-    context: { userId: string; messageId: string; currentMessage: string },
+    context: {
+      userId: string;
+      messageId: string;
+      currentMessage: string;
+      contextRevision?: number;
+    },
     signal: AbortSignal,
   ): Promise<ToolOutput> {
     signal.throwIfAborted();
@@ -35,8 +40,14 @@ export class SaveMemoryTool {
       return {
         kind: 'error',
         message:
-          'Bu bilgi mevcut mesajda desteklenen açık bir beyan olarak yer almıyor. Hafızayı değiştirme; mevcut hafıza ile cevap ver.',
+          'This fact is not an explicit supported statement in the current message. Do not change memory; answer using current memory.',
       };
-    return this.memory.save(context.userId, context.messageId, args.key, args.value);
+    return this.memory.save(
+      context.userId,
+      context.messageId,
+      args.key,
+      args.value,
+      context.contextRevision,
+    );
   }
 }

@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any -- heterogeneous product-case assertions are serialized in the report. */
 import 'reflect-metadata';
+import { ConversationContextService } from '../../src/modules/chat/context/conversation-context.service';
+
 import { resolve } from 'node:path';
 import OpenAI from 'openai';
 import { readConfig } from '../../src/config/config';
@@ -24,7 +26,14 @@ import { testDatabase, remoteTestDatabase } from './db';
 async function main() {
   const live = process.env.EVAL_LIVE === '1';
   const label = process.env.EVAL_LABEL ?? 'baseline';
-  const remote = live ? await remoteTestDatabase() : null;
+  const localLive = live && process.env.EVAL_LIVE_LOCAL === '1';
+  if (
+    localLive &&
+    (!process.env.TEST_DATABASE_URL ||
+      !['localhost', '127.0.0.1'].includes(new URL(process.env.TEST_DATABASE_URL).hostname))
+  )
+    throw new Error('Live local evaluation requires an explicit localhost TEST_DATABASE_URL');
+  const remote = live && !localLive ? await remoteTestDatabase() : null;
   const db = remote?.db ?? (await testDatabase());
   const config = readConfig({
     ...process.env,
@@ -51,9 +60,13 @@ async function main() {
     new SaveMemoryTool(memory),
     config,
   );
-  const chat = new ChatService(db, agent, memory);
+  const chat = new ChatService(db, agent, memory, new ConversationContextService(db));
   const rows: Result[] = [];
-  const env = live ? 'OpenAI live + Supabase isolated schema' : 'Mock + isolated PostgreSQL';
+  const env = live
+    ? localLive
+      ? 'OpenAI live + isolated local PostgreSQL'
+      : 'OpenAI live + Supabase isolated schema'
+    : 'Mock + isolated PostgreSQL';
   const check = async (
     group: string,
     input: unknown,

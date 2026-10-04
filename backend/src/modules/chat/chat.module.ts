@@ -1,3 +1,4 @@
+import { ConversationContextService } from './context/conversation-context.service';
 import {
   Inject,
   Delete,
@@ -44,6 +45,9 @@ class ChatController {
   async delete(@Req() req: UserRequest, @Param('id', ParseUUIDPipe) id: string) {
     await this.chat.delete(req.userId, id);
   }
+  @Get(':id/context') context(@Req() req: UserRequest, @Param('id', ParseUUIDPipe) id: string) {
+    return this.chat.conversationContext(req.userId, id);
+  }
   @Get(':id/messages') messages(@Req() req: UserRequest, @Param('id', ParseUUIDPipe) id: string) {
     return this.chat.messages(req.userId, id);
   }
@@ -58,6 +62,6 @@ class ChatController {
 @Module({
   imports: [IdentityModule, AgentModule, MemoryModule],
   controllers: [ChatController],
-  providers: [ChatService],
+  providers: [ChatService, ConversationContextService],
 })
 export class ChatModule {}

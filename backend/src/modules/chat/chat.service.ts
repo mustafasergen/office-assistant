@@ -1,3 +1,5 @@
+import { ConversationContextService } from './context/conversation-context.service';
+import { resolveFollowUp, topicEvent } from './context/topics';
 import {
   ConflictException,
   HttpException,
@@ -9,7 +11,7 @@ import {
   ServiceUnavailableException,
 } from '@nestjs/common';
 import { DataSource } from 'typeorm';
-import { Message, Thread } from '../../database/entities';
+import { Message, Thread, User } from '../../database/entities';
 import { AgentService } from '../agent/agent.service';
 import { extractMemoryRetractions } from '../memory/facts';
 import { MemoryService } from '../memory/memory.service';
@@ -22,6 +24,7 @@ export class ChatService implements OnApplicationBootstrap {
     @Inject(DataSource) private readonly db: DataSource,
     @Inject(AgentService) private readonly agent: AgentService,
     @Inject(MemoryService) private readonly memory: MemoryService,
+    @Inject(ConversationContextService) private readonly context: ConversationContextService,
   ) {}
   async onApplicationBootstrap(): Promise<void> {
     // A single backend instance owns runs. Interrupted runs never remain "processing" after restart.
@@ -62,6 +65,11 @@ export class ChatService implements OnApplicationBootstrap {
       .getRepository(Message)
       .find({ where: { threadId }, order: { createdAt: 'ASC', id: 'ASC' } });
   }
+  async conversationContext(userId: string, threadId: string) {
+    await this.owned(userId, threadId);
+    return (await this.context.prepare(threadId, (await this.memory.snapshot(userId)).revision))
+      .publicContext;
+  }
   async send(userId: string, threadId: string, content: string) {
     const thread = await this.owned(userId, threadId);
     if (this.active.has(threadId))
@@ -70,18 +78,13 @@ export class ChatService implements OnApplicationBootstrap {
     let message: Message | undefined;
     try {
       const repo = this.db.getRepository(Message);
-      const history = (
-        await repo.find({
-          where: { threadId, status: 'completed' },
-          order: { createdAt: 'DESC', id: 'DESC' },
-          take: 20,
-        })
-      ).reverse();
+      const initial = await this.memory.snapshot(userId);
       message = await repo.save({
         threadId,
         role: 'user',
         content,
         status: 'processing',
+        contextRevision: initial.revision,
         metadata: {},
       });
       await this.db.getRepository(Thread).update(threadId, {
@@ -93,24 +96,64 @@ export class ChatService implements OnApplicationBootstrap {
         if (fact.key === 'dietary_preference' && retracted.includes(fact.value))
           await this.memory.delete(userId, fact.id);
       }
-      const answer = await this.agent.run({
-        userId,
-        messageId: message.id,
-        currentMessage: content,
-        history: history.map(({ role, content }) => ({ role, content })),
-        memories: await this.memory.list(userId),
-      });
+      const snapshot = await this.memory.snapshot(userId);
+      const context = await this.context.prepare(threadId, snapshot.revision);
+      const resolved = resolveFollowUp(content, context.state);
+      const answer = resolved.clarification
+        ? {
+            content: resolved.clarification,
+            sources: [],
+            tools: [],
+            contextRevision: snapshot.revision,
+          }
+        : await this.agent.run({
+            userId,
+            messageId: message.id,
+            currentMessage: content,
+            query: resolved.query,
+            history: context.history,
+            summary: context.summary,
+            memories: snapshot.memories,
+            contextRevision: snapshot.revision,
+            refreshContext: async () => {
+              const fresh = await this.memory.snapshot(userId);
+              const prepared = await this.context.prepare(threadId, fresh.revision);
+              return { ...fresh, history: prepared.history, summary: prepared.summary };
+            },
+          });
       const assistantMessage = await this.db.transaction(async (manager) => {
-        await manager.getRepository(Message).update(message!.id, { status: 'completed' });
+        const user = await manager
+          .getRepository(User)
+          .findOneOrFail({ where: { id: userId }, lock: { mode: 'pessimistic_read' } });
+        if (user.memoryRevision !== answer.contextRevision)
+          throw new ConflictException('Hafıza değişti. Mesajını tekrar gönder.');
+        await manager.getRepository(Message).update(message!.id, {
+          status: 'completed',
+          metadata: { contextTopics: topicEvent(resolved.query) },
+        });
         return manager.getRepository(Message).save({
           threadId,
           role: 'assistant',
+          contextRevision: initial.revision,
           content: answer.content,
           status: 'completed',
           metadata: { sources: answer.sources, tools: answer.tools },
         });
       });
-      return { userMessage: { ...message, status: 'completed' }, assistantMessage };
+      // Summarization is derived state: a failure after the answer commits must not fail the chat.
+      let publicContext = context.publicContext;
+      try {
+        publicContext = (
+          await this.context.prepare(threadId, (await this.memory.snapshot(userId)).revision)
+        ).publicContext;
+      } catch {
+        this.logger.warn('Konuşma özeti sonraki istekte yeniden hazırlanacak.');
+      }
+      return {
+        userMessage: { ...message, status: 'completed' },
+        assistantMessage,
+        context: publicContext,
+      };
     } catch (error) {
       const publicError =
         error instanceof HttpException

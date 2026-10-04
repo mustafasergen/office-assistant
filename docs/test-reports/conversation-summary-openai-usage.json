@@ -1,0 +1,2142 @@
+{
+  "scope": "English-prompt API runners only; browser calls billed separately and not metered here",
+  "fullEvaluation": {
+    "calls": 304,
+    "estimatedUSD": 0.11520797999999997,
+    "usage": [
+      {
+        "kind": "embed",
+        "input": 826,
+        "output": 0,
+        "cost": 1.652e-05,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 964,
+        "output": 0,
+        "cost": 1.9280000000000002e-05,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 767,
+        "output": 0,
+        "cost": 1.534e-05,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 794,
+        "output": 0,
+        "cost": 1.588e-05,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 10,
+        "output": 0,
+        "cost": 2.0000000000000002e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 853,
+        "output": 12,
+        "cost": 0.00036040000000000003,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1672,
+        "output": 154,
+        "cost": 0.0009152,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 448,
+        "output": 10,
+        "cost": 0.00019520000000000003,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 13,
+        "output": 0,
+        "cost": 2.6e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 857,
+        "output": 13,
+        "cost": 0.0003636,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1749,
+        "output": 102,
+        "cost": 0.0008628,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 432,
+        "output": 10,
+        "cost": 0.0001888,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 13,
+        "output": 0,
+        "cost": 2.6e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 857,
+        "output": 11,
+        "cost": 0.00036040000000000003,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1682,
+        "output": 139,
+        "cost": 0.0008952000000000001,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 437,
+        "output": 10,
+        "cost": 0.0001908,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 8,
+        "output": 0,
+        "cost": 1.6e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 854,
+        "output": 10,
+        "cost": 0.0003576,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1685,
+        "output": 145,
+        "cost": 0.000906,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 442,
+        "output": 10,
+        "cost": 0.00019280000000000002,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 14,
+        "output": 0,
+        "cost": 2.8e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 857,
+        "output": 12,
+        "cost": 0.000362,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1696,
+        "output": 126,
+        "cost": 0.0008800000000000001,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 426,
+        "output": 10,
+        "cost": 0.0001864,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 11,
+        "output": 0,
+        "cost": 2.2e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 855,
+        "output": 11,
+        "cost": 0.0003596,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1679,
+        "output": 76,
+        "cost": 0.0007932000000000001,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 402,
+        "output": 10,
+        "cost": 0.00017680000000000001,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 16,
+        "output": 0,
+        "cost": 3.2e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 861,
+        "output": 15,
+        "cost": 0.0003684,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1688,
+        "output": 83,
+        "cost": 0.000808,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 429,
+        "output": 10,
+        "cost": 0.00018760000000000003,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 16,
+        "output": 0,
+        "cost": 3.2e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 859,
+        "output": 11,
+        "cost": 0.00036120000000000005,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1761,
+        "output": 210,
+        "cost": 0.0010404000000000001,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 518,
+        "output": 10,
+        "cost": 0.0002232,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 14,
+        "output": 0,
+        "cost": 2.8e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 856,
+        "output": 12,
+        "cost": 0.0003616,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1652,
+        "output": 144,
+        "cost": 0.0008912000000000001,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 441,
+        "output": 10,
+        "cost": 0.00019240000000000001,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 11,
+        "output": 0,
+        "cost": 2.2e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 855,
+        "output": 11,
+        "cost": 0.0003596,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1033,
+        "output": 62,
+        "cost": 0.0005124000000000001,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 402,
+        "output": 10,
+        "cost": 0.00017680000000000001,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 18,
+        "output": 0,
+        "cost": 3.6e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 859,
+        "output": 10,
+        "cost": 0.0003596,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1734,
+        "output": 193,
+        "cost": 0.0010024,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 494,
+        "output": 10,
+        "cost": 0.00021360000000000001,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 17,
+        "output": 0,
+        "cost": 3.4000000000000003e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 860,
+        "output": 14,
+        "cost": 0.00036639999999999996,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1066,
+        "output": 117,
+        "cost": 0.0006136000000000001,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 486,
+        "output": 10,
+        "cost": 0.00021040000000000002,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 13,
+        "output": 0,
+        "cost": 2.6e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 858,
+        "output": 12,
+        "cost": 0.0003624,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1682,
+        "output": 154,
+        "cost": 0.0009192,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 453,
+        "output": 10,
+        "cost": 0.00019720000000000002,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 8,
+        "output": 0,
+        "cost": 1.6e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 852,
+        "output": 12,
+        "cost": 0.00036,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1670,
+        "output": 154,
+        "cost": 0.0009144,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 447,
+        "output": 10,
+        "cost": 0.00019480000000000002,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 15,
+        "output": 0,
+        "cost": 3e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 858,
+        "output": 10,
+        "cost": 0.00035920000000000006,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1694,
+        "output": 144,
+        "cost": 0.000908,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 445,
+        "output": 10,
+        "cost": 0.000194,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 17,
+        "output": 0,
+        "cost": 3.4000000000000003e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 862,
+        "output": 12,
+        "cost": 0.000364,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1759,
+        "output": 102,
+        "cost": 0.0008668,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 437,
+        "output": 10,
+        "cost": 0.0001908,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 10,
+        "output": 0,
+        "cost": 2.0000000000000002e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 854,
+        "output": 12,
+        "cost": 0.0003608,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1674,
+        "output": 154,
+        "cost": 0.000916,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 449,
+        "output": 10,
+        "cost": 0.0001956,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 10,
+        "output": 0,
+        "cost": 2.0000000000000002e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 856,
+        "output": 12,
+        "cost": 0.0003616,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1747,
+        "output": 102,
+        "cost": 0.0008620000000000001,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 431,
+        "output": 10,
+        "cost": 0.0001884,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 17,
+        "output": 0,
+        "cost": 3.4000000000000003e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 859,
+        "output": 12,
+        "cost": 0.00036280000000000004,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1700,
+        "output": 126,
+        "cost": 0.0008816000000000001,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 428,
+        "output": 10,
+        "cost": 0.00018720000000000002,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 12,
+        "output": 0,
+        "cost": 2.4e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 855,
+        "output": 11,
+        "cost": 0.0003596,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1677,
+        "output": 117,
+        "cost": 0.0008580000000000001,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 424,
+        "output": 10,
+        "cost": 0.0001856,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 13,
+        "output": 0,
+        "cost": 2.6e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 856,
+        "output": 11,
+        "cost": 0.0003600000000000001,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 884,
+        "output": 37,
+        "cost": 0.0004128,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 11,
+        "output": 0,
+        "cost": 2.2e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 853,
+        "output": 8,
+        "cost": 0.00035400000000000004,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 878,
+        "output": 39,
+        "cost": 0.0004136,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 10,
+        "output": 0,
+        "cost": 2.0000000000000002e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 854,
+        "output": 10,
+        "cost": 0.0003576,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 880,
+        "output": 50,
+        "cost": 0.000432,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 14,
+        "output": 0,
+        "cost": 2.8e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 856,
+        "output": 11,
+        "cost": 0.0003600000000000001,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 884,
+        "output": 44,
+        "cost": 0.000424,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 19,
+        "output": 0,
+        "cost": 3.8e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 859,
+        "output": 15,
+        "cost": 0.00036760000000000004,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1684,
+        "output": 47,
+        "cost": 0.0007488000000000001,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 15,
+        "output": 0,
+        "cost": 3e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 859,
+        "output": 13,
+        "cost": 0.0003644,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1759,
+        "output": 40,
+        "cost": 0.0007676,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 15,
+        "output": 0,
+        "cost": 3e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 860,
+        "output": 13,
+        "cost": 0.00036480000000000003,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1702,
+        "output": 46,
+        "cost": 0.0007544000000000001,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 8,
+        "output": 0,
+        "cost": 1.6e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 853,
+        "output": 9,
+        "cost": 0.0003556,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1041,
+        "output": 139,
+        "cost": 0.0006388,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 20,
+        "output": 0,
+        "cost": 4.0000000000000003e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 860,
+        "output": 13,
+        "cost": 0.00036480000000000003,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1055,
+        "output": 48,
+        "cost": 0.0004988,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 11,
+        "output": 0,
+        "cost": 2.2e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 854,
+        "output": 12,
+        "cost": 0.0003608,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1678,
+        "output": 40,
+        "cost": 0.0007352000000000001,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 13,
+        "output": 0,
+        "cost": 2.6e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 855,
+        "output": 12,
+        "cost": 0.0003612,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1692,
+        "output": 42,
+        "cost": 0.0007440000000000001,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 20,
+        "output": 0,
+        "cost": 4.0000000000000003e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 863,
+        "output": 18,
+        "cost": 0.00037400000000000004,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1761,
+        "output": 75,
+        "cost": 0.0008244000000000001,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 9,
+        "output": 0,
+        "cost": 1.8e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 854,
+        "output": 9,
+        "cost": 0.000356,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1692,
+        "output": 41,
+        "cost": 0.0007424,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 20,
+        "output": 0,
+        "cost": 4.0000000000000003e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 860,
+        "output": 13,
+        "cost": 0.00036480000000000003,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1568,
+        "output": 72,
+        "cost": 0.0007424,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 11,
+        "output": 0,
+        "cost": 2.2e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 855,
+        "output": 12,
+        "cost": 0.0003612,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 882,
+        "output": 37,
+        "cost": 0.000412,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 26,
+        "output": 0,
+        "cost": 5.2e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 865,
+        "output": 21,
+        "cost": 0.0003796,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1732,
+        "output": 58,
+        "cost": 0.0007856000000000001,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 20,
+        "output": 0,
+        "cost": 4.0000000000000003e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 861,
+        "output": 9,
+        "cost": 0.0003588,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1695,
+        "output": 139,
+        "cost": 0.0009004,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 535,
+        "output": 10,
+        "cost": 0.00023,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 15,
+        "output": 0,
+        "cost": 3e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 859,
+        "output": 15,
+        "cost": 0.00036760000000000004,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1685,
+        "output": 213,
+        "cost": 0.0010148,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 548,
+        "output": 10,
+        "cost": 0.00023520000000000002,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 17,
+        "output": 0,
+        "cost": 3.4000000000000003e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 968,
+        "output": 14,
+        "cost": 0.00040960000000000004,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1155,
+        "output": 12,
+        "cost": 0.0004812,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 2049,
+        "output": 184,
+        "cost": 0.001114,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 646,
+        "output": 10,
+        "cost": 0.00027440000000000006,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 16,
+        "output": 0,
+        "cost": 3.2e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1103,
+        "output": 14,
+        "cost": 0.00046360000000000005,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1153,
+        "output": 11,
+        "cost": 0.0004788000000000001,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1713,
+        "output": 80,
+        "cost": 0.0008132,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 598,
+        "output": 10,
+        "cost": 0.0002552,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 12,
+        "output": 0,
+        "cost": 2.4e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 985,
+        "output": 9,
+        "cost": 0.00040839999999999995,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1184,
+        "output": 196,
+        "cost": 0.0007872,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 623,
+        "output": 10,
+        "cost": 0.00026520000000000005,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 10,
+        "output": 0,
+        "cost": 2.0000000000000002e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 985,
+        "output": 10,
+        "cost": 0.00041,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1174,
+        "output": 135,
+        "cost": 0.0006856000000000001,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 592,
+        "output": 10,
+        "cost": 0.0002528,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 26,
+        "output": 0,
+        "cost": 5.2e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 993,
+        "output": 14,
+        "cost": 0.0004196,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1849,
+        "output": 114,
+        "cost": 0.000922,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 662,
+        "output": 10,
+        "cost": 0.0002808,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 17,
+        "output": 0,
+        "cost": 3.4000000000000003e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 992,
+        "output": 17,
+        "cost": 0.000424,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1834,
+        "output": 73,
+        "cost": 0.0008504000000000001,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 539,
+        "output": 10,
+        "cost": 0.00023160000000000002,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 20,
+        "output": 0,
+        "cost": 4.0000000000000003e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 996,
+        "output": 11,
+        "cost": 0.0004160000000000001,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1222,
+        "output": 206,
+        "cost": 0.0008184,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 654,
+        "output": 10,
+        "cost": 0.0002776,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 9,
+        "output": 0,
+        "cost": 1.8e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 985,
+        "output": 11,
+        "cost": 0.00041160000000000003,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1162,
+        "output": 63,
+        "cost": 0.0005656,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 533,
+        "output": 10,
+        "cost": 0.00022920000000000001,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 10,
+        "output": 0,
+        "cost": 2.0000000000000002e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 985,
+        "output": 12,
+        "cost": 0.0004132,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1874,
+        "output": 102,
+        "cost": 0.0009128000000000001,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 560,
+        "output": 10,
+        "cost": 0.00024,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 12,
+        "output": 0,
+        "cost": 2.4e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 987,
+        "output": 14,
+        "cost": 0.0004172,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1824,
+        "output": 202,
+        "cost": 0.0010528000000000002,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 631,
+        "output": 10,
+        "cost": 0.00026839999999999996,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 16,
+        "output": 0,
+        "cost": 3.2e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 988,
+        "output": 13,
+        "cost": 0.0004160000000000001,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1017,
+        "output": 44,
+        "cost": 0.00047720000000000005,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 10,
+        "output": 0,
+        "cost": 2.0000000000000002e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 984,
+        "output": 10,
+        "cost": 0.00040960000000000004,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1009,
+        "output": 44,
+        "cost": 0.000474,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 15,
+        "output": 0,
+        "cost": 3e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 990,
+        "output": 17,
+        "cost": 0.0004232,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1882,
+        "output": 40,
+        "cost": 0.0008168000000000001,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 17,
+        "output": 0,
+        "cost": 3.4000000000000003e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 990,
+        "output": 13,
+        "cost": 0.0004168,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1505,
+        "output": 45,
+        "cost": 0.000674,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 14,
+        "output": 0,
+        "cost": 2.8e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 988,
+        "output": 12,
+        "cost": 0.00041440000000000004,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1480,
+        "output": 47,
+        "cost": 0.0006672000000000001,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 21,
+        "output": 0,
+        "cost": 4.2e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 991,
+        "output": 12,
+        "cost": 0.0004156,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1817,
+        "output": 68,
+        "cost": 0.0008356000000000001,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 18,
+        "output": 0,
+        "cost": 3.6e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 993,
+        "output": 10,
+        "cost": 0.00041320000000000007,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1808,
+        "output": 135,
+        "cost": 0.0009392000000000001,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 634,
+        "output": 10,
+        "cost": 0.00026960000000000005,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 19,
+        "output": 0,
+        "cost": 3.8e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 983,
+        "output": 20,
+        "cost": 0.00042520000000000004,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1888,
+        "output": 157,
+        "cost": 0.0010064000000000002,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 669,
+        "output": 10,
+        "cost": 0.0002836,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 957,
+        "output": 11,
+        "cost": 0.00040040000000000003,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1121,
+        "output": 32,
+        "cost": 0.0004996,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 963,
+        "output": 12,
+        "cost": 0.0004044,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1132,
+        "output": 39,
+        "cost": 0.0005152000000000001,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 962,
+        "output": 14,
+        "cost": 0.0004072,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1136,
+        "output": 39,
+        "cost": 0.0005168000000000001,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 960,
+        "output": 14,
+        "cost": 0.00040639999999999996,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1136,
+        "output": 38,
+        "cost": 0.0005152000000000001,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 842,
+        "output": 36,
+        "cost": 0.00039440000000000005,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 844,
+        "output": 38,
+        "cost": 0.00039840000000000003,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 968,
+        "output": 16,
+        "cost": 0.00041280000000000006,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1149,
+        "output": 42,
+        "cost": 0.0005268000000000001,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 967,
+        "output": 14,
+        "cost": 0.00040919999999999997,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1144,
+        "output": 39,
+        "cost": 0.00052,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 850,
+        "output": 72,
+        "cost": 0.0004552,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 847,
+        "output": 50,
+        "cost": 0.0004188,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 846,
+        "output": 39,
+        "cost": 0.0004008000000000001,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 847,
+        "output": 37,
+        "cost": 0.000398,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 843,
+        "output": 36,
+        "cost": 0.00039480000000000006,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 850,
+        "output": 43,
+        "cost": 0.0004088,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 848,
+        "output": 44,
+        "cost": 0.00040960000000000004,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 842,
+        "output": 32,
+        "cost": 0.000388,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 855,
+        "output": 53,
+        "cost": 0.0004268,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 851,
+        "output": 66,
+        "cost": 0.00044600000000000005,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 843,
+        "output": 36,
+        "cost": 0.00039480000000000006,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 857,
+        "output": 7,
+        "cost": 0.000354,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 13,
+        "output": 0,
+        "cost": 2.6e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1254,
+        "output": 283,
+        "cost": 0.0009544000000000001,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 648,
+        "output": 10,
+        "cost": 0.00027519999999999997,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 976,
+        "output": 11,
+        "cost": 0.00040800000000000005,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1148,
+        "output": 12,
+        "cost": 0.00047840000000000003,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1315,
+        "output": 48,
+        "cost": 0.0006027999999999999,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 850,
+        "output": 46,
+        "cost": 0.0004136,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 850,
+        "output": 37,
+        "cost": 0.0003992,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 853,
+        "output": 42,
+        "cost": 0.00040840000000000006,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 841,
+        "output": 46,
+        "cost": 0.00041000000000000005,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 971,
+        "output": 14,
+        "cost": 0.0004108,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1148,
+        "output": 43,
+        "cost": 0.000528,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 842,
+        "output": 47,
+        "cost": 0.000412,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 969,
+        "output": 14,
+        "cost": 0.00041,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1142,
+        "output": 51,
+        "cost": 0.0005384,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 968,
+        "output": 14,
+        "cost": 0.00040960000000000004,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1142,
+        "output": 41,
+        "cost": 0.0005224,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 960,
+        "output": 14,
+        "cost": 0.00040639999999999996,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1132,
+        "output": 37,
+        "cost": 0.000512,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 968,
+        "output": 14,
+        "cost": 0.00040960000000000004,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1146,
+        "output": 50,
+        "cost": 0.0005384000000000001,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 960,
+        "output": 14,
+        "cost": 0.00040639999999999996,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1144,
+        "output": 38,
+        "cost": 0.0005184,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 901,
+        "output": 41,
+        "cost": 0.00042600000000000005,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 948,
+        "output": 10,
+        "cost": 0.00039520000000000007,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 18,
+        "output": 0,
+        "cost": 3.6e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1502,
+        "output": 48,
+        "cost": 0.0006776000000000001,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 985,
+        "output": 10,
+        "cost": 0.00041,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 17,
+        "output": 0,
+        "cost": 3.4000000000000003e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1015,
+        "output": 50,
+        "cost": 0.000486,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1044,
+        "output": 7,
+        "cost": 0.0004288,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 7,
+        "output": 0,
+        "cost": 1.4e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1436,
+        "output": 121,
+        "cost": 0.000768,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1077,
+        "output": 10,
+        "cost": 0.0004468,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 11,
+        "output": 0,
+        "cost": 2.2e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1966,
+        "output": 304,
+        "cost": 0.0012728000000000001,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 647,
+        "output": 10,
+        "cost": 0.0002748,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 991,
+        "output": 11,
+        "cost": 0.00041400000000000003,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1165,
+        "output": 12,
+        "cost": 0.0004852,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1342,
+        "output": 14,
+        "cost": 0.0005592,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1517,
+        "output": 59,
+        "cost": 0.0007012,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1170,
+        "output": 7,
+        "cost": 0.0004792,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1200,
+        "output": 63,
+        "cost": 0.0005807999999999999,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1323,
+        "output": 14,
+        "cost": 0.0005516000000000001,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1193,
+        "output": 37,
+        "cost": 0.0005364000000000001,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1149,
+        "output": 14,
+        "cost": 0.000482,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1194,
+        "output": 37,
+        "cost": 0.0005368,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1169,
+        "output": 14,
+        "cost": 0.00049,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1214,
+        "output": 39,
+        "cost": 0.000548,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 976,
+        "output": 38,
+        "cost": 0.00045120000000000007,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1074,
+        "output": 57,
+        "cost": 0.0005208000000000001,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1222,
+        "output": 14,
+        "cost": 0.0005112,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1199,
+        "output": 44,
+        "cost": 0.00055,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1030,
+        "output": 38,
+        "cost": 0.0004728,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 901,
+        "output": 38,
+        "cost": 0.00042120000000000005,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 844,
+        "output": 39,
+        "cost": 0.0004,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 846,
+        "output": 43,
+        "cost": 0.00040720000000000003,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 910,
+        "output": 12,
+        "cost": 0.0003832,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1729,
+        "output": 154,
+        "cost": 0.000938,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 448,
+        "output": 10,
+        "cost": 0.00019520000000000003,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 991,
+        "output": 16,
+        "cost": 0.00042200000000000007,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1818,
+        "output": 83,
+        "cost": 0.00086,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 429,
+        "output": 10,
+        "cost": 0.00018760000000000003,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1045,
+        "output": 10,
+        "cost": 0.000434,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 19,
+        "output": 0,
+        "cost": 3.8e-07,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 1871,
+        "output": 76,
+        "cost": 0.0008700000000000001,
+        "error": false
+      },
+      {
+        "kind": "chat",
+        "input": 430,
+        "output": 10,
+        "cost": 0.000188,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 39,
+        "output": 0,
+        "cost": 7.8e-07,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 12,
+        "output": 0,
+        "cost": 2.4e-07,
+        "error": false
+      },
+      {
+        "kind": "embed",
+        "input": 40,
+        "output": 0,
+        "cost": 8.000000000000001e-07,
+        "error": false
+      }
+    ]
+  },
+  "contextEvaluation": {
+    "calls": 38,
+    "estimatedUSD": 0.014788040000000002
+  },
+  "pricingNote": "Estimate from token usage; assumes gpt-4.1-mini 0.40/1.60 USD per million input/output tokens and embeddings 0.02; no cached-token discount. Not an invoice."
+}

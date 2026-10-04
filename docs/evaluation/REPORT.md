@@ -1,6 +1,6 @@
 # Embedding, retrieval ve agent değerlendirmesi
 
-3 Ekim 2026. 25 ürün davranışı grubu. Girdi/beklenen/gerçek/sonuç satırları ilgili ayrıntılı raporlarda bulunur. Başarısız ilk denemeler silinmemiştir.
+3–4 Ekim 2026. 25 ürün davranışı grubu. Girdi/beklenen/gerçek/sonuç satırları ilgili ayrıntılı raporlarda bulunur. Başlangıç başarısızlıkları ve son sonuçlar korunmuştur; yinelenen ara koşular repo dışında arşivlenmiştir.
 
 ## Sabitler ve karşılaştırma yöntemi
 
@@ -69,35 +69,16 @@ OpenAI, ilk aramayı veya açık hafıza kaydından sonra sorunun aramasını at
 
 | Rapor | Geçti | Kaldı |
 |---|---:|---:|
-| [acceptance-live](acceptance-live.md) | 94 | 1 |
-| [acceptance-mock](acceptance-mock.md) | 129 | 0 |
 | [baseline-live](baseline-live.md) | 47 | 31 |
 | [baseline-mock](baseline-mock.md) | 60 | 42 |
 | [baseline-reviewed-live](baseline-reviewed-live.md) | 53 | 25 |
 | [baseline-reviewed-mock](baseline-reviewed-mock.md) | 60 | 42 |
 | [checked-live](checked-live.md) | 99 | 0 |
-| [ci-mock](ci-mock.md) | 134 | 0 |
-| [complete-live](complete-live.md) | 94 | 1 |
-| [complete-mock](complete-mock.md) | 130 | 0 |
-| [complete-v3-mock](complete-v3-mock.md) | 130 | 0 |
-| [complete-v4-mock](complete-v4-mock.md) | 134 | 0 |
-| [coverage-check-live](coverage-check-live.md) | 9 | 0 |
-| [final-live](final-live.md) | 86 | 8 |
-| [final-mock](final-mock.md) | 128 | 0 |
-| [focused1-live](focused1-live.md) | 5 | 0 |
-| [focused2-live](focused2-live.md) | 5 | 0 |
-| [grounding-check-live](grounding-check-live.md) | 5 | 0 |
-| [iteration1-live](iteration1-live.md) | 76 | 7 |
-| [iteration1-mock](iteration1-mock.md) | 100 | 2 |
-| [iteration2-live](iteration2-live.md) | 78 | 5 |
-| [iteration3-mock](iteration3-mock.md) | 105 | 2 |
-| [iteration4-mock](iteration4-mock.md) | 101 | 6 |
-| [iteration5-mock](iteration5-mock.md) | 105 | 2 |
-| [iteration6-mock](iteration6-mock.md) | 107 | 0 |
-| [iteration7-mock](iteration7-mock.md) | 117 | 0 |
-| [release-live](release-live.md) | 94 | 1 |
-| [release-mock](release-mock.md) | 129 | 0 |
-| [verified-live](verified-live.md) | 94 | 1 |
+| [conversation-summary-english-live](conversation-summary-english-live.md) | 106 | 0 |
+| [manual-fixes-mock](manual-fixes-mock.md) | 137 | 0 |
+| [memory-recall-initial-live](memory-recall-initial-live.md) | 103 | 1 |
+| [memory-recall-live](memory-recall-live.md) | 106 | 0 |
+| [memory-recall-mock](memory-recall-mock.md) | 137 | 0 |
 
 Baseline-reviewed raporları aynı ilk çıktıları son anlam eşdeğerliği kontrolüyle yeniden puanlar; yeni API cevabı üretilmez. Örneğin “12.00 ile 13.00” ve “12.00–13.00” aynı doğru bilgidir. Sayı/değer ve gerçek kaynak şartı korunur. Başlangıç ve son toplamları eklenen kontroller yüzünden farklıdır.
 
@@ -131,7 +112,7 @@ Yerel test DB 55432 portunda ayrı *_test veritabanı olarak açıldıysa `pnpm 
 | 14 | Boyut/determinizm | 1/1 GEÇTİ | Bu ortamda çalıştırılmadı |
 | 15 | Hatalı embedding | 5/5 GEÇTİ | Bu ortamda çalıştırılmadı |
 | 16 | Hafıza oluştur/güncelle | 8/8 GEÇTİ | 7/7 GEÇTİ |
-| 17 | Silme/yeni thread | 3/3 GEÇTİ | 2/2 GEÇTİ |
+| 17 | Silme/yeni thread | 6/6 GEÇTİ | 2/2 GEÇTİ |
 | 18 | Olumsuz/çelişkili bilgi | 12/12 GEÇTİ | 12/12 GEÇTİ |
 | 19 | Başkasının sözü/alıntı/koşul | 16/16 GEÇTİ | 16/16 GEÇTİ |
 | 20 | Doküman CRUD | 3/3 GEÇTİ | 1/1 GEÇTİ |
@@ -141,27 +122,12 @@ Yerel test DB 55432 portunda ayrı *_test veritabanı olarak açıldıysa `pnpm 
 | 24 | Adım/tool/argüman sınırları | 4/4 GEÇTİ | Bu ortamda çalıştırılmadı |
 | 25 | OpenAI sözleşmesi | 9/9 GEÇTİ | Bu ortamda çalıştırılmadı |
 
-Mock raporunun 134 kontrolünün 125’i mock/ortak servis/yerel PostgreSQL, 9’u sahte SDK yanıtlarıdır. Grup 25 hiçbir canlı API başarısı iddia etmez. 45 unit testin içinde ayrıca 11 OpenAI adapter sözleşme testi vardır. Canlı kolon yalnız gerçekten çalıştırılan grupları gösterir; timeout/bozuk yanıt gibi durumlar fault injection ile sınanır.
+Son mock raporunun 137 kontrolünün 128’i mock/ortak servis/yerel PostgreSQL, 9’u sahte SDK yanıtlarıdır. Grup 25 hiçbir canlı API başarısı iddia etmez. Güncel unit/sahte SDK regresyonunda 72 test vardır. Canlı kolon yalnız gerçekten çalıştırılan grupları gösterir; timeout/bozuk yanıt gibi durumlar fault injection ile sınanır.
 
-Ayrıntılar: [134 son mock/sözleşme kontrolü](complete-v4-mock.md), [Docker CI koşusu](ci-mock.md), [canlı kabul koşusu](checked-live.md). Her satırın girdisi, bekleneni, gerçek sonucu ve geçti/kaldı durumu kayıtlıdır.
+Ayrıntılar: [137 son mock/sözleşme kontrolü](manual-fixes-mock.md), [İngilizce promptlarla canlı yerel PostgreSQL koşusu](conversation-summary-english-live.md), [canlı kabul koşusu](checked-live.md). Her satırın girdisi, bekleneni, gerçek sonucu ve geçti/kaldı durumu kayıtlıdır.
 
-## API kullanımı ve verinin korunması
+## İlk değerlendirme turunun API kullanımı ve verinin korunması
 
-Toplam 1886 gerçek API çağrısı: 1661 chat, 225 embedding. Tekrar kullanılan embedding yanıtları özel yerel cache’den okunur ve yeni çağrı sayılmaz. Usage tokenlarıyla hesaplanan tahmini maliyet **0.819185 USD**, onaylı üst sınır 2 USD. Fatura tutarı ayrıca sağlayıcıdan doğrulanmadı. [Resmî fiyatlar](https://developers.openai.com/api/docs/pricing): gpt-4.1-mini girdi $0.40/M, çıktı $1.60/M; text-embedding-3-small $0.02/M.
+İlk değerlendirme turunda toplam 1886 gerçek API çağrısı: 1661 chat, 225 embedding. Tekrar kullanılan embedding yanıtları özel yerel cache’den okunur ve yeni çağrı sayılmaz. Usage tokenlarıyla hesaplanan tahmini maliyet **0.819185 USD**, onaylı üst sınır 2 USD. Fatura tutarı ayrıca sağlayıcıdan doğrulanmadı. [Resmî fiyatlar](https://developers.openai.com/api/docs/pricing): gpt-4.1-mini girdi $0.40/M, çıktı $1.60/M; text-embedding-3-small $0.02/M.
 
 Supabase public tabloları önce/sonra hash karşılaştırmasında değişmedi; geçici test şeması kaldırıldı. Yerel gerçek kullanıcı/thread/message/memory satırları ve doküman ID/metin/açıklama/revision/silinme durumu korundu. Yeni algoritma nedeniyle yalnız türetilmiş 24 chunk/embedding yeniden üretildi. .env ve kullanıcı cookie’si değiştirilmedi. Ayrı UI/test Compose projeleri temizlendi. TypeORM migrations tablosu korundu.
-
-
-## Aynı konuşmada hafıza silme regresyonu — 4 Ekim 2026
-
-Önceki yeni-thread kontrolleri aynı konuşmadaki eski mesajların yanlış “kayıtlı tercih” cevabına dönüşmesini yakalamıyordu. Yeni senaryo: `Veganım.` → Memory DELETE (panelin kullandığı servis) → **aynı thread** `Beslenme tercihim ne?`. Beklenti: güncel kayıt yok, eski mesaj korunur, kaynak veya yeni save_memory yok. API ve Playwright kontrolleri de DELETE/panel düğmesinden sonra aynı-thread sorusunu içerir.
-
-Canlı model gerçekten eski vegan değerini tekrar söyleyebildi. Backend artık salt hafıza hatırlama cevaplarını güncel hafıza snapshot'ından ve bu çalıştırmanın başarılı kayıt sonuçlarından üretir; modelin serbest cevap metni bu değerleri belirlemez. OpenAI `memoryRecall` alanıyla sorulan anahtarları bildirir. Doğrudan sorularda backend ayrıca muhafazakâr niyet kontrolü yapar; şirket dokümanı kişisel tercih kaydı yerine geçemez. Karma şirket soruları kaynak doğrulama akışında kalır. Ek model çağrısı eklenmedi.
-
-Ek senaryolar: aynı thread'de farklı hatırlama ifadeleri; vegan → vejetaryen güncellemesi; silme sonrası yemek seçeneklerinde kişiselleştirme yapılmaması; yalnız beslenme tercihi silinirken isim ve departmanın korunması. Genel doğal dil niyeti hâlâ model sınıflandırmasına bağlıdır; tanınan hafıza alanlarının değerleri backend tarafından belirlenir.
-
-İlk canlı koşu **103/104**: hafıza kontrolleri geçti; VPN şifresi sorusunda politika özeti yanlış kaynaklı cevap sayıldı. Son cümledeki “belgelerde paylaşılmamaktadır” ifadesini kaçıran kontrol genişletildi ve unit regresyonu eklendi. Başarısız koşu [memory-recall-initial-live](memory-recall-initial-live.md) olarak korunur.
-
-Son sonuç: **137/137 mock/ortak servis/sahte SDK** (128 + 9), **106/106 gerçek OpenAI + izole Supabase**, **54 unit / 13 PostgreSQL API / 9 Playwright** başarılı. Lint/typecheck/build ve Docker healthcheck geçti. [Mock raporu](memory-recall-mock.md), [canlı rapor](memory-recall-live.md), [doğrulama özeti](memory-recall-quality.json).
-
-Bu düzeltme boyunca 470 API çağrısı yapıldı (464 chat, 6 embedding); mevcut gerçek embedding cache'i tekrar kullanıldı. Token kullanımından tahmini ek maliyet **0.283875 USD**; fatura tutarı değildir. İki canlı koşu birlikte sayılmıştır, başarısız ilk sonuç korunur. Supabase public tabloları önce/sonra aynı; test şeması kaldırıldı. .env değiştirilmedi. Ana uygulama mevcut **mock + local PostgreSQL** ayarıyla `docker compose up --build -d --wait` sonrası healthy. Testler ayrı kullanıcı/şema/Docker volume'lerinde çalıştı; mevcut sohbetler ve tarayıcı cookie'si değiştirilmedi.

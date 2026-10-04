@@ -3,7 +3,7 @@ import { resolve } from 'node:path';
 import { createHash } from 'node:crypto';
 import OpenAI from 'openai';
 export const outputDir = resolve(__dirname, '../../../docs/evaluation');
-export const privateDir = '/private/tmp/uplico-evaluation-20261003';
+export const privateDir = process.env.EVAL_PRIVATE_DIR ?? '/private/tmp/uplico-evaluation-20261003';
 export const sha = (s: string) => createHash('sha256').update(s).digest('hex');
 export interface Result {
   group: string;

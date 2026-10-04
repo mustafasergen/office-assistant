@@ -71,6 +71,9 @@ export function OfficeApp() {
   const [provider, setProvider] = useState('mock');
   const [sidebar, setSidebar] = useState(false);
   const [contextOpen, setContextOpen] = useState(false);
+  const [summary, setSummary] = useState<string | null>(null);
+  const [summaryOpen, setSummaryOpen] = useState(false);
+  const summaryButtonRef = useRef<HTMLButtonElement>(null);
   const [retry, setRetry] = useState(0);
   const conversationRef = useRef<HTMLElement>(null);
   const sendingRef = useRef(false);
@@ -87,12 +90,15 @@ export function OfficeApp() {
       setError('');
       try {
         await api('/session', { method: 'POST' });
-        const [threadList, memoryList, documentList, health, history] = await Promise.all([
+        const [threadList, memoryList, documentList, health, history, context] = await Promise.all([
           api<Thread[]>('/threads'),
           api<Memory[]>('/memories'),
           api<CompanyDocument[]>('/documents'),
           api<{ provider: string }>('/health/ready'),
           threadId ? api<Message[]>(`/threads/${threadId}/messages`) : Promise.resolve([]),
+          threadId
+            ? api<{ summary: string | null }>(`/threads/${threadId}/context`)
+            : Promise.resolve({ summary: null }),
         ]);
         if (cancelled) return;
         setThreads(threadList);
@@ -100,6 +106,8 @@ export function OfficeApp() {
         setDocuments(documentList);
         setProvider(health.provider);
         setMessages(history);
+        setSummary(context.summary);
+        setSummaryOpen(false);
         loadedConversation.current = { id: threadId, retry };
         setReady(true);
       } catch (err) {
@@ -148,10 +156,12 @@ export function OfficeApp() {
           createdAt: new Date().toISOString(),
         };
         setMessages((previous) => [...previous, optimistic]);
-        const result = await api<{ userMessage: Message; assistantMessage: Message }>(
-          `/threads/${id}/messages`,
-          { method: 'POST', body: JSON.stringify({ content }) },
-        );
+        const result = await api<{
+          userMessage: Message;
+          assistantMessage: Message;
+          context: { summary: string | null };
+        }>(`/threads/${id}/messages`, { method: 'POST', body: JSON.stringify({ content }) });
+        setSummary(result.context?.summary ?? null);
         setMessages((previous) => [
           ...previous.filter((m) => m.id !== 'pending'),
           result.userMessage,
@@ -164,12 +174,14 @@ export function OfficeApp() {
         setMemories(memoryList);
         setThreads(threadList);
       } catch (err) {
-        setError(err instanceof Error ? err.message : 'Mesaj gönderilemedi.');
-        setInput(content);
         if (id) {
           const history = await api<Message[]>(`/threads/${id}/messages`).catch(() => null);
           if (history) setMessages(history);
         }
+        // Publish the retry state together with unlocking the composer in finally.
+        // Otherwise Enter can be ignored while the visible error still awaits history recovery.
+        setError(err instanceof Error ? err.message : 'Mesaj gönderilemedi.');
+        setInput(content);
       } finally {
         sendingRef.current = false;
         setSending(false);
@@ -235,6 +247,8 @@ export function OfficeApp() {
     try {
       await api(`/memories/${id}`, { method: 'DELETE' });
       setMemories((items) => items.filter((item) => item.id !== id));
+      if (threadId)
+        setSummary((await api<{ summary: string | null }>(`/threads/${threadId}/context`)).summary);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Kayıt silinemedi.');
     }
@@ -485,6 +499,47 @@ export function OfficeApp() {
               </button>
             </div>
           )}
+          <div className="summary-slot">
+            {summary && (
+              <>
+                <span>Önceki mesajlar özetlenerek kullanılıyor · </span>
+                <button
+                  ref={summaryButtonRef}
+                  type="button"
+                  aria-expanded={summaryOpen}
+                  aria-controls="conversation-summary"
+                  onClick={() => setSummaryOpen((open) => !open)}
+                >
+                  {summaryOpen ? 'Özeti gizle' : 'Özeti göster'}
+                </button>
+                {summaryOpen && (
+                  <div
+                    id="conversation-summary"
+                    className="summary-popover"
+                    role="region"
+                    aria-label="Konuşma özeti"
+                    onKeyDown={(event) => {
+                      if (event.key === 'Escape') {
+                        setSummaryOpen(false);
+                        summaryButtonRef.current?.focus({ preventScroll: true });
+                      }
+                    }}
+                  >
+                    <p>{summary}</p>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setSummaryOpen(false);
+                        summaryButtonRef.current?.focus({ preventScroll: true });
+                      }}
+                    >
+                      Özeti kapat
+                    </button>
+                  </div>
+                )}
+              </>
+            )}
+          </div>
           <form
             className="composer"
             onSubmit={(event) => {

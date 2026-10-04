@@ -47,7 +47,11 @@ export async function remoteTestDatabase() {
   });
   await db.initialize();
   try {
-    for (const file of ['1730000000000-initial.sql', '1791040000000-library-editing.sql']) {
+    for (const file of [
+      '1730000000000-initial.sql',
+      '1791040000000-library-editing.sql',
+      '1791120000000-conversation-context.sql',
+    ]) {
       const sql = (
         await readFile(resolve(__dirname, '../../supabase/migrations', file), 'utf8')
       ).replace('CREATE EXTENSION IF NOT EXISTS vector;', '');

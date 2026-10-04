@@ -20,7 +20,13 @@ export interface ToolCall {
 }
 export type ToolOutput =
   | { kind: 'search'; matches: SearchMatch[] }
-  | { kind: 'memory'; key: string; value: string; status: 'created' | 'updated' | 'unchanged' }
+  | {
+      kind: 'memory';
+      key: string;
+      value: string;
+      status: 'created' | 'updated' | 'unchanged';
+      revision?: number;
+    }
   | { kind: 'error'; message: string };
 export interface ToolResult {
   call: ToolCall;
@@ -28,6 +34,8 @@ export interface ToolResult {
 }
 export interface ChatInput {
   currentMessage: string;
+  query?: string;
+  summary?: string;
   history: { role: 'user' | 'assistant'; content: string }[];
   memories: MemoryFact[];
   toolResults: ToolResult[];

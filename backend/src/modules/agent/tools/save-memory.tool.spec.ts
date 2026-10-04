@@ -29,6 +29,12 @@ describe('memory write grounding', () => {
       { ...context, currentMessage: 'Vejetaryenim, yemek seçenekleri neler?' },
       new AbortController().signal,
     );
-    expect(memory.save).toHaveBeenCalledWith('u', 'm', 'dietary_preference', 'vegetarian');
+    expect(memory.save).toHaveBeenCalledWith(
+      'u',
+      'm',
+      'dietary_preference',
+      'vegetarian',
+      undefined,
+    );
   });
 });

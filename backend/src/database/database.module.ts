@@ -1,3 +1,4 @@
+import { ConversationContext1791120000000 } from './migrations/1791120000000-conversation-context';
 import { LibraryEditing1791040000000 } from './migrations/1791040000000-library-editing';
 import { Global, Inject, Module, OnApplicationShutdown } from '@nestjs/common';
 import { DataSource } from 'typeorm';
@@ -13,7 +14,12 @@ export function createDataSource(config: Pick<AppConfig, 'DATABASE_URL'>): DataS
     ...databaseConnectionOptions(config.DATABASE_URL),
     extra: { max: 5, connectionTimeoutMillis: 15000, options: '-c search_path=public,extensions' },
     entities,
-    migrations: [Initial1730000000000, BackendOnly1791020000000, LibraryEditing1791040000000],
+    migrations: [
+      Initial1730000000000,
+      BackendOnly1791020000000,
+      LibraryEditing1791040000000,
+      ConversationContext1791120000000,
+    ],
     synchronize: false,
     installExtensions: false,
   });

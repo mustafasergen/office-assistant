@@ -1,3 +1,4 @@
+import type { ContextSummary, Topic } from '../modules/chat/context/topics';
 import {
   Column,
   CreateDateColumn,
@@ -9,6 +10,7 @@ import {
 
 @Entity('users')
 export class User {
+  @Column({ name: 'memory_revision', type: 'integer', default: 0 }) memoryRevision!: number;
   @PrimaryGeneratedColumn('uuid') id!: string;
   @CreateDateColumn({ type: 'timestamptz', name: 'created_at' }) createdAt!: Date;
 }
@@ -16,6 +18,8 @@ export class User {
 @Entity('threads')
 @Index(['userId', 'updatedAt'])
 export class Thread {
+  @Column({ name: 'context_summary', type: 'jsonb', nullable: true })
+  contextSummary!: ContextSummary | null;
   @PrimaryGeneratedColumn('uuid') id!: string;
   @Column({ name: 'user_id', type: 'uuid' }) userId!: string;
   @Column({ type: 'text', default: 'Yeni konuşma' }) title!: string;
@@ -30,6 +34,7 @@ export interface Citation {
   excerpt: string;
 }
 export interface MessageMetadata {
+  contextTopics?: Topic[];
   sources?: Citation[];
   error?: string;
   tools?: string[];
@@ -38,6 +43,8 @@ export interface MessageMetadata {
 @Entity('messages')
 @Index(['threadId', 'createdAt'])
 export class Message {
+  @Column({ name: 'context_order', type: 'bigint', generated: 'increment' }) contextOrder!: string;
+  @Column({ name: 'context_revision', type: 'integer', default: 0 }) contextRevision!: number;
   @PrimaryGeneratedColumn('uuid') id!: string;
   @Column({ name: 'thread_id', type: 'uuid' }) threadId!: string;
   @Column({ type: 'text' }) role!: 'user' | 'assistant';

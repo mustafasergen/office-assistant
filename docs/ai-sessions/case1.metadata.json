@@ -1,0 +1,14 @@
+{
+  "sessionId": "01a101ac-fd06-77a2-aaa7-4fda7aed47e1",
+  "capturedAt": "2026-10-04T15:53:56.705Z",
+  "firstRecordAt": "2026-10-03T12:11:42.004Z",
+  "lastRecordAt": "2026-10-04T15:53:55.784Z",
+  "records": 4985,
+  "sourcePrefixBytes": 31045947,
+  "sourcePrefixSha256": "dec5bf8acec176f4709129f6354c55df3ee85a20a4c83dd7a3e5e1bd36c49163",
+  "exportedBytes": 31036953,
+  "exportedSha256": "5f9887b8622c36325bfeb959de1de9ed719b7818c321bcbe8b7532236d85d468",
+  "replacements": 372,
+  "sourcePrefixUnchanged": true,
+  "transformation": "Only literal credential replacements; original JSONL formatting and record order preserved."
+}

@@ -1,0 +1,153 @@
+{
+  "config": {
+    "threshold": 0.16,
+    "topK": 3
+  },
+  "results": [
+    {
+      "query": "Yıllık izin hakkım kaç iş günü?",
+      "title": "İzin politikası",
+      "evidence": [
+        "20 iş günü"
+      ],
+      "terms": [
+        "yillik",
+        "izin",
+        "hakkim",
+        "gun"
+      ],
+      "retrieved": [
+        {
+          "title": "İzin politikası",
+          "score": 0.6842849442789004,
+          "chunkId": "1379ae0c-2ecb-4d76-b201-23eb64f4a945",
+          "content": "# İzin politikası\n## Yıllık izin\n\nUplico çalışanlarının yıllık ücretli izin hakkı 20 iş günüdür. Yıllık izin talebi, başlangıç tarihinden en az 5 iş günü önce ekip yöneticisine iletilir. Onaylanan izinler şirket takvimine eklenir. Hafta sonları yıllık izin günlerinden düşülmez.",
+          "uncovered": [
+            "hakkim"
+          ]
+        },
+        {
+          "title": "İzin politikası",
+          "score": 0.5982937812805176,
+          "chunkId": "c717d65c-c1fb-4015-a58b-037f95537517",
+          "content": "# İzin politikası\n## Diğer izinler\n\nTaşınma için yılda 1 gün idari izin verilir. Doğum günü izni, doğum gününün bulunduğu ay içinde kullanılabilen 1 iş günüdür. Hastalık halinde ekip yöneticisine aynı gün bilgi verilmelidir.",
+          "uncovered": [
+            "yillik",
+            "hakkim"
+          ]
+        },
+        {
+          "title": "İzin politikası",
+          "score": 0.5412643278398719,
+          "chunkId": "4cb7cae3-1fbe-4a2d-954b-1989dc65e0b2",
+          "content": "# İzin politikası\n## İzin değişikliği ve iptali\n\nOnaylı yıllık iznin tarihini değiştirmek veya izni iptal etmek için ekip yöneticisine yazılı bilgi verilir. Yönetici onayından sonra şirket takvimi güncellenir. İptal edilen ve kullanılmayan izin günleri izin bakiyesine geri eklenir. Çalışan, onay gelmeden yeni tarihleri kesinleşmiş kabul etmemelidir.",
+          "uncovered": [
+            "hakkim"
+          ]
+        }
+      ],
+      "selected": [
+        "1379ae0c-2ecb-4d76-b201-23eb64f4a945"
+      ],
+      "answer": "Uplico çalışanlarının yıllık ücretli izin hakkı 20 iş günüdür.",
+      "passed": true
+    },
+    {
+      "query": "Toplantı odasını nasıl rezerve ederim?",
+      "title": "Ofis kuralları",
+      "evidence": [
+        "şirket takviminden rezerve edilir"
+      ],
+      "terms": [
+        "toplanti",
+        "odasini",
+        "rezervasyon",
+        "ederim"
+      ],
+      "retrieved": [
+        {
+          "title": "Ofis kuralları",
+          "score": 0.3724457025527954,
+          "chunkId": "eed4aaeb-e4b7-4223-827b-bcb5b1950959",
+          "content": "# Ofis kuralları\n## Toplantı odaları\n\nToplantı odaları şirket takviminden rezerve edilir. Rezervasyon başlangıcından 10 dakika sonra kullanılmayan oda serbest bırakılır. Toplantı bitiminde ekipman kapatılır ve masa düzenlenir.",
+          "uncovered": [
+            "odasini",
+            "ederim"
+          ]
+        },
+        {
+          "title": "Çalışma düzeni",
+          "score": 0.23276542127132416,
+          "chunkId": "64949db8-06c8-4b99-a555-566f92910b9e",
+          "content": "# Çalışma düzeni\n## Odaklanma ve toplantı planlama\n\nToplantı davetinde gündem, beklenen çıktı ve gerekli katılımcılar belirtilir. Ortak toplantı saatleri dışında bir görüşme gerekiyorsa katılımcıların uygunluğu önceden sorulur. Odaklanma için ayrılan takvim blokları dikkate alınır. Toplantı kararları ilgili ekip kanalında kısa notlarla paylaşılır.",
+          "uncovered": [
+            "odasini",
+            "rezervasyon",
+            "ederim"
+          ]
+        }
+      ],
+      "selected": [
+        "eed4aaeb-e4b7-4223-827b-bcb5b1950959"
+      ],
+      "answer": "Toplantı odaları şirket takviminden rezerve edilir. Rezervasyon başlangıcından 10 dakika sonra kullanılmayan oda serbest bırakılır. Toplantı bitiminde ekipman kapatılır ve masa düzenlenir.",
+      "passed": true
+    },
+    {
+      "query": "Ofiste telefon görüşmelerini nerede yapabilirim?",
+      "title": "Ofis kuralları",
+      "evidence": [
+        "telefon kabinlerinde veya toplantı odalarında"
+      ],
+      "terms": [
+        "ofis",
+        "telefon",
+        "gorusmelerini",
+        "nerede",
+        "yapabilirim"
+      ],
+      "retrieved": [
+        {
+          "title": "Ofis kuralları",
+          "score": 0.3736950270442674,
+          "chunkId": "c5d50932-56d4-4f3f-8783-036463cb0ede",
+          "content": "# Ofis kuralları\n## Ortak alanlar\n\nOfis sessiz çalışma alanlarında telefon görüşmesi yapılmaz. Görüşmeler telefon kabinlerinde veya toplantı odalarında yapılır. Ortak mutfak kullanımdan sonra temiz bırakılır. Ofise gelen misafirler resepsiyona kaydedilir.",
+          "uncovered": [
+            "gorusmelerini",
+            "nerede",
+            "yapabilirim"
+          ]
+        },
+        {
+          "title": "Ofis kuralları",
+          "score": 0.2303996441125553,
+          "chunkId": "6d6fcf31-ee67-4e4f-ac76-47309ffc60a2",
+          "content": "# Ofis kuralları\n## Ortak ekipman ve arıza\n\nToplantı ekranı, kamera veya yazıcı arızası ofis ekibine cihazın konumu ve sorun açıklamasıyla bildirilir. Arızalı cihaz zorlanmaz ve yetkisiz tamir yapılmaz. Kullanılan adaptör ve kablolar iş bitiminde yerlerine bırakılır. Yazıcıdan çıkan şirket belgeleri bekletilmeden alınır.",
+          "uncovered": [
+            "telefon",
+            "gorusmelerini",
+            "nerede",
+            "yapabilirim"
+          ]
+        },
+        {
+          "title": "Ofis kuralları",
+          "score": 0.21743341438273833,
+          "chunkId": "db811a4c-4c4c-4f38-a049-3c88995438b0",
+          "content": "# Ofis kuralları\n## Acil durum ve çıkışlar\n\nAcil çıkış kapıları ve koridorlar eşya ile kapatılmaz. Alarm halinde bina tahliye yönlendirmeleri izlenir, asansör kullanılmaz ve toplanma alanına gidilir. Toplanma alanının konumu resepsiyondaki tahliye planında gösterilir. Bina görevlileri izin vermeden ofise geri dönülmez.",
+          "uncovered": [
+            "telefon",
+            "gorusmelerini",
+            "nerede",
+            "yapabilirim"
+          ]
+        }
+      ],
+      "selected": [
+        "c5d50932-56d4-4f3f-8783-036463cb0ede"
+      ],
+      "answer": "Ofis sessiz çalışma alanlarında telefon görüşmesi yapılmaz. Görüşmeler telefon kabinlerinde veya toplantı odalarında yapılır. Ortak mutfak kullanımdan sonra temiz bırakılır. Ofise gelen misafirler resepsiyona kaydedilir.",
+      "passed": true
+    }
+  ]
+}

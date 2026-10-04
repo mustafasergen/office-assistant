@@ -3,7 +3,7 @@
     {
       "extname": "vector",
       "extversion": "0.8.2",
-      "schema": "extensions"
+      "schema": "public"
     }
   ],
   "columns": [
@@ -218,6 +218,20 @@
       "default_value": "now()"
     },
     {
+      "table_name": "messages",
+      "column_name": "context_revision",
+      "type": "integer",
+      "not_null": true,
+      "default_value": "0"
+    },
+    {
+      "table_name": "messages",
+      "column_name": "context_order",
+      "type": "bigint",
+      "not_null": true,
+      "default_value": "nextval('messages_context_order_seq'::regclass)"
+    },
+    {
       "table_name": "migrations",
       "column_name": "id",
       "type": "integer",
@@ -274,6 +288,13 @@
       "default_value": "now()"
     },
     {
+      "table_name": "threads",
+      "column_name": "context_summary",
+      "type": "jsonb",
+      "not_null": false,
+      "default_value": null
+    },
+    {
       "table_name": "users",
       "column_name": "id",
       "type": "uuid",
@@ -286,6 +307,13 @@
       "type": "timestamp with time zone",
       "not_null": true,
       "default_value": "now()"
+    },
+    {
+      "table_name": "users",
+      "column_name": "memory_revision",
+      "type": "integer",
+      "not_null": true,
+      "default_value": "0"
     }
   ],
   "constraints": [
@@ -408,6 +436,11 @@
     },
     {
       "tablename": "messages",
+      "indexname": "messages_context_order",
+      "indexdef": "CREATE INDEX messages_context_order ON public.messages USING btree (thread_id, context_order)"
+    },
+    {
+      "tablename": "messages",
       "indexname": "messages_pkey",
       "indexdef": "CREATE UNIQUE INDEX messages_pkey ON public.messages USING btree (id)"
     },
@@ -480,6 +513,10 @@
     {
       "timestamp": "1791040000000",
       "name": "LibraryEditing1791040000000"
+    },
+    {
+      "timestamp": "1791120000000",
+      "name": "ConversationContext1791120000000"
     }
   ]
 }

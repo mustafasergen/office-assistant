@@ -172,7 +172,11 @@ describe('OpenAIProvider contract', () => {
     });
     const sent = client.responses.create.mock.calls[0][0];
     expect(sent.input).toEqual(expect.arrayContaining(history));
-    expect(sent.instructions).toContain('geçmişten tamamlamamalı');
+    expect(sent.instructions).toContain('Do not fill it from history');
+    expect(sent.instructions).toContain('Always reply to the user in Turkish');
+    expect(JSON.stringify([sent.instructions, sent.tools, sent.text])).not.toMatch(
+      /[çğıöşüÇĞİÖŞÜ]/,
+    );
     expect(sent.tools.map((tool: { name: string }) => tool.name)).not.toContain('save_memory');
   });
   it('requests 1536 dimensions and preserves embedding input order', async () => {
@@ -236,5 +240,98 @@ describe('OpenAIProvider contract', () => {
         ],
       }),
     ).rejects.toThrow('kanıt');
+  });
+});
+
+describe('OpenAI summary contract (fake SDK, no live API)', () => {
+  it('P1 sends safe summary separately from authoritative current memory without enabling historical saves', async () => {
+    const { client, provider } = setup();
+    client.responses.create.mockResolvedValue({
+      status: 'completed',
+      output: [],
+      output_text: JSON.stringify({
+        content: 'Bilinmiyor',
+        memoryRecall: ['dietary_preference'],
+        answerable: false,
+        evidence: [],
+      }),
+    });
+    await provider.chat({
+      ...input,
+      currentMessage: 'Beslenme tercihim ne?',
+      summary: 'Konuşulan konular: İzin başvuru süreci.',
+      memories: [],
+    });
+    const sent = client.responses.create.mock.calls[0][0];
+    expect(JSON.stringify(sent.input)).toContain('İzin başvuru süreci');
+    expect(JSON.stringify(sent)).not.toMatch(/vegan/i);
+    expect(sent.tools.some((t: { name: string }) => t.name === 'save_memory')).toBe(false);
+  });
+  it('P1 rebuilds matching function calls/results when continuation was discarded after a memory write', async () => {
+    const { client, provider } = setup();
+    client.responses.create.mockResolvedValue({
+      status: 'completed',
+      output: [],
+      output_text: JSON.stringify({
+        content: 'Kaydedildi',
+        memoryRecall: [],
+        answerable: false,
+        evidence: [],
+      }),
+    });
+    await provider.chat({
+      ...input,
+      currentMessage: 'Vejetaryenim',
+      history: [],
+      memories: [{ key: 'dietary_preference', value: 'vegetarian' }],
+      toolResults: [
+        {
+          call: {
+            id: 'saved1',
+            name: 'save_memory',
+            arguments: { key: 'dietary_preference', value: 'vegetarian' },
+          },
+          output: {
+            kind: 'memory',
+            key: 'dietary_preference',
+            value: 'vegetarian',
+            status: 'updated',
+            revision: 2,
+          },
+        },
+      ],
+    });
+    const sent = client.responses.create.mock.calls[0][0];
+    expect(sent.input).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({ type: 'function_call', call_id: 'saved1' }),
+        expect.objectContaining({ type: 'function_call_output', call_id: 'saved1' }),
+      ]),
+    );
+    expect(JSON.stringify(sent.input)).not.toContain('vegan');
+  });
+  it('P2 searches the resolved followup, never the vague original', async () => {
+    const { client, provider } = setup();
+    client.responses.create.mockResolvedValue({
+      status: 'completed',
+      output: [
+        {
+          type: 'function_call',
+          call_id: 's',
+          name: 'search_docs',
+          arguments: '{"query":"Peki kaç gün önceden?"}',
+        },
+      ],
+    });
+    const result = await provider.chat({
+      ...input,
+      currentMessage: 'Peki kaç gün önceden?',
+      query: 'Yıllık izin talebi kaç gün önceden iletilir?',
+      summary: 'Son şirket konusu: İzin başvuru süreci.',
+    });
+    expect(result).toMatchObject({
+      kind: 'tool_calls',
+      calls: [{ arguments: { query: 'Yıllık izin talebi kaç gün önceden iletilir?' } }],
+    });
   });
 });
