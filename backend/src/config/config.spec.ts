@@ -2,6 +2,8 @@ import { readConfig } from './config';
 describe('configuration', () => {
   it('boots in mock mode without secrets', () => {
     expect(readConfig({}).LLM_PROVIDER).toBe('mock');
+    expect(readConfig({}).BIND_HOST).toBe('0.0.0.0');
+    expect(readConfig({ BIND_HOST: '127.0.0.1' }).BIND_HOST).toBe('127.0.0.1');
   });
   it('requires OpenAI credentials only in OpenAI mode', () => {
     expect(() => readConfig({ LLM_PROVIDER: 'openai' })).toThrow('OPENAI_API_KEY');

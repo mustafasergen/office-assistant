@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=https://render.com/schema/render.yaml.json
+services:
+  - type: web
+    name: office-assistant
+    runtime: docker
+    repo: https://github.com/mustafasergen/office-assistant
+    branch: main
+    region: frankfurt
+    plan: 0.5c-512mb # 512 MB / 0.5 CPU; formerly Starter, $7/month (checked 2026-10-04).
+    numInstances: 1
+    autoDeployTrigger: off
+    dockerfilePath: ./Dockerfile.render
+    dockerContext: .
+    healthCheckPath: /api/health/ready
+    maxShutdownDelaySeconds: 90
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: '10000'
+      - key: LLM_PROVIDER
+        value: mock
+      - key: COOKIE_SECURE
+        value: 'true'
+      - key: COOKIE_SECRET
+        generateValue: true
+      - key: DATABASE_URL
+        sync: false
+    # Optional: add OPENAI_API_KEY in the service dashboard, then set LLM_PROVIDER=openai.
+    # No Render database, second service, persistent disk, or preview instance is created.

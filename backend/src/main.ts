@@ -11,7 +11,7 @@ async function main() {
   const app = await NestFactory.create(AppModule, { bodyParser: false });
   const config = app.get<AppConfig>(CONFIG);
   configureApp(app, config);
-  await app.listen(config.PORT, '0.0.0.0');
+  await app.listen(config.PORT, config.BIND_HOST);
 }
 main().catch((error: unknown) => {
   console.error(error instanceof Error ? error.message : 'Başlatma hatası');

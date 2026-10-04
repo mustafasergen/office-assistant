@@ -23,6 +23,7 @@ jobs:
       - run: pnpm lint
       - run: pnpm typecheck
       - run: pnpm test
+      - run: pnpm test:render
       - run: pnpm build
         env:
           NEXT_TELEMETRY_DISABLED: '1'
@@ -47,12 +48,19 @@ jobs:
       - run: pnpm test:e2e
       - name: Verify persistence across container restart
         run: node scripts/check-persistence.mjs
+      - name: Build and start the single-container Render image
+        run: docker compose -p uplico-ci-render -f compose.render-test.yaml up --build -d --wait --wait-timeout 240
+      - name: Verify Render image through the frontend
+        run: pnpm test:e2e
+        env:
+          BASE_URL: http://localhost:3003
       - name: Collect container logs
         if: always()
         run: |
           mkdir -p test-results
           docker compose logs --no-color > test-results/compose.log 2>&1
           docker compose -p uplico-ci-test -f compose.test.yaml logs --no-color > test-results/integration.log 2>&1
+          docker compose -p uplico-ci-render -f compose.render-test.yaml logs --no-color > test-results/render.log 2>&1
       - uses: actions/upload-artifact@v4
         if: failure()
         with:
@@ -66,3 +74,4 @@ jobs:
         run: |
           docker compose down -v
           docker compose -p uplico-ci-test -f compose.test.yaml down -v
+          docker compose -p uplico-ci-render -f compose.render-test.yaml down -v

@@ -14,6 +14,7 @@
     "test:integration": "pnpm --filter backend test:integration",
     "test:evaluation": "pnpm --filter backend test:evaluation",
     "test:e2e": "playwright test",
+    "test:render": "node --test tests/render/*.test.mjs",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
   },

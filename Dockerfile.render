@@ -1,0 +1,48 @@
+FROM node:22.22.0-bookworm-slim AS base
+ENV PNPM_HOME=/pnpm
+ENV PATH=$PNPM_HOME:$PATH
+ENV NEXT_TELEMETRY_DISABLED=1
+RUN corepack enable && corepack prepare pnpm@10.34.6 --activate
+WORKDIR /app
+
+FROM base AS dependencies
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+COPY backend/package.json backend/package.json
+COPY frontend/package.json frontend/package.json
+RUN pnpm install --frozen-lockfile
+
+FROM dependencies AS build
+COPY backend backend
+COPY frontend frontend
+RUN pnpm --filter backend build && pnpm --filter frontend build
+
+# Keep backend dependencies separate from Next's traced node_modules/symlinks.
+FROM base AS backend-runtime
+WORKDIR /backend-app
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+COPY backend/package.json backend/package.json
+COPY frontend/package.json frontend/package.json
+RUN pnpm install --prod --frozen-lockfile --filter backend
+
+FROM node:22.22.0-bookworm-slim AS runtime
+WORKDIR /app
+ENV NODE_ENV=production
+ENV NEXT_TELEMETRY_DISABLED=1
+ENV PORT=10000
+ENV LLM_PROVIDER=mock
+ENV COOKIE_SECURE=true
+ENV DOCUMENTS_DIR=/app/fixtures/documents
+COPY --from=backend-runtime --chown=node:node /backend-app /app/backend-app
+COPY --from=build --chown=node:node /app/backend/dist /app/backend-app/backend/dist
+COPY --chown=node:node backend/supabase /app/backend-app/backend/supabase
+COPY --from=build --chown=node:node /app/frontend/.next/standalone /app/web
+COPY --from=build --chown=node:node /app/frontend/.next/static /app/web/frontend/.next/static
+COPY --from=build --chown=node:node /app/frontend/public /app/web/frontend/public
+COPY --chown=node:node fixtures /app/fixtures
+COPY --chown=node:node scripts/render-start.mjs scripts/render-healthcheck.mjs /app/scripts/
+USER node
+EXPOSE 10000
+STOPSIGNAL SIGTERM
+HEALTHCHECK --interval=10s --timeout=5s --start-period=300s --retries=3 \
+  CMD ["node", "scripts/render-healthcheck.mjs"]
+CMD ["node", "scripts/render-start.mjs"]

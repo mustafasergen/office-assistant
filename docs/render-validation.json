@@ -1,0 +1,128 @@
+{
+  "date": "2026-10-04",
+  "scope": "Local-only preparation; no push, Render API mutation, deploy, Supabase connection or OpenAI call.",
+  "unitTests": 54,
+  "supervisorRealProcessTests": 8,
+  "renderImagePlaywrightTests": 9,
+  "localThreeContainerPlaywrightTests": 9,
+  "lint": "passed",
+  "typecheck": "passed",
+  "dockerBuilds": "passed: Render and unchanged local Dockerfiles",
+  "blueprintValidation": "Passed official JSON Schema 2020-12 locally; no authenticated Render validation/deploy",
+  "lifecycle": {
+    "cleanShutdownExitCode": 0,
+    "restartPreservedTestDatabase": true,
+    "backendCrashExitCode": 1,
+    "peerTerminated": true,
+    "backendLoopbackOnly": true,
+    "frontendSecretsAbsent": true
+  },
+  "unchangedFiles": {
+    ".env": true,
+    "compose.yaml": true,
+    "frontend/Dockerfile": true,
+    "backend/Dockerfile": true
+  },
+  "plan": {
+    "id": "0.5c-512mb",
+    "memoryMiB": 512,
+    "cpu": 0.5,
+    "computeUSDPerMonth": 7,
+    "checkedOn": "2026-10-04"
+  },
+  "limitations": [
+    "Small mock seed dataset on local Docker; not a Render/Supabase/OpenAI production load test.",
+    "Build includes no database or API credentials.",
+    "GitHub Actions changes prepared but no remote run triggered.",
+    "Measured on local Docker ARM64, not Render hardware. Concurrency is a short mock burst; no sustained production or live OpenAI capacity guarantee."
+  ],
+  "baseline2GiB": {
+    "environment": "local Docker, 2 GiB / 1 CPU, mock + isolated pgvector DB",
+    "users": 16,
+    "chatRequests": 96,
+    "passed": 96,
+    "p95Ms": 696,
+    "before": {
+      "currentBytes": 144220160,
+      "peakBytes": 158244864,
+      "limitBytes": 2147483648
+    },
+    "after": {
+      "currentBytes": 175353856,
+      "peakBytes": 176631808,
+      "limitBytes": 2147483648
+    }
+  },
+  "load": {
+    "environment": "Local Docker, 512 MiB / 0.5 CPU, swap disabled; mock with isolated pgvector; four seed documents",
+    "before": {
+      "currentBytes": 128614400,
+      "peakBytes": 131674112,
+      "limitBytes": 536870912,
+      "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "cpu": "50000 100000\n"
+    },
+    "rounds": [
+      {
+        "users": 8,
+        "requests": 96,
+        "passed": 96,
+        "elapsedMs": 4012,
+        "p95Ms": 908,
+        "maxMs": 1202,
+        "memory": {
+          "currentBytes": 149303296,
+          "peakBytes": 149303296,
+          "limitBytes": 536870912,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+          "cpu": "50000 100000\n"
+        }
+      },
+      {
+        "users": 16,
+        "requests": 192,
+        "passed": 192,
+        "elapsedMs": 5243,
+        "p95Ms": 702,
+        "maxMs": 809,
+        "memory": {
+          "currentBytes": 152801280,
+          "peakBytes": 159203328,
+          "limitBytes": 536870912,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+          "cpu": "50000 100000\n"
+        }
+      },
+      {
+        "users": 32,
+        "requests": 384,
+        "passed": 384,
+        "elapsedMs": 11418,
+        "p95Ms": 1485,
+        "maxMs": 1887,
+        "memory": {
+          "currentBytes": 168710144,
+          "peakBytes": 168710144,
+          "limitBytes": 536870912,
+          "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+          "cpu": "50000 100000\n"
+        }
+      }
+    ],
+    "after": {
+      "currentBytes": 162299904,
+      "peakBytes": 170909696,
+      "limitBytes": 536870912,
+      "events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "cpu": "50000 100000\n"
+    },
+    "scenario": "Each user creates a private session/thread and sends 12 sequential annual-leave questions, exercising history up to 20 messages. Each response must be HTTP 201, include the correct 20-day answer and at least one source. Browser tests additionally cover document CRUD and memory save/delete across threads.",
+    "totalRequests": 672,
+    "postBrowserTests": {
+      "currentBytes": 136769536,
+      "peakBytes": 170909696,
+      "oom": 0,
+      "oomKill": 0
+    }
+  }
+}

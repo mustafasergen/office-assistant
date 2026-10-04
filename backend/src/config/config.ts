@@ -6,6 +6,7 @@ import { APP_DEFAULTS, SEARCH_MIN_SCORES, SEARCH_TOP_K_BY_PROVIDER } from './def
 const schema = z
   .object({
     PORT: z.coerce.number().int().min(1).max(65535).default(3001),
+    BIND_HOST: z.enum(['0.0.0.0', '127.0.0.1']).default('0.0.0.0'),
     DATABASE_URL: z.preprocess(
       (value) => (value === '' ? undefined : value),
       z.string().url().default('postgresql://uplico:uplico@localhost:5432/uplico'),

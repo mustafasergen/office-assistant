@@ -80,6 +80,8 @@ Mock sınırlı Türkçe kurallarla çalışır. Hafıza her iki modda isim, dep
 
 ## Geliştirme ve kontroller
 
+Render'da tek ücretli Web Service için kökte `render.yaml` ve `Dockerfile.render` bulunur. Bu imaj Next.js ve NestJS'i birlikte çalıştırır; veritabanı mevcut Supabase'dir. Local `docker compose up` düzeni üç ayrı container olarak kalır. Blueprint kurulumu, secret alanları, plan/maliyet ve test komutları: [Render yayınlama rehberi](docs/render.md).
+
 Docker dışında geliştirme/test için Node 22+ ve pnpm 10.34.6 gerekir.
 
 ```sh
@@ -88,6 +90,7 @@ pnpm install --frozen-lockfile
 pnpm lint
 pnpm typecheck
 pnpm test
+pnpm test:render
 pnpm build
 
 # İzole PostgreSQL/pgvector entegrasyon testleri
