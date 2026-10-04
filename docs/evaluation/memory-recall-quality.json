@@ -1,0 +1,20 @@
+{
+  "unit": 54,
+  "postgresApiIntegration": 13,
+  "playwright": 9,
+  "mockAndCommon": 128,
+  "fakeSdkEvaluation": 9,
+  "liveOpenAISupabase": 106,
+  "failedFinal": 0,
+  "apiCalls": 470,
+  "chatCalls": 464,
+  "embeddingCalls": 6,
+  "estimatedCostUSD": 0.2838749799999992,
+  "embeddingCacheReused": true,
+  "lint": "passed",
+  "typecheck": "passed",
+  "dockerBuildAndHealth": "passed",
+  "supabasePublicTablesUnchanged": true,
+  "temporaryProjectsRemoved": true,
+  "envUnchanged": true
+}

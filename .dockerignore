@@ -1,0 +1,14 @@
+**/node_modules
+**/.next
+**/dist
+**/coverage
+.git
+**/.env
+**/.env.*
+delivery
+test-results
+playwright-report
+*.log
+
+PROJECT.MD
+evaluation-results

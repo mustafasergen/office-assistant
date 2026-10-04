@@ -1,0 +1,30 @@
+{
+  "unit": {
+    "passed": 45,
+    "failed": 0
+  },
+  "postgresIntegration": {
+    "passed": 13,
+    "failed": 0
+  },
+  "playwright": {
+    "passed": 9,
+    "failed": 0,
+    "baseUrl": "http://localhost:3002",
+    "isolated": true
+  },
+  "lint": "passed",
+  "typecheck": "passed",
+  "dockerBuild": "passed",
+  "composeHealth": [
+    "frontend",
+    "backend",
+    "postgres"
+  ],
+  "ciEvaluationDocker": {
+    "passed": 134,
+    "failed": 0
+  },
+  "githubActions": "workflow updated; no remote GitHub run claimed",
+  "evaluationReportSurvivesPlaywright": true
+}

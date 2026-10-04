@@ -1,0 +1,6 @@
+# Optional: local Node development with only PostgreSQL in Docker.
+# docker compose -f compose.yaml -f compose.dev.yaml up -d postgres
+services:
+  postgres:
+    ports:
+      - '127.0.0.1:5432:5432'

@@ -1,0 +1,43 @@
+services:
+  test-db:
+    image: pgvector/pgvector:0.8.2-pg16-bookworm
+    environment:
+      POSTGRES_USER: test
+      POSTGRES_PASSWORD: test
+      POSTGRES_DB: uplico_test
+    tmpfs:
+      - /var/lib/postgresql/data
+    healthcheck:
+      test: [CMD-SHELL, pg_isready -U test -d uplico_test]
+      interval: 2s
+      timeout: 5s
+      retries: 20
+  integration:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+      target: test
+    environment:
+      NODE_ENV: test
+      TEST_DATABASE_URL: postgresql://test:test@test-db:5432/uplico_test
+      DOCUMENTS_DIR: /app/fixtures/documents
+    depends_on:
+      test-db:
+        condition: service_healthy
+  evaluation:
+    profiles: [evaluation]
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+      target: test
+    command: [pnpm, test:evaluation]
+    environment:
+      NODE_ENV: test
+      TEST_DATABASE_URL: postgresql://test:test@test-db:5432/uplico_test
+      DOCUMENTS_DIR: /app/fixtures/documents
+      EVAL_LABEL: ci
+    volumes:
+      - ./evaluation-results:/app/docs/evaluation
+    depends_on:
+      test-db:
+        condition: service_healthy

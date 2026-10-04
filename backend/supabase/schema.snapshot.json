@@ -1,0 +1,485 @@
+{
+  "extensions": [
+    {
+      "extname": "vector",
+      "extversion": "0.8.2",
+      "schema": "extensions"
+    }
+  ],
+  "columns": [
+    {
+      "table_name": "document_chunks",
+      "column_name": "id",
+      "type": "uuid",
+      "not_null": true,
+      "default_value": "gen_random_uuid()"
+    },
+    {
+      "table_name": "document_chunks",
+      "column_name": "document_id",
+      "type": "uuid",
+      "not_null": true,
+      "default_value": null
+    },
+    {
+      "table_name": "document_chunks",
+      "column_name": "chunk_index",
+      "type": "integer",
+      "not_null": true,
+      "default_value": null
+    },
+    {
+      "table_name": "document_chunks",
+      "column_name": "content",
+      "type": "text",
+      "not_null": true,
+      "default_value": null
+    },
+    {
+      "table_name": "document_chunks",
+      "column_name": "content_hash",
+      "type": "text",
+      "not_null": true,
+      "default_value": null
+    },
+    {
+      "table_name": "document_chunks",
+      "column_name": "embedding",
+      "type": "vector(1536)",
+      "not_null": true,
+      "default_value": null
+    },
+    {
+      "table_name": "document_chunks",
+      "column_name": "embedding_key",
+      "type": "text",
+      "not_null": true,
+      "default_value": null
+    },
+    {
+      "table_name": "documents",
+      "column_name": "id",
+      "type": "uuid",
+      "not_null": true,
+      "default_value": "gen_random_uuid()"
+    },
+    {
+      "table_name": "documents",
+      "column_name": "slug",
+      "type": "text",
+      "not_null": true,
+      "default_value": null
+    },
+    {
+      "table_name": "documents",
+      "column_name": "title",
+      "type": "text",
+      "not_null": true,
+      "default_value": null
+    },
+    {
+      "table_name": "documents",
+      "column_name": "content",
+      "type": "text",
+      "not_null": true,
+      "default_value": null
+    },
+    {
+      "table_name": "documents",
+      "column_name": "content_hash",
+      "type": "text",
+      "not_null": true,
+      "default_value": null
+    },
+    {
+      "table_name": "documents",
+      "column_name": "updated_at",
+      "type": "timestamp with time zone",
+      "not_null": true,
+      "default_value": "now()"
+    },
+    {
+      "table_name": "documents",
+      "column_name": "description",
+      "type": "text",
+      "not_null": true,
+      "default_value": "''::text"
+    },
+    {
+      "table_name": "documents",
+      "column_name": "revision",
+      "type": "integer",
+      "not_null": true,
+      "default_value": "1"
+    },
+    {
+      "table_name": "documents",
+      "column_name": "deleted_at",
+      "type": "timestamp with time zone",
+      "not_null": false,
+      "default_value": null
+    },
+    {
+      "table_name": "memories",
+      "column_name": "id",
+      "type": "uuid",
+      "not_null": true,
+      "default_value": "gen_random_uuid()"
+    },
+    {
+      "table_name": "memories",
+      "column_name": "user_id",
+      "type": "uuid",
+      "not_null": true,
+      "default_value": null
+    },
+    {
+      "table_name": "memories",
+      "column_name": "key",
+      "type": "text",
+      "not_null": true,
+      "default_value": null
+    },
+    {
+      "table_name": "memories",
+      "column_name": "value",
+      "type": "text",
+      "not_null": true,
+      "default_value": null
+    },
+    {
+      "table_name": "memories",
+      "column_name": "source_message_id",
+      "type": "uuid",
+      "not_null": false,
+      "default_value": null
+    },
+    {
+      "table_name": "memories",
+      "column_name": "created_at",
+      "type": "timestamp with time zone",
+      "not_null": true,
+      "default_value": "now()"
+    },
+    {
+      "table_name": "memories",
+      "column_name": "updated_at",
+      "type": "timestamp with time zone",
+      "not_null": true,
+      "default_value": "now()"
+    },
+    {
+      "table_name": "messages",
+      "column_name": "id",
+      "type": "uuid",
+      "not_null": true,
+      "default_value": "gen_random_uuid()"
+    },
+    {
+      "table_name": "messages",
+      "column_name": "thread_id",
+      "type": "uuid",
+      "not_null": true,
+      "default_value": null
+    },
+    {
+      "table_name": "messages",
+      "column_name": "role",
+      "type": "text",
+      "not_null": true,
+      "default_value": null
+    },
+    {
+      "table_name": "messages",
+      "column_name": "content",
+      "type": "text",
+      "not_null": true,
+      "default_value": null
+    },
+    {
+      "table_name": "messages",
+      "column_name": "status",
+      "type": "text",
+      "not_null": true,
+      "default_value": "'completed'::text"
+    },
+    {
+      "table_name": "messages",
+      "column_name": "metadata",
+      "type": "jsonb",
+      "not_null": true,
+      "default_value": "'{}'::jsonb"
+    },
+    {
+      "table_name": "messages",
+      "column_name": "created_at",
+      "type": "timestamp with time zone",
+      "not_null": true,
+      "default_value": "now()"
+    },
+    {
+      "table_name": "migrations",
+      "column_name": "id",
+      "type": "integer",
+      "not_null": true,
+      "default_value": "nextval('migrations_id_seq'::regclass)"
+    },
+    {
+      "table_name": "migrations",
+      "column_name": "timestamp",
+      "type": "bigint",
+      "not_null": true,
+      "default_value": null
+    },
+    {
+      "table_name": "migrations",
+      "column_name": "name",
+      "type": "character varying",
+      "not_null": true,
+      "default_value": null
+    },
+    {
+      "table_name": "threads",
+      "column_name": "id",
+      "type": "uuid",
+      "not_null": true,
+      "default_value": "gen_random_uuid()"
+    },
+    {
+      "table_name": "threads",
+      "column_name": "user_id",
+      "type": "uuid",
+      "not_null": true,
+      "default_value": null
+    },
+    {
+      "table_name": "threads",
+      "column_name": "title",
+      "type": "text",
+      "not_null": true,
+      "default_value": "'Yeni konuşma'::text"
+    },
+    {
+      "table_name": "threads",
+      "column_name": "created_at",
+      "type": "timestamp with time zone",
+      "not_null": true,
+      "default_value": "now()"
+    },
+    {
+      "table_name": "threads",
+      "column_name": "updated_at",
+      "type": "timestamp with time zone",
+      "not_null": true,
+      "default_value": "now()"
+    },
+    {
+      "table_name": "users",
+      "column_name": "id",
+      "type": "uuid",
+      "not_null": true,
+      "default_value": "gen_random_uuid()"
+    },
+    {
+      "table_name": "users",
+      "column_name": "created_at",
+      "type": "timestamp with time zone",
+      "not_null": true,
+      "default_value": "now()"
+    }
+  ],
+  "constraints": [
+    {
+      "table_name": "document_chunks",
+      "name": "document_chunks_document_id_chunk_index_key",
+      "definition": "UNIQUE (document_id, chunk_index)"
+    },
+    {
+      "table_name": "document_chunks",
+      "name": "document_chunks_document_id_fkey",
+      "definition": "FOREIGN KEY (document_id) REFERENCES documents(id) ON DELETE CASCADE"
+    },
+    {
+      "table_name": "document_chunks",
+      "name": "document_chunks_pkey",
+      "definition": "PRIMARY KEY (id)"
+    },
+    {
+      "table_name": "documents",
+      "name": "documents_pkey",
+      "definition": "PRIMARY KEY (id)"
+    },
+    {
+      "table_name": "documents",
+      "name": "documents_slug_key",
+      "definition": "UNIQUE (slug)"
+    },
+    {
+      "table_name": "memories",
+      "name": "memories_pkey",
+      "definition": "PRIMARY KEY (id)"
+    },
+    {
+      "table_name": "memories",
+      "name": "memories_source_message_id_fkey",
+      "definition": "FOREIGN KEY (source_message_id) REFERENCES messages(id) ON DELETE SET NULL"
+    },
+    {
+      "table_name": "memories",
+      "name": "memories_user_id_fkey",
+      "definition": "FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE"
+    },
+    {
+      "table_name": "memories",
+      "name": "memories_user_id_key_key",
+      "definition": "UNIQUE (user_id, key)"
+    },
+    {
+      "table_name": "messages",
+      "name": "messages_pkey",
+      "definition": "PRIMARY KEY (id)"
+    },
+    {
+      "table_name": "messages",
+      "name": "messages_role_check",
+      "definition": "CHECK ((role = ANY (ARRAY['user'::text, 'assistant'::text])))"
+    },
+    {
+      "table_name": "messages",
+      "name": "messages_status_check",
+      "definition": "CHECK ((status = ANY (ARRAY['processing'::text, 'completed'::text, 'failed'::text])))"
+    },
+    {
+      "table_name": "messages",
+      "name": "messages_thread_id_fkey",
+      "definition": "FOREIGN KEY (thread_id) REFERENCES threads(id) ON DELETE CASCADE"
+    },
+    {
+      "table_name": "migrations",
+      "name": "PK_8c82d7f526340ab734260ea46be",
+      "definition": "PRIMARY KEY (id)"
+    },
+    {
+      "table_name": "threads",
+      "name": "threads_pkey",
+      "definition": "PRIMARY KEY (id)"
+    },
+    {
+      "table_name": "threads",
+      "name": "threads_user_id_fkey",
+      "definition": "FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE"
+    },
+    {
+      "table_name": "users",
+      "name": "users_pkey",
+      "definition": "PRIMARY KEY (id)"
+    }
+  ],
+  "indexes": [
+    {
+      "tablename": "document_chunks",
+      "indexname": "document_chunks_document_id_chunk_index_key",
+      "indexdef": "CREATE UNIQUE INDEX document_chunks_document_id_chunk_index_key ON public.document_chunks USING btree (document_id, chunk_index)"
+    },
+    {
+      "tablename": "document_chunks",
+      "indexname": "document_chunks_pkey",
+      "indexdef": "CREATE UNIQUE INDEX document_chunks_pkey ON public.document_chunks USING btree (id)"
+    },
+    {
+      "tablename": "documents",
+      "indexname": "documents_pkey",
+      "indexdef": "CREATE UNIQUE INDEX documents_pkey ON public.documents USING btree (id)"
+    },
+    {
+      "tablename": "documents",
+      "indexname": "documents_slug_key",
+      "indexdef": "CREATE UNIQUE INDEX documents_slug_key ON public.documents USING btree (slug)"
+    },
+    {
+      "tablename": "memories",
+      "indexname": "memories_pkey",
+      "indexdef": "CREATE UNIQUE INDEX memories_pkey ON public.memories USING btree (id)"
+    },
+    {
+      "tablename": "memories",
+      "indexname": "memories_user_id_key_key",
+      "indexdef": "CREATE UNIQUE INDEX memories_user_id_key_key ON public.memories USING btree (user_id, key)"
+    },
+    {
+      "tablename": "messages",
+      "indexname": "messages_pkey",
+      "indexdef": "CREATE UNIQUE INDEX messages_pkey ON public.messages USING btree (id)"
+    },
+    {
+      "tablename": "messages",
+      "indexname": "messages_thread_created",
+      "indexdef": "CREATE INDEX messages_thread_created ON public.messages USING btree (thread_id, created_at, id)"
+    },
+    {
+      "tablename": "migrations",
+      "indexname": "PK_8c82d7f526340ab734260ea46be",
+      "indexdef": "CREATE UNIQUE INDEX \"PK_8c82d7f526340ab734260ea46be\" ON public.migrations USING btree (id)"
+    },
+    {
+      "tablename": "threads",
+      "indexname": "threads_pkey",
+      "indexdef": "CREATE UNIQUE INDEX threads_pkey ON public.threads USING btree (id)"
+    },
+    {
+      "tablename": "threads",
+      "indexname": "threads_user_updated",
+      "indexdef": "CREATE INDEX threads_user_updated ON public.threads USING btree (user_id, updated_at DESC)"
+    },
+    {
+      "tablename": "users",
+      "indexname": "users_pkey",
+      "indexdef": "CREATE UNIQUE INDEX users_pkey ON public.users USING btree (id)"
+    }
+  ],
+  "rowSecurity": [
+    {
+      "table_name": "document_chunks",
+      "enabled": true
+    },
+    {
+      "table_name": "documents",
+      "enabled": true
+    },
+    {
+      "table_name": "memories",
+      "enabled": true
+    },
+    {
+      "table_name": "messages",
+      "enabled": true
+    },
+    {
+      "table_name": "migrations",
+      "enabled": true
+    },
+    {
+      "table_name": "threads",
+      "enabled": true
+    },
+    {
+      "table_name": "users",
+      "enabled": true
+    }
+  ],
+  "clientGrants": [],
+  "migrations": [
+    {
+      "timestamp": "1730000000000",
+      "name": "Initial1730000000000"
+    },
+    {
+      "timestamp": "1791020000000",
+      "name": "BackendOnly1791020000000"
+    },
+    {
+      "timestamp": "1791040000000",
+      "name": "LibraryEditing1791040000000"
+    }
+  ]
+}

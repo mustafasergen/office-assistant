@@ -1,0 +1,856 @@
+{
+  "at": "2026-10-03T18:11:28.955Z",
+  "results": [
+    {
+      "group": "02",
+      "input": "İzin talebimi ne kadar önceden iletmeliyim?",
+      "expected": {
+        "answerEvidence": [
+          "en az 5 iş günü"
+        ],
+        "sources": "support each answer"
+      },
+      "actual": {
+        "threadId": "aa780c39-227d-47c3-97d8-7bc7fcfb0293",
+        "role": "assistant",
+        "content": "Yıllık izin talebinizi, izin başlangıç tarihinden en az 5 iş günü önce ekip yöneticinize iletmelisiniz.",
+        "status": "completed",
+        "metadata": {
+          "tools": [
+            "search_docs"
+          ],
+          "sources": [
+            {
+              "title": "İzin politikası",
+              "chunkId": "dbff47c7-a79d-4a28-92f7-80654e47fda7",
+              "excerpt": "# İzin politikası\n## Yıllık izin\n\nUplico çalışanlarının yıllık ücretli izin hakkı 20 iş günüdür. Yıllık izin talebi, başlangıç tarihinden en az 5 iş günü önce ekip yöneticisine iletilir. Onaylanan izinler şirket takvimine eklenir. Hafta sonları yıllık izin günlerinden düşülmez.",
+              "documentId": "0145eb1f-536d-43ca-b242-212e685b6573"
+            }
+          ]
+        },
+        "id": "d4490675-3371-458c-af1d-8e9b53efe6fe",
+        "createdAt": "2026-10-03T18:11:02.178Z"
+      },
+      "pass": true,
+      "environment": "OpenAI live + Supabase isolated schema"
+    },
+    {
+      "group": "06",
+      "input": "VPN şifresi nedir?",
+      "expected": {
+        "answer": "unknown",
+        "sources": []
+      },
+      "actual": {
+        "threadId": "dd70b192-a724-4fbb-a676-c3f02c837bb1",
+        "role": "assistant",
+        "content": "Bu sorunun cevabını şirket dokümanlarında bulamadım. Sorunu farklı ifade edebilir veya ilgili dokümanı ekleyebilirsin.",
+        "status": "completed",
+        "metadata": {
+          "tools": [
+            "search_docs"
+          ],
+          "sources": []
+        },
+        "id": "060f06b4-7f71-4fcf-9465-228d76b8bb6e",
+        "createdAt": "2026-10-03T18:11:05.086Z"
+      },
+      "pass": true,
+      "environment": "OpenAI live + Supabase isolated schema"
+    },
+    {
+      "group": "06",
+      "input": "Toplantı odaları kaç kişilik?",
+      "expected": {
+        "answer": "unknown",
+        "sources": []
+      },
+      "actual": {
+        "threadId": "fbc1b35c-306f-40dd-9b76-1d556bfc79a6",
+        "role": "assistant",
+        "content": "Bu sorunun cevabını şirket dokümanlarında bulamadım. Sorunu farklı ifade edebilir veya ilgili dokümanı ekleyebilirsin.",
+        "status": "completed",
+        "metadata": {
+          "tools": [
+            "search_docs"
+          ],
+          "sources": []
+        },
+        "id": "3dc8bcfb-2b97-4606-9a6f-1ebfd247a105",
+        "createdAt": "2026-10-03T18:11:08.186Z"
+      },
+      "pass": true,
+      "environment": "OpenAI live + Supabase isolated schema"
+    },
+    {
+      "group": "06",
+      "input": "Yemek kartı bakiyesini nakde çevirebilir miyim?",
+      "expected": {
+        "answer": "unknown",
+        "sources": []
+      },
+      "actual": {
+        "threadId": "0f0ad7d9-2c48-4bb3-8ef8-223cea4bd128",
+        "role": "assistant",
+        "content": "Bu sorunun cevabını şirket dokümanlarında bulamadım. Sorunu farklı ifade edebilir veya ilgili dokümanı ekleyebilirsin.",
+        "status": "completed",
+        "metadata": {
+          "tools": [
+            "search_docs"
+          ],
+          "sources": []
+        },
+        "id": "fd469ea1-6261-4424-8853-1b1c63cc1b67",
+        "createdAt": "2026-10-03T18:11:13.961Z"
+      },
+      "pass": true,
+      "environment": "OpenAI live + Supabase isolated schema"
+    },
+    {
+      "group": "07",
+      "input": "Öğle arası ne zaman, doğum günü izni kaç gün?",
+      "expected": {
+        "answerEvidence": [
+          "12.00–13.00",
+          "1 iş günüdür"
+        ],
+        "sources": "support each answer"
+      },
+      "actual": {
+        "threadId": "5c9293d2-30ef-4dac-b279-7df416f88ae6",
+        "role": "assistant",
+        "content": "Öğle arası 12.00–13.00 arasındadır. Doğum günü izni, doğum gününün bulunduğu ay içinde kullanılabilen 1 iş günüdür.",
+        "status": "completed",
+        "metadata": {
+          "tools": [
+            "search_docs"
+          ],
+          "sources": [
+            {
+              "title": "Çalışma düzeni",
+              "chunkId": "9b53a4af-80c4-4039-837d-565158464691",
+              "excerpt": "# Çalışma düzeni\n## Çalışma saatleri\n\nStandart çalışma saatleri hafta içi 09.00–18.00 arasındadır. Öğle arası 12.00–13.00 arasındadır. Ekiplerin ortak toplantı saatleri 10.00–16.00 aralığında planlanır.",
+              "documentId": "c8fdc189-6b62-4fb6-a04f-028a945034c8"
+            },
+            {
+              "title": "İzin politikası",
+              "chunkId": "e0822f29-d0b6-4bf2-a6ad-25c7ae78fb98",
+              "excerpt": "# İzin politikası\n## Diğer izinler\n\nTaşınma için yılda 1 gün idari izin verilir. Doğum günü izni, doğum gününün bulunduğu ay içinde kullanılabilen 1 iş günüdür. Hastalık halinde ekip yöneticisine aynı gün bilgi verilmelidir.",
+              "documentId": "0145eb1f-536d-43ca-b242-212e685b6573"
+            }
+          ]
+        },
+        "id": "a341ee36-0609-4c53-8c9a-6d8ffe81d73b",
+        "createdAt": "2026-10-03T18:11:19.207Z"
+      },
+      "pass": true,
+      "environment": "OpenAI live + Supabase isolated schema"
+    },
+    {
+      "group": "19",
+      "input": "Örnek cümle:\nVejetaryenim.",
+      "expected": [],
+      "actual": [],
+      "pass": true,
+      "environment": "OpenAI live + Supabase isolated schema"
+    },
+    {
+      "group": "19",
+      "input": "Ali dedi ki:\nEskiden vejetaryendim, şimdi veganım.",
+      "expected": [],
+      "actual": [],
+      "pass": true,
+      "environment": "OpenAI live + Supabase isolated schema"
+    },
+    {
+      "group": "19",
+      "input": "> Veganım.",
+      "expected": [],
+      "actual": [],
+      "pass": true,
+      "environment": "OpenAI live + Supabase isolated schema"
+    },
+    {
+      "group": "19",
+      "input": "Ali dedi ki:\nVeganım.\n\nBen vejetaryenim.",
+      "expected": [
+        {
+          "key": "dietary_preference",
+          "value": "vegetarian"
+        }
+      ],
+      "actual": [
+        {
+          "key": "dietary_preference",
+          "value": "vegetarian"
+        }
+      ],
+      "pass": true,
+      "environment": "OpenAI live + Supabase isolated schema"
+    }
+  ],
+  "extra": {
+    "scores": [
+      {
+        "id": "Q07",
+        "group": "02",
+        "query": "İzin talebimi ne kadar önceden iletmeliyim?",
+        "evidence": [
+          "en az 5 iş günü"
+        ],
+        "split": "calibration",
+        "ranked": [
+          {
+            "content": "# İzin politikası\n## İzin öncesi iş devri\n\nİzne çıkmadan önce devam eden işler, yaklaşan teslim tarihleri ve ilgili dosya bağlantıları ekip ile paylaşılır. Acil işler için bir yedek sorumlu belirlenir. Takvimde ve e-posta otomatik yanıtında dönüş tarihi belirtilir. İzin sırasında rutin toplantılara katılım beklenmez.",
+            "title": "İzin politikası",
+            "score": 0.596196895799493
+          },
+          {
+            "content": "# İzin politikası\n## İzin bakiyesi ve resmi tatiller\n\nGüncel izin bakiyesi insan kaynakları ekibinden öğrenilir. Resmi tatiller ve hafta sonları yıllık izin bakiyesinden düşülmez. Birden fazla ekip üyesinin aynı tarihte izin istemesi halinde iş sürekliliği ekip yöneticisiyle birlikte planlanır. Onaylanmamış talepler takvimde kesin izin olarak gösterilmez.",
+            "title": "İzin politikası",
+            "score": 0.548610246824197
+          },
+          {
+            "content": "# İzin politikası\n## İzin değişikliği ve iptali\n\nOnaylı yıllık iznin tarihini değiştirmek veya izni iptal etmek için ekip yöneticisine yazılı bilgi verilir. Yönetici onayından sonra şirket takvimi güncellenir. İptal edilen ve kullanılmayan izin günleri izin bakiyesine geri eklenir. Çalışan, onay gelmeden yeni tarihleri kesinleşmiş kabul etmemelidir.",
+            "title": "İzin politikası",
+            "score": 0.542073861940985
+          },
+          {
+            "content": "# İzin politikası\n## Yıllık izin\n\nUplico çalışanlarının yıllık ücretli izin hakkı 20 iş günüdür. Yıllık izin talebi, başlangıç tarihinden en az 5 iş günü önce ekip yöneticisine iletilir. Onaylanan izinler şirket takvimine eklenir. Hafta sonları yıllık izin günlerinden düşülmez.",
+            "title": "İzin politikası",
+            "score": 0.53777570383786
+          },
+          {
+            "content": "# İzin politikası\n## Diğer izinler\n\nTaşınma için yılda 1 gün idari izin verilir. Doğum günü izni, doğum gününün bulunduğu ay içinde kullanılabilen 1 iş günüdür. Hastalık halinde ekip yöneticisine aynı gün bilgi verilmelidir.",
+            "title": "İzin politikası",
+            "score": 0.496924320396082
+          },
+          {
+            "content": "# İzin politikası\n## Hastalık bildirimi ve işe dönüş\n\nHastalık nedeniyle çalışılamayan günlerde ekip yöneticisine aynı gün, mümkünse mesai başlangıcından önce haber verilir. Sağlık raporu gerekiyorsa insan kaynakları ekibinin belirttiği güvenli kanaldan iletilir; ekip sohbetinde sağlık ayrıntıları paylaşılmaz. İşe dönüş tarihi değişirse yöneticiye yeniden bilgi verilir.",
+            "title": "İzin politikası",
+            "score": 0.476610437863433
+          },
+          {
+            "content": "# Yemek kartı ve yemek seçenekleri\n## Yemek kartı limiti\n\nYemek kartı günlük limiti 350 TL'dir. Bakiye her ayın ilk iş gününde, o ayın çalışma günü sayısına göre yüklenir. Yemek kartı anlaşmalı restoran ve marketlerde kullanılabilir. Kart kaybolursa ofis ekibine bildirilir.",
+            "title": "Yemek kartı ve yemek seçenekleri",
+            "score": 0.321830411468007
+          },
+          {
+            "content": "# Ofis kuralları\n## Toplantı odaları\n\nToplantı odaları şirket takviminden rezerve edilir. Rezervasyon başlangıcından 10 dakika sonra kullanılmayan oda serbest bırakılır. Toplantı bitiminde ekipman kapatılır ve masa düzenlenir.",
+            "title": "Ofis kuralları",
+            "score": 0.319459122590408
+          },
+          {
+            "content": "# Ofis kuralları\n## Misafir kabulü\n\nMisafir ziyareti öncesinde ev sahibi çalışan resepsiyona ziyaret saatini ve misafir adını bildirir. Misafirler girişte kayıt yaptırır ve ofis içinde ev sahibi çalışan eşliğinde bulunur. Ziyaret sonunda misafir kartı resepsiyona teslim edilir. Misafirlerin çalışan bilgisayarlarını veya giriş kartlarını kullanmasına izin verilmez.",
+            "title": "Ofis kuralları",
+            "score": 0.316421999064072
+          },
+          {
+            "content": "# Ofis kuralları\n## Acil durum ve çıkışlar\n\nAcil çıkış kapıları ve koridorlar eşya ile kapatılmaz. Alarm halinde bina tahliye yönlendirmeleri izlenir, asansör kullanılmaz ve toplanma alanına gidilir. Toplanma alanının konumu resepsiyondaki tahliye planında gösterilir. Bina görevlileri izin vermeden ofise geri dönülmez.",
+            "title": "Ofis kuralları",
+            "score": 0.309334620727676
+          },
+          {
+            "content": "# Yemek kartı ve yemek seçenekleri\n## Menü geri bildirimi\n\nYemek menüsüyle ilgili öneriler ve kalite sorunları ofis ekibine iletilir. Geri bildirimde gün, yemek adı ve sorun kısa şekilde belirtilir. Menü değişiklikleri ofis panosundan takip edilir. Bir tercih paylaşmak belirli bir yemeğin her gün sunulacağını garanti etmez.",
+            "title": "Yemek kartı ve yemek seçenekleri",
+            "score": 0.296708568146356
+          },
+          {
+            "content": "# Ofis kuralları\n## Giriş kartı ve güvenlik\n\nGiriş kartı kişiye özeldir ve başkalarıyla paylaşılmaz. Kayıp giriş kartı derhal ofis ekibine bildirilir. Tanınmayan kişilerin kartlı kapılardan çalışanı takip ederek giriş yapmasına izin verilmez; resepsiyondan destek istenir. Masadan ayrılırken bilgisayar ekranı kilitlenir.",
+            "title": "Ofis kuralları",
+            "score": 0.295731807272058
+          },
+          {
+            "content": "# Çalışma düzeni\n## İnternet kesintisi ve çalışma yeri değişikliği\n\nİnternet veya elektrik kesintisi çalışmayı engelliyorsa ekip yöneticisine mümkün olan ilk anda bilgi verilir. Beklenen erişim zamanı ve etkilenen toplantılar paylaşılır. Çalışma yerini değiştirmek gerekiyorsa yöneticiyle plan yapılır. Ortak alanlarda çalışırken ekranın başkaları tarafından görülmemesine dikkat edilir.",
+            "title": "Çalışma düzeni",
+            "score": 0.29124843554729
+          },
+          {
+            "content": "# Çalışma düzeni\n## Odaklanma ve toplantı planlama\n\nToplantı davetinde gündem, beklenen çıktı ve gerekli katılımcılar belirtilir. Ortak toplantı saatleri dışında bir görüşme gerekiyorsa katılımcıların uygunluğu önceden sorulur. Odaklanma için ayrılan takvim blokları dikkate alınır. Toplantı kararları ilgili ekip kanalında kısa notlarla paylaşılır.",
+            "title": "Çalışma düzeni",
+            "score": 0.286967817911258
+          },
+          {
+            "content": "# Yemek kartı ve yemek seçenekleri\n## Yemek alanı ve saklama\n\nKişisel yiyecekler buzdolabına isim ve tarih etiketiyle konulur. Son kullanma tarihi geçen yiyecekler ortak alanda bırakılmaz. Yemek sonrası tepsi ve tabaklar toplama alanına götürülür; ortak masalar temiz bırakılır. Keskin kokulu yiyecekler sessiz çalışma alanında tüketilmez.",
+            "title": "Yemek kartı ve yemek seçenekleri",
+            "score": 0.285580860390186
+          },
+          {
+            "content": "# Ofis kuralları\n## Ortak ekipman ve arıza\n\nToplantı ekranı, kamera veya yazıcı arızası ofis ekibine cihazın konumu ve sorun açıklamasıyla bildirilir. Arızalı cihaz zorlanmaz ve yetkisiz tamir yapılmaz. Kullanılan adaptör ve kablolar iş bitiminde yerlerine bırakılır. Yazıcıdan çıkan şirket belgeleri bekletilmeden alınır.",
+            "title": "Ofis kuralları",
+            "score": 0.285334062665749
+          },
+          {
+            "content": "# Çalışma düzeni\n## Günlük ekip iletişimi\n\nÇalışanlar mesai başlangıcında güncel uygunluk durumunu ekip iletişim kanalında paylaşır. Takvimde toplantı, odaklanma zamanı ve izinler güncel tutulur. Acil işler ilgili ekip kanalında açıkça belirtilir; rutin talepler için mesai dışında anında yanıt beklenmez.",
+            "title": "Çalışma düzeni",
+            "score": 0.28495635860157
+          },
+          {
+            "content": "# Yemek kartı ve yemek seçenekleri\n## Yemek seçenekleri\n\nOfis yemek alanında her gün vejetaryen yemek seçeneği bulunur. Vegan yemek seçenekleri için en geç bir önceki iş günü ofis ekibine haber verilmelidir. Haftalık yemek menüsü pazartesi sabahı ofis panosunda paylaşılır. Beslenme tercihleri yemek seçiminde dikkate alınır; yemek kartı limiti bu tercihlerden bağımsızdır.",
+            "title": "Yemek kartı ve yemek seçenekleri",
+            "score": 0.275322833271164
+          },
+          {
+            "content": "# Yemek kartı ve yemek seçenekleri\n## Gıda alerjisi ve içerik bilgisi\n\nGıda alerjisi olan çalışanlar yemek seçmeden önce menüdeki alerjen bilgisini ve yemeğin içeriğini yemek hizmeti sorumlusundan doğrulamalıdır. Vejetaryen veya vegan etiketi alerjen bulunmadığı anlamına gelmez. Ortak hazırlama alanları nedeniyle çapraz temas ihtimali olabilir; kesin içerik bilgisi olmadan güvenli olduğu varsayılmaz.",
+            "title": "Yemek kartı ve yemek seçenekleri",
+            "score": 0.275135912089868
+          },
+          {
+            "content": "# Ofis kuralları\n## Ortak alanlar\n\nOfis sessiz çalışma alanlarında telefon görüşmesi yapılmaz. Görüşmeler telefon kabinlerinde veya toplantı odalarında yapılır. Ortak mutfak kullanımdan sonra temiz bırakılır. Ofise gelen misafirler resepsiyona kaydedilir.",
+            "title": "Ofis kuralları",
+            "score": 0.270054351926411
+          },
+          {
+            "content": "# Çalışma düzeni\n## VPN ve teknik destek\n\nUzaktan çalışırken şirket kaynaklarına erişim için VPN bağlantısı açılır. VPN sorunu yaşanırsa bağlantı durumu ve hata mesajı teknik destek ekibine iletilir. Parola, tek kullanımlık kod veya API anahtarı destek mesajına eklenmez. Şirket belgeleri kişisel e-posta hesabına aktarılmaz.",
+            "title": "Çalışma düzeni",
+            "score": 0.26512619473135
+          },
+          {
+            "content": "# Yemek kartı ve yemek seçenekleri\n## Kayıp kart ve ödeme sorunu\n\nYemek kartı kaybolduğunda kartın kullanıma kapatılması için ofis ekibine aynı gün haber verilir. Başka bir çalışanın kartı kullanılmaz. Ödeme reddedilirse önce kart bakiyesi ve iş yerinin anlaşmalı olup olmadığı kontrol edilir. Sorun sürerse tarih, restoran adı ve hata açıklaması ofis ekibine iletilir; kart şifresi paylaşılmaz.",
+            "title": "Yemek kartı ve yemek seçenekleri",
+            "score": 0.263394139459215
+          },
+          {
+            "content": "# Çalışma düzeni\n## Uzaktan çalışma\n\nHaftada 2 gün uzaktan çalışma mümkündür. Uzaktan çalışma günleri ekip yöneticisiyle önceden kararlaştırılır. Çarşamba günü ekiplerin ofiste birlikte çalışma günüdür. Uzaktan çalışırken şirket VPN bağlantısı kullanılmalıdır.",
+            "title": "Çalışma düzeni",
+            "score": 0.254225031248209
+          },
+          {
+            "content": "# Çalışma düzeni\n## Çalışma saatleri\n\nStandart çalışma saatleri hafta içi 09.00–18.00 arasındadır. Öğle arası 12.00–13.00 arasındadır. Ekiplerin ortak toplantı saatleri 10.00–16.00 aralığında planlanır.",
+            "title": "Çalışma düzeni",
+            "score": 0.239175837109545
+          }
+        ]
+      },
+      {
+        "id": "Q28",
+        "group": "06",
+        "query": "VPN şifresi nedir?",
+        "evidence": [],
+        "split": "calibration",
+        "ranked": [
+          {
+            "content": "# Çalışma düzeni\n## VPN ve teknik destek\n\nUzaktan çalışırken şirket kaynaklarına erişim için VPN bağlantısı açılır. VPN sorunu yaşanırsa bağlantı durumu ve hata mesajı teknik destek ekibine iletilir. Parola, tek kullanımlık kod veya API anahtarı destek mesajına eklenmez. Şirket belgeleri kişisel e-posta hesabına aktarılmaz.",
+            "title": "Çalışma düzeni",
+            "score": 0.470588254696372
+          },
+          {
+            "content": "# Çalışma düzeni\n## Uzaktan çalışma\n\nHaftada 2 gün uzaktan çalışma mümkündür. Uzaktan çalışma günleri ekip yöneticisiyle önceden kararlaştırılır. Çarşamba günü ekiplerin ofiste birlikte çalışma günüdür. Uzaktan çalışırken şirket VPN bağlantısı kullanılmalıdır.",
+            "title": "Çalışma düzeni",
+            "score": 0.357043116198812
+          },
+          {
+            "content": "# Ofis kuralları\n## Giriş kartı ve güvenlik\n\nGiriş kartı kişiye özeldir ve başkalarıyla paylaşılmaz. Kayıp giriş kartı derhal ofis ekibine bildirilir. Tanınmayan kişilerin kartlı kapılardan çalışanı takip ederek giriş yapmasına izin verilmez; resepsiyondan destek istenir. Masadan ayrılırken bilgisayar ekranı kilitlenir.",
+            "title": "Ofis kuralları",
+            "score": 0.303938738379197
+          },
+          {
+            "content": "# Çalışma düzeni\n## İnternet kesintisi ve çalışma yeri değişikliği\n\nİnternet veya elektrik kesintisi çalışmayı engelliyorsa ekip yöneticisine mümkün olan ilk anda bilgi verilir. Beklenen erişim zamanı ve etkilenen toplantılar paylaşılır. Çalışma yerini değiştirmek gerekiyorsa yöneticiyle plan yapılır. Ortak alanlarda çalışırken ekranın başkaları tarafından görülmemesine dikkat edilir.",
+            "title": "Çalışma düzeni",
+            "score": 0.285490809114914
+          },
+          {
+            "content": "# Ofis kuralları\n## Misafir kabulü\n\nMisafir ziyareti öncesinde ev sahibi çalışan resepsiyona ziyaret saatini ve misafir adını bildirir. Misafirler girişte kayıt yaptırır ve ofis içinde ev sahibi çalışan eşliğinde bulunur. Ziyaret sonunda misafir kartı resepsiyona teslim edilir. Misafirlerin çalışan bilgisayarlarını veya giriş kartlarını kullanmasına izin verilmez.",
+            "title": "Ofis kuralları",
+            "score": 0.254337013072621
+          },
+          {
+            "content": "# İzin politikası\n## İzin değişikliği ve iptali\n\nOnaylı yıllık iznin tarihini değiştirmek veya izni iptal etmek için ekip yöneticisine yazılı bilgi verilir. Yönetici onayından sonra şirket takvimi güncellenir. İptal edilen ve kullanılmayan izin günleri izin bakiyesine geri eklenir. Çalışan, onay gelmeden yeni tarihleri kesinleşmiş kabul etmemelidir.",
+            "title": "İzin politikası",
+            "score": 0.25426189694499
+          },
+          {
+            "content": "# İzin politikası\n## İzin öncesi iş devri\n\nİzne çıkmadan önce devam eden işler, yaklaşan teslim tarihleri ve ilgili dosya bağlantıları ekip ile paylaşılır. Acil işler için bir yedek sorumlu belirlenir. Takvimde ve e-posta otomatik yanıtında dönüş tarihi belirtilir. İzin sırasında rutin toplantılara katılım beklenmez.",
+            "title": "İzin politikası",
+            "score": 0.247713631158687
+          },
+          {
+            "content": "# Ofis kuralları\n## Ortak ekipman ve arıza\n\nToplantı ekranı, kamera veya yazıcı arızası ofis ekibine cihazın konumu ve sorun açıklamasıyla bildirilir. Arızalı cihaz zorlanmaz ve yetkisiz tamir yapılmaz. Kullanılan adaptör ve kablolar iş bitiminde yerlerine bırakılır. Yazıcıdan çıkan şirket belgeleri bekletilmeden alınır.",
+            "title": "Ofis kuralları",
+            "score": 0.236699387413986
+          },
+          {
+            "content": "# İzin politikası\n## Yıllık izin\n\nUplico çalışanlarının yıllık ücretli izin hakkı 20 iş günüdür. Yıllık izin talebi, başlangıç tarihinden en az 5 iş günü önce ekip yöneticisine iletilir. Onaylanan izinler şirket takvimine eklenir. Hafta sonları yıllık izin günlerinden düşülmez.",
+            "title": "İzin politikası",
+            "score": 0.233386878901882
+          },
+          {
+            "content": "# Çalışma düzeni\n## Günlük ekip iletişimi\n\nÇalışanlar mesai başlangıcında güncel uygunluk durumunu ekip iletişim kanalında paylaşır. Takvimde toplantı, odaklanma zamanı ve izinler güncel tutulur. Acil işler ilgili ekip kanalında açıkça belirtilir; rutin talepler için mesai dışında anında yanıt beklenmez.",
+            "title": "Çalışma düzeni",
+            "score": 0.228053559023109
+          },
+          {
+            "content": "# Ofis kuralları\n## Ortak alanlar\n\nOfis sessiz çalışma alanlarında telefon görüşmesi yapılmaz. Görüşmeler telefon kabinlerinde veya toplantı odalarında yapılır. Ortak mutfak kullanımdan sonra temiz bırakılır. Ofise gelen misafirler resepsiyona kaydedilir.",
+            "title": "Ofis kuralları",
+            "score": 0.222965983181634
+          },
+          {
+            "content": "# Ofis kuralları\n## Acil durum ve çıkışlar\n\nAcil çıkış kapıları ve koridorlar eşya ile kapatılmaz. Alarm halinde bina tahliye yönlendirmeleri izlenir, asansör kullanılmaz ve toplanma alanına gidilir. Toplanma alanının konumu resepsiyondaki tahliye planında gösterilir. Bina görevlileri izin vermeden ofise geri dönülmez.",
+            "title": "Ofis kuralları",
+            "score": 0.213591989341854
+          },
+          {
+            "content": "# İzin politikası\n## İzin bakiyesi ve resmi tatiller\n\nGüncel izin bakiyesi insan kaynakları ekibinden öğrenilir. Resmi tatiller ve hafta sonları yıllık izin bakiyesinden düşülmez. Birden fazla ekip üyesinin aynı tarihte izin istemesi halinde iş sürekliliği ekip yöneticisiyle birlikte planlanır. Onaylanmamış talepler takvimde kesin izin olarak gösterilmez.",
+            "title": "İzin politikası",
+            "score": 0.213307219855668
+          },
+          {
+            "content": "# Çalışma düzeni\n## Odaklanma ve toplantı planlama\n\nToplantı davetinde gündem, beklenen çıktı ve gerekli katılımcılar belirtilir. Ortak toplantı saatleri dışında bir görüşme gerekiyorsa katılımcıların uygunluğu önceden sorulur. Odaklanma için ayrılan takvim blokları dikkate alınır. Toplantı kararları ilgili ekip kanalında kısa notlarla paylaşılır.",
+            "title": "Çalışma düzeni",
+            "score": 0.211123621761926
+          },
+          {
+            "content": "# Yemek kartı ve yemek seçenekleri\n## Kayıp kart ve ödeme sorunu\n\nYemek kartı kaybolduğunda kartın kullanıma kapatılması için ofis ekibine aynı gün haber verilir. Başka bir çalışanın kartı kullanılmaz. Ödeme reddedilirse önce kart bakiyesi ve iş yerinin anlaşmalı olup olmadığı kontrol edilir. Sorun sürerse tarih, restoran adı ve hata açıklaması ofis ekibine iletilir; kart şifresi paylaşılmaz.",
+            "title": "Yemek kartı ve yemek seçenekleri",
+            "score": 0.207213723774949
+          },
+          {
+            "content": "# Ofis kuralları\n## Toplantı odaları\n\nToplantı odaları şirket takviminden rezerve edilir. Rezervasyon başlangıcından 10 dakika sonra kullanılmayan oda serbest bırakılır. Toplantı bitiminde ekipman kapatılır ve masa düzenlenir.",
+            "title": "Ofis kuralları",
+            "score": 0.201022722892889
+          },
+          {
+            "content": "# İzin politikası\n## Hastalık bildirimi ve işe dönüş\n\nHastalık nedeniyle çalışılamayan günlerde ekip yöneticisine aynı gün, mümkünse mesai başlangıcından önce haber verilir. Sağlık raporu gerekiyorsa insan kaynakları ekibinin belirttiği güvenli kanaldan iletilir; ekip sohbetinde sağlık ayrıntıları paylaşılmaz. İşe dönüş tarihi değişirse yöneticiye yeniden bilgi verilir.",
+            "title": "İzin politikası",
+            "score": 0.200045423583965
+          },
+          {
+            "content": "# Yemek kartı ve yemek seçenekleri\n## Yemek seçenekleri\n\nOfis yemek alanında her gün vejetaryen yemek seçeneği bulunur. Vegan yemek seçenekleri için en geç bir önceki iş günü ofis ekibine haber verilmelidir. Haftalık yemek menüsü pazartesi sabahı ofis panosunda paylaşılır. Beslenme tercihleri yemek seçiminde dikkate alınır; yemek kartı limiti bu tercihlerden bağımsızdır.",
+            "title": "Yemek kartı ve yemek seçenekleri",
+            "score": 0.198108719873213
+          },
+          {
+            "content": "# Yemek kartı ve yemek seçenekleri\n## Yemek kartı limiti\n\nYemek kartı günlük limiti 350 TL'dir. Bakiye her ayın ilk iş gününde, o ayın çalışma günü sayısına göre yüklenir. Yemek kartı anlaşmalı restoran ve marketlerde kullanılabilir. Kart kaybolursa ofis ekibine bildirilir.",
+            "title": "Yemek kartı ve yemek seçenekleri",
+            "score": 0.197574760543213
+          },
+          {
+            "content": "# Çalışma düzeni\n## Çalışma saatleri\n\nStandart çalışma saatleri hafta içi 09.00–18.00 arasındadır. Öğle arası 12.00–13.00 arasındadır. Ekiplerin ortak toplantı saatleri 10.00–16.00 aralığında planlanır.",
+            "title": "Çalışma düzeni",
+            "score": 0.194161190275829
+          },
+          {
+            "content": "# İzin politikası\n## Diğer izinler\n\nTaşınma için yılda 1 gün idari izin verilir. Doğum günü izni, doğum gününün bulunduğu ay içinde kullanılabilen 1 iş günüdür. Hastalık halinde ekip yöneticisine aynı gün bilgi verilmelidir.",
+            "title": "İzin politikası",
+            "score": 0.175901904637226
+          },
+          {
+            "content": "# Yemek kartı ve yemek seçenekleri\n## Menü geri bildirimi\n\nYemek menüsüyle ilgili öneriler ve kalite sorunları ofis ekibine iletilir. Geri bildirimde gün, yemek adı ve sorun kısa şekilde belirtilir. Menü değişiklikleri ofis panosundan takip edilir. Bir tercih paylaşmak belirli bir yemeğin her gün sunulacağını garanti etmez.",
+            "title": "Yemek kartı ve yemek seçenekleri",
+            "score": 0.170483487782003
+          },
+          {
+            "content": "# Yemek kartı ve yemek seçenekleri\n## Gıda alerjisi ve içerik bilgisi\n\nGıda alerjisi olan çalışanlar yemek seçmeden önce menüdeki alerjen bilgisini ve yemeğin içeriğini yemek hizmeti sorumlusundan doğrulamalıdır. Vejetaryen veya vegan etiketi alerjen bulunmadığı anlamına gelmez. Ortak hazırlama alanları nedeniyle çapraz temas ihtimali olabilir; kesin içerik bilgisi olmadan güvenli olduğu varsayılmaz.",
+            "title": "Yemek kartı ve yemek seçenekleri",
+            "score": 0.165695750229367
+          },
+          {
+            "content": "# Yemek kartı ve yemek seçenekleri\n## Yemek alanı ve saklama\n\nKişisel yiyecekler buzdolabına isim ve tarih etiketiyle konulur. Son kullanma tarihi geçen yiyecekler ortak alanda bırakılmaz. Yemek sonrası tepsi ve tabaklar toplama alanına götürülür; ortak masalar temiz bırakılır. Keskin kokulu yiyecekler sessiz çalışma alanında tüketilmez.",
+            "title": "Yemek kartı ve yemek seçenekleri",
+            "score": 0.137013004725038
+          }
+        ]
+      },
+      {
+        "id": "Q31",
+        "group": "06",
+        "query": "Toplantı odaları kaç kişilik?",
+        "evidence": [],
+        "split": "calibration",
+        "ranked": [
+          {
+            "content": "# Ofis kuralları\n## Toplantı odaları\n\nToplantı odaları şirket takviminden rezerve edilir. Rezervasyon başlangıcından 10 dakika sonra kullanılmayan oda serbest bırakılır. Toplantı bitiminde ekipman kapatılır ve masa düzenlenir.",
+            "title": "Ofis kuralları",
+            "score": 0.5054468574419
+          },
+          {
+            "content": "# Ofis kuralları\n## Ortak alanlar\n\nOfis sessiz çalışma alanlarında telefon görüşmesi yapılmaz. Görüşmeler telefon kabinlerinde veya toplantı odalarında yapılır. Ortak mutfak kullanımdan sonra temiz bırakılır. Ofise gelen misafirler resepsiyona kaydedilir.",
+            "title": "Ofis kuralları",
+            "score": 0.468440670026351
+          },
+          {
+            "content": "# Ofis kuralları\n## Misafir kabulü\n\nMisafir ziyareti öncesinde ev sahibi çalışan resepsiyona ziyaret saatini ve misafir adını bildirir. Misafirler girişte kayıt yaptırır ve ofis içinde ev sahibi çalışan eşliğinde bulunur. Ziyaret sonunda misafir kartı resepsiyona teslim edilir. Misafirlerin çalışan bilgisayarlarını veya giriş kartlarını kullanmasına izin verilmez.",
+            "title": "Ofis kuralları",
+            "score": 0.415322043650169
+          },
+          {
+            "content": "# Ofis kuralları\n## Acil durum ve çıkışlar\n\nAcil çıkış kapıları ve koridorlar eşya ile kapatılmaz. Alarm halinde bina tahliye yönlendirmeleri izlenir, asansör kullanılmaz ve toplanma alanına gidilir. Toplanma alanının konumu resepsiyondaki tahliye planında gösterilir. Bina görevlileri izin vermeden ofise geri dönülmez.",
+            "title": "Ofis kuralları",
+            "score": 0.40674822665133
+          },
+          {
+            "content": "# Ofis kuralları\n## Giriş kartı ve güvenlik\n\nGiriş kartı kişiye özeldir ve başkalarıyla paylaşılmaz. Kayıp giriş kartı derhal ofis ekibine bildirilir. Tanınmayan kişilerin kartlı kapılardan çalışanı takip ederek giriş yapmasına izin verilmez; resepsiyondan destek istenir. Masadan ayrılırken bilgisayar ekranı kilitlenir.",
+            "title": "Ofis kuralları",
+            "score": 0.404952181355732
+          },
+          {
+            "content": "# Ofis kuralları\n## Ortak ekipman ve arıza\n\nToplantı ekranı, kamera veya yazıcı arızası ofis ekibine cihazın konumu ve sorun açıklamasıyla bildirilir. Arızalı cihaz zorlanmaz ve yetkisiz tamir yapılmaz. Kullanılan adaptör ve kablolar iş bitiminde yerlerine bırakılır. Yazıcıdan çıkan şirket belgeleri bekletilmeden alınır.",
+            "title": "Ofis kuralları",
+            "score": 0.390848402664261
+          },
+          {
+            "content": "# Çalışma düzeni\n## Odaklanma ve toplantı planlama\n\nToplantı davetinde gündem, beklenen çıktı ve gerekli katılımcılar belirtilir. Ortak toplantı saatleri dışında bir görüşme gerekiyorsa katılımcıların uygunluğu önceden sorulur. Odaklanma için ayrılan takvim blokları dikkate alınır. Toplantı kararları ilgili ekip kanalında kısa notlarla paylaşılır.",
+            "title": "Çalışma düzeni",
+            "score": 0.382742830609307
+          },
+          {
+            "content": "# Çalışma düzeni\n## Çalışma saatleri\n\nStandart çalışma saatleri hafta içi 09.00–18.00 arasındadır. Öğle arası 12.00–13.00 arasındadır. Ekiplerin ortak toplantı saatleri 10.00–16.00 aralığında planlanır.",
+            "title": "Çalışma düzeni",
+            "score": 0.322386189356255
+          },
+          {
+            "content": "# Çalışma düzeni\n## İnternet kesintisi ve çalışma yeri değişikliği\n\nİnternet veya elektrik kesintisi çalışmayı engelliyorsa ekip yöneticisine mümkün olan ilk anda bilgi verilir. Beklenen erişim zamanı ve etkilenen toplantılar paylaşılır. Çalışma yerini değiştirmek gerekiyorsa yöneticiyle plan yapılır. Ortak alanlarda çalışırken ekranın başkaları tarafından görülmemesine dikkat edilir.",
+            "title": "Çalışma düzeni",
+            "score": 0.312406609179974
+          },
+          {
+            "content": "# Yemek kartı ve yemek seçenekleri\n## Yemek alanı ve saklama\n\nKişisel yiyecekler buzdolabına isim ve tarih etiketiyle konulur. Son kullanma tarihi geçen yiyecekler ortak alanda bırakılmaz. Yemek sonrası tepsi ve tabaklar toplama alanına götürülür; ortak masalar temiz bırakılır. Keskin kokulu yiyecekler sessiz çalışma alanında tüketilmez.",
+            "title": "Yemek kartı ve yemek seçenekleri",
+            "score": 0.291174308667193
+          },
+          {
+            "content": "# Yemek kartı ve yemek seçenekleri\n## Menü geri bildirimi\n\nYemek menüsüyle ilgili öneriler ve kalite sorunları ofis ekibine iletilir. Geri bildirimde gün, yemek adı ve sorun kısa şekilde belirtilir. Menü değişiklikleri ofis panosundan takip edilir. Bir tercih paylaşmak belirli bir yemeğin her gün sunulacağını garanti etmez.",
+            "title": "Yemek kartı ve yemek seçenekleri",
+            "score": 0.283275393740807
+          },
+          {
+            "content": "# Çalışma düzeni\n## Günlük ekip iletişimi\n\nÇalışanlar mesai başlangıcında güncel uygunluk durumunu ekip iletişim kanalında paylaşır. Takvimde toplantı, odaklanma zamanı ve izinler güncel tutulur. Acil işler ilgili ekip kanalında açıkça belirtilir; rutin talepler için mesai dışında anında yanıt beklenmez.",
+            "title": "Çalışma düzeni",
+            "score": 0.275270062366839
+          },
+          {
+            "content": "# Yemek kartı ve yemek seçenekleri\n## Yemek kartı limiti\n\nYemek kartı günlük limiti 350 TL'dir. Bakiye her ayın ilk iş gününde, o ayın çalışma günü sayısına göre yüklenir. Yemek kartı anlaşmalı restoran ve marketlerde kullanılabilir. Kart kaybolursa ofis ekibine bildirilir.",
+            "title": "Yemek kartı ve yemek seçenekleri",
+            "score": 0.267950495001829
+          },
+          {
+            "content": "# Çalışma düzeni\n## Uzaktan çalışma\n\nHaftada 2 gün uzaktan çalışma mümkündür. Uzaktan çalışma günleri ekip yöneticisiyle önceden kararlaştırılır. Çarşamba günü ekiplerin ofiste birlikte çalışma günüdür. Uzaktan çalışırken şirket VPN bağlantısı kullanılmalıdır.",
+            "title": "Çalışma düzeni",
+            "score": 0.263235342374468
+          },
+          {
+            "content": "# Yemek kartı ve yemek seçenekleri\n## Kayıp kart ve ödeme sorunu\n\nYemek kartı kaybolduğunda kartın kullanıma kapatılması için ofis ekibine aynı gün haber verilir. Başka bir çalışanın kartı kullanılmaz. Ödeme reddedilirse önce kart bakiyesi ve iş yerinin anlaşmalı olup olmadığı kontrol edilir. Sorun sürerse tarih, restoran adı ve hata açıklaması ofis ekibine iletilir; kart şifresi paylaşılmaz.",
+            "title": "Yemek kartı ve yemek seçenekleri",
+            "score": 0.252662495013964
+          },
+          {
+            "content": "# İzin politikası\n## İzin bakiyesi ve resmi tatiller\n\nGüncel izin bakiyesi insan kaynakları ekibinden öğrenilir. Resmi tatiller ve hafta sonları yıllık izin bakiyesinden düşülmez. Birden fazla ekip üyesinin aynı tarihte izin istemesi halinde iş sürekliliği ekip yöneticisiyle birlikte planlanır. Onaylanmamış talepler takvimde kesin izin olarak gösterilmez.",
+            "title": "İzin politikası",
+            "score": 0.238345339092848
+          },
+          {
+            "content": "# Yemek kartı ve yemek seçenekleri\n## Yemek seçenekleri\n\nOfis yemek alanında her gün vejetaryen yemek seçeneği bulunur. Vegan yemek seçenekleri için en geç bir önceki iş günü ofis ekibine haber verilmelidir. Haftalık yemek menüsü pazartesi sabahı ofis panosunda paylaşılır. Beslenme tercihleri yemek seçiminde dikkate alınır; yemek kartı limiti bu tercihlerden bağımsızdır.",
+            "title": "Yemek kartı ve yemek seçenekleri",
+            "score": 0.23772123719834
+          },
+          {
+            "content": "# İzin politikası\n## Diğer izinler\n\nTaşınma için yılda 1 gün idari izin verilir. Doğum günü izni, doğum gününün bulunduğu ay içinde kullanılabilen 1 iş günüdür. Hastalık halinde ekip yöneticisine aynı gün bilgi verilmelidir.",
+            "title": "İzin politikası",
+            "score": 0.223522996577322
+          },
+          {
+            "content": "# Çalışma düzeni\n## VPN ve teknik destek\n\nUzaktan çalışırken şirket kaynaklarına erişim için VPN bağlantısı açılır. VPN sorunu yaşanırsa bağlantı durumu ve hata mesajı teknik destek ekibine iletilir. Parola, tek kullanımlık kod veya API anahtarı destek mesajına eklenmez. Şirket belgeleri kişisel e-posta hesabına aktarılmaz.",
+            "title": "Çalışma düzeni",
+            "score": 0.219914396757633
+          },
+          {
+            "content": "# İzin politikası\n## Yıllık izin\n\nUplico çalışanlarının yıllık ücretli izin hakkı 20 iş günüdür. Yıllık izin talebi, başlangıç tarihinden en az 5 iş günü önce ekip yöneticisine iletilir. Onaylanan izinler şirket takvimine eklenir. Hafta sonları yıllık izin günlerinden düşülmez.",
+            "title": "İzin politikası",
+            "score": 0.206672002668794
+          },
+          {
+            "content": "# Yemek kartı ve yemek seçenekleri\n## Gıda alerjisi ve içerik bilgisi\n\nGıda alerjisi olan çalışanlar yemek seçmeden önce menüdeki alerjen bilgisini ve yemeğin içeriğini yemek hizmeti sorumlusundan doğrulamalıdır. Vejetaryen veya vegan etiketi alerjen bulunmadığı anlamına gelmez. Ortak hazırlama alanları nedeniyle çapraz temas ihtimali olabilir; kesin içerik bilgisi olmadan güvenli olduğu varsayılmaz.",
+            "title": "Yemek kartı ve yemek seçenekleri",
+            "score": 0.204417158478853
+          },
+          {
+            "content": "# İzin politikası\n## İzin öncesi iş devri\n\nİzne çıkmadan önce devam eden işler, yaklaşan teslim tarihleri ve ilgili dosya bağlantıları ekip ile paylaşılır. Acil işler için bir yedek sorumlu belirlenir. Takvimde ve e-posta otomatik yanıtında dönüş tarihi belirtilir. İzin sırasında rutin toplantılara katılım beklenmez.",
+            "title": "İzin politikası",
+            "score": 0.201965865395355
+          },
+          {
+            "content": "# İzin politikası\n## Hastalık bildirimi ve işe dönüş\n\nHastalık nedeniyle çalışılamayan günlerde ekip yöneticisine aynı gün, mümkünse mesai başlangıcından önce haber verilir. Sağlık raporu gerekiyorsa insan kaynakları ekibinin belirttiği güvenli kanaldan iletilir; ekip sohbetinde sağlık ayrıntıları paylaşılmaz. İşe dönüş tarihi değişirse yöneticiye yeniden bilgi verilir.",
+            "title": "İzin politikası",
+            "score": 0.20167024006925
+          },
+          {
+            "content": "# İzin politikası\n## İzin değişikliği ve iptali\n\nOnaylı yıllık iznin tarihini değiştirmek veya izni iptal etmek için ekip yöneticisine yazılı bilgi verilir. Yönetici onayından sonra şirket takvimi güncellenir. İptal edilen ve kullanılmayan izin günleri izin bakiyesine geri eklenir. Çalışan, onay gelmeden yeni tarihleri kesinleşmiş kabul etmemelidir.",
+            "title": "İzin politikası",
+            "score": 0.171852183012147
+          }
+        ]
+      },
+      {
+        "id": "Q32",
+        "group": "06",
+        "query": "Yemek kartı bakiyesini nakde çevirebilir miyim?",
+        "evidence": [],
+        "split": "calibration",
+        "ranked": [
+          {
+            "content": "# Yemek kartı ve yemek seçenekleri\n## Yemek kartı limiti\n\nYemek kartı günlük limiti 350 TL'dir. Bakiye her ayın ilk iş gününde, o ayın çalışma günü sayısına göre yüklenir. Yemek kartı anlaşmalı restoran ve marketlerde kullanılabilir. Kart kaybolursa ofis ekibine bildirilir.",
+            "title": "Yemek kartı ve yemek seçenekleri",
+            "score": 0.684513488701746
+          },
+          {
+            "content": "# Yemek kartı ve yemek seçenekleri\n## Yemek alanı ve saklama\n\nKişisel yiyecekler buzdolabına isim ve tarih etiketiyle konulur. Son kullanma tarihi geçen yiyecekler ortak alanda bırakılmaz. Yemek sonrası tepsi ve tabaklar toplama alanına götürülür; ortak masalar temiz bırakılır. Keskin kokulu yiyecekler sessiz çalışma alanında tüketilmez.",
+            "title": "Yemek kartı ve yemek seçenekleri",
+            "score": 0.65547935072469
+          },
+          {
+            "content": "# Yemek kartı ve yemek seçenekleri\n## Kayıp kart ve ödeme sorunu\n\nYemek kartı kaybolduğunda kartın kullanıma kapatılması için ofis ekibine aynı gün haber verilir. Başka bir çalışanın kartı kullanılmaz. Ödeme reddedilirse önce kart bakiyesi ve iş yerinin anlaşmalı olup olmadığı kontrol edilir. Sorun sürerse tarih, restoran adı ve hata açıklaması ofis ekibine iletilir; kart şifresi paylaşılmaz.",
+            "title": "Yemek kartı ve yemek seçenekleri",
+            "score": 0.653004465526798
+          },
+          {
+            "content": "# Yemek kartı ve yemek seçenekleri\n## Menü geri bildirimi\n\nYemek menüsüyle ilgili öneriler ve kalite sorunları ofis ekibine iletilir. Geri bildirimde gün, yemek adı ve sorun kısa şekilde belirtilir. Menü değişiklikleri ofis panosundan takip edilir. Bir tercih paylaşmak belirli bir yemeğin her gün sunulacağını garanti etmez.",
+            "title": "Yemek kartı ve yemek seçenekleri",
+            "score": 0.62255234811592
+          },
+          {
+            "content": "# Yemek kartı ve yemek seçenekleri\n## Yemek seçenekleri\n\nOfis yemek alanında her gün vejetaryen yemek seçeneği bulunur. Vegan yemek seçenekleri için en geç bir önceki iş günü ofis ekibine haber verilmelidir. Haftalık yemek menüsü pazartesi sabahı ofis panosunda paylaşılır. Beslenme tercihleri yemek seçiminde dikkate alınır; yemek kartı limiti bu tercihlerden bağımsızdır.",
+            "title": "Yemek kartı ve yemek seçenekleri",
+            "score": 0.558359886203141
+          },
+          {
+            "content": "# Yemek kartı ve yemek seçenekleri\n## Gıda alerjisi ve içerik bilgisi\n\nGıda alerjisi olan çalışanlar yemek seçmeden önce menüdeki alerjen bilgisini ve yemeğin içeriğini yemek hizmeti sorumlusundan doğrulamalıdır. Vejetaryen veya vegan etiketi alerjen bulunmadığı anlamına gelmez. Ortak hazırlama alanları nedeniyle çapraz temas ihtimali olabilir; kesin içerik bilgisi olmadan güvenli olduğu varsayılmaz.",
+            "title": "Yemek kartı ve yemek seçenekleri",
+            "score": 0.541439100409256
+          },
+          {
+            "content": "# Ofis kuralları\n## Giriş kartı ve güvenlik\n\nGiriş kartı kişiye özeldir ve başkalarıyla paylaşılmaz. Kayıp giriş kartı derhal ofis ekibine bildirilir. Tanınmayan kişilerin kartlı kapılardan çalışanı takip ederek giriş yapmasına izin verilmez; resepsiyondan destek istenir. Masadan ayrılırken bilgisayar ekranı kilitlenir.",
+            "title": "Ofis kuralları",
+            "score": 0.389056246890804
+          },
+          {
+            "content": "# Ofis kuralları\n## Misafir kabulü\n\nMisafir ziyareti öncesinde ev sahibi çalışan resepsiyona ziyaret saatini ve misafir adını bildirir. Misafirler girişte kayıt yaptırır ve ofis içinde ev sahibi çalışan eşliğinde bulunur. Ziyaret sonunda misafir kartı resepsiyona teslim edilir. Misafirlerin çalışan bilgisayarlarını veya giriş kartlarını kullanmasına izin verilmez.",
+            "title": "Ofis kuralları",
+            "score": 0.378085483017948
+          },
+          {
+            "content": "# Ofis kuralları\n## Ortak alanlar\n\nOfis sessiz çalışma alanlarında telefon görüşmesi yapılmaz. Görüşmeler telefon kabinlerinde veya toplantı odalarında yapılır. Ortak mutfak kullanımdan sonra temiz bırakılır. Ofise gelen misafirler resepsiyona kaydedilir.",
+            "title": "Ofis kuralları",
+            "score": 0.348442842803946
+          },
+          {
+            "content": "# Ofis kuralları\n## Toplantı odaları\n\nToplantı odaları şirket takviminden rezerve edilir. Rezervasyon başlangıcından 10 dakika sonra kullanılmayan oda serbest bırakılır. Toplantı bitiminde ekipman kapatılır ve masa düzenlenir.",
+            "title": "Ofis kuralları",
+            "score": 0.333799362115538
+          },
+          {
+            "content": "# Ofis kuralları\n## Ortak ekipman ve arıza\n\nToplantı ekranı, kamera veya yazıcı arızası ofis ekibine cihazın konumu ve sorun açıklamasıyla bildirilir. Arızalı cihaz zorlanmaz ve yetkisiz tamir yapılmaz. Kullanılan adaptör ve kablolar iş bitiminde yerlerine bırakılır. Yazıcıdan çıkan şirket belgeleri bekletilmeden alınır.",
+            "title": "Ofis kuralları",
+            "score": 0.317312142699483
+          },
+          {
+            "content": "# Çalışma düzeni\n## Odaklanma ve toplantı planlama\n\nToplantı davetinde gündem, beklenen çıktı ve gerekli katılımcılar belirtilir. Ortak toplantı saatleri dışında bir görüşme gerekiyorsa katılımcıların uygunluğu önceden sorulur. Odaklanma için ayrılan takvim blokları dikkate alınır. Toplantı kararları ilgili ekip kanalında kısa notlarla paylaşılır.",
+            "title": "Çalışma düzeni",
+            "score": 0.309168535533935
+          },
+          {
+            "content": "# Çalışma düzeni\n## İnternet kesintisi ve çalışma yeri değişikliği\n\nİnternet veya elektrik kesintisi çalışmayı engelliyorsa ekip yöneticisine mümkün olan ilk anda bilgi verilir. Beklenen erişim zamanı ve etkilenen toplantılar paylaşılır. Çalışma yerini değiştirmek gerekiyorsa yöneticiyle plan yapılır. Ortak alanlarda çalışırken ekranın başkaları tarafından görülmemesine dikkat edilir.",
+            "title": "Çalışma düzeni",
+            "score": 0.308771890089509
+          },
+          {
+            "content": "# Ofis kuralları\n## Acil durum ve çıkışlar\n\nAcil çıkış kapıları ve koridorlar eşya ile kapatılmaz. Alarm halinde bina tahliye yönlendirmeleri izlenir, asansör kullanılmaz ve toplanma alanına gidilir. Toplanma alanının konumu resepsiyondaki tahliye planında gösterilir. Bina görevlileri izin vermeden ofise geri dönülmez.",
+            "title": "Ofis kuralları",
+            "score": 0.304300972651917
+          },
+          {
+            "content": "# İzin politikası\n## İzin öncesi iş devri\n\nİzne çıkmadan önce devam eden işler, yaklaşan teslim tarihleri ve ilgili dosya bağlantıları ekip ile paylaşılır. Acil işler için bir yedek sorumlu belirlenir. Takvimde ve e-posta otomatik yanıtında dönüş tarihi belirtilir. İzin sırasında rutin toplantılara katılım beklenmez.",
+            "title": "İzin politikası",
+            "score": 0.297336547484836
+          },
+          {
+            "content": "# Çalışma düzeni\n## Çalışma saatleri\n\nStandart çalışma saatleri hafta içi 09.00–18.00 arasındadır. Öğle arası 12.00–13.00 arasındadır. Ekiplerin ortak toplantı saatleri 10.00–16.00 aralığında planlanır.",
+            "title": "Çalışma düzeni",
+            "score": 0.294398841133695
+          },
+          {
+            "content": "# İzin politikası\n## İzin bakiyesi ve resmi tatiller\n\nGüncel izin bakiyesi insan kaynakları ekibinden öğrenilir. Resmi tatiller ve hafta sonları yıllık izin bakiyesinden düşülmez. Birden fazla ekip üyesinin aynı tarihte izin istemesi halinde iş sürekliliği ekip yöneticisiyle birlikte planlanır. Onaylanmamış talepler takvimde kesin izin olarak gösterilmez.",
+            "title": "İzin politikası",
+            "score": 0.292955704983493
+          },
+          {
+            "content": "# İzin politikası\n## Diğer izinler\n\nTaşınma için yılda 1 gün idari izin verilir. Doğum günü izni, doğum gününün bulunduğu ay içinde kullanılabilen 1 iş günüdür. Hastalık halinde ekip yöneticisine aynı gün bilgi verilmelidir.",
+            "title": "İzin politikası",
+            "score": 0.291125885721521
+          },
+          {
+            "content": "# Çalışma düzeni\n## Uzaktan çalışma\n\nHaftada 2 gün uzaktan çalışma mümkündür. Uzaktan çalışma günleri ekip yöneticisiyle önceden kararlaştırılır. Çarşamba günü ekiplerin ofiste birlikte çalışma günüdür. Uzaktan çalışırken şirket VPN bağlantısı kullanılmalıdır.",
+            "title": "Çalışma düzeni",
+            "score": 0.288549848343595
+          },
+          {
+            "content": "# Çalışma düzeni\n## VPN ve teknik destek\n\nUzaktan çalışırken şirket kaynaklarına erişim için VPN bağlantısı açılır. VPN sorunu yaşanırsa bağlantı durumu ve hata mesajı teknik destek ekibine iletilir. Parola, tek kullanımlık kod veya API anahtarı destek mesajına eklenmez. Şirket belgeleri kişisel e-posta hesabına aktarılmaz.",
+            "title": "Çalışma düzeni",
+            "score": 0.284567307142022
+          },
+          {
+            "content": "# Çalışma düzeni\n## Günlük ekip iletişimi\n\nÇalışanlar mesai başlangıcında güncel uygunluk durumunu ekip iletişim kanalında paylaşır. Takvimde toplantı, odaklanma zamanı ve izinler güncel tutulur. Acil işler ilgili ekip kanalında açıkça belirtilir; rutin talepler için mesai dışında anında yanıt beklenmez.",
+            "title": "Çalışma düzeni",
+            "score": 0.282490866419177
+          },
+          {
+            "content": "# İzin politikası\n## İzin değişikliği ve iptali\n\nOnaylı yıllık iznin tarihini değiştirmek veya izni iptal etmek için ekip yöneticisine yazılı bilgi verilir. Yönetici onayından sonra şirket takvimi güncellenir. İptal edilen ve kullanılmayan izin günleri izin bakiyesine geri eklenir. Çalışan, onay gelmeden yeni tarihleri kesinleşmiş kabul etmemelidir.",
+            "title": "İzin politikası",
+            "score": 0.26548657780662
+          },
+          {
+            "content": "# İzin politikası\n## Yıllık izin\n\nUplico çalışanlarının yıllık ücretli izin hakkı 20 iş günüdür. Yıllık izin talebi, başlangıç tarihinden en az 5 iş günü önce ekip yöneticisine iletilir. Onaylanan izinler şirket takvimine eklenir. Hafta sonları yıllık izin günlerinden düşülmez.",
+            "title": "İzin politikası",
+            "score": 0.254370334438651
+          },
+          {
+            "content": "# İzin politikası\n## Hastalık bildirimi ve işe dönüş\n\nHastalık nedeniyle çalışılamayan günlerde ekip yöneticisine aynı gün, mümkünse mesai başlangıcından önce haber verilir. Sağlık raporu gerekiyorsa insan kaynakları ekibinin belirttiği güvenli kanaldan iletilir; ekip sohbetinde sağlık ayrıntıları paylaşılmaz. İşe dönüş tarihi değişirse yöneticiye yeniden bilgi verilir.",
+            "title": "İzin politikası",
+            "score": 0.247567533408821
+          }
+        ]
+      },
+      {
+        "id": "Q55",
+        "group": "07",
+        "query": "Öğle arası ne zaman, doğum günü izni kaç gün?",
+        "evidence": [
+          "12.00–13.00",
+          "1 iş günüdür"
+        ],
+        "split": "calibration",
+        "ranked": [
+          {
+            "content": "# İzin politikası\n## Diğer izinler\n\nTaşınma için yılda 1 gün idari izin verilir. Doğum günü izni, doğum gününün bulunduğu ay içinde kullanılabilen 1 iş günüdür. Hastalık halinde ekip yöneticisine aynı gün bilgi verilmelidir.",
+            "title": "İzin politikası",
+            "score": 0.5518642272745
+          },
+          {
+            "content": "# İzin politikası\n## İzin bakiyesi ve resmi tatiller\n\nGüncel izin bakiyesi insan kaynakları ekibinden öğrenilir. Resmi tatiller ve hafta sonları yıllık izin bakiyesinden düşülmez. Birden fazla ekip üyesinin aynı tarihte izin istemesi halinde iş sürekliliği ekip yöneticisiyle birlikte planlanır. Onaylanmamış talepler takvimde kesin izin olarak gösterilmez.",
+            "title": "İzin politikası",
+            "score": 0.445022892706888
+          },
+          {
+            "content": "# Yemek kartı ve yemek seçenekleri\n## Yemek kartı limiti\n\nYemek kartı günlük limiti 350 TL'dir. Bakiye her ayın ilk iş gününde, o ayın çalışma günü sayısına göre yüklenir. Yemek kartı anlaşmalı restoran ve marketlerde kullanılabilir. Kart kaybolursa ofis ekibine bildirilir.",
+            "title": "Yemek kartı ve yemek seçenekleri",
+            "score": 0.432087433822077
+          },
+          {
+            "content": "# Yemek kartı ve yemek seçenekleri\n## Menü geri bildirimi\n\nYemek menüsüyle ilgili öneriler ve kalite sorunları ofis ekibine iletilir. Geri bildirimde gün, yemek adı ve sorun kısa şekilde belirtilir. Menü değişiklikleri ofis panosundan takip edilir. Bir tercih paylaşmak belirli bir yemeğin her gün sunulacağını garanti etmez.",
+            "title": "Yemek kartı ve yemek seçenekleri",
+            "score": 0.420822744942925
+          },
+          {
+            "content": "# Çalışma düzeni\n## Çalışma saatleri\n\nStandart çalışma saatleri hafta içi 09.00–18.00 arasındadır. Öğle arası 12.00–13.00 arasındadır. Ekiplerin ortak toplantı saatleri 10.00–16.00 aralığında planlanır.",
+            "title": "Çalışma düzeni",
+            "score": 0.417463212144114
+          },
+          {
+            "content": "# İzin politikası\n## Hastalık bildirimi ve işe dönüş\n\nHastalık nedeniyle çalışılamayan günlerde ekip yöneticisine aynı gün, mümkünse mesai başlangıcından önce haber verilir. Sağlık raporu gerekiyorsa insan kaynakları ekibinin belirttiği güvenli kanaldan iletilir; ekip sohbetinde sağlık ayrıntıları paylaşılmaz. İşe dönüş tarihi değişirse yöneticiye yeniden bilgi verilir.",
+            "title": "İzin politikası",
+            "score": 0.408853586409502
+          },
+          {
+            "content": "# İzin politikası\n## Yıllık izin\n\nUplico çalışanlarının yıllık ücretli izin hakkı 20 iş günüdür. Yıllık izin talebi, başlangıç tarihinden en az 5 iş günü önce ekip yöneticisine iletilir. Onaylanan izinler şirket takvimine eklenir. Hafta sonları yıllık izin günlerinden düşülmez.",
+            "title": "İzin politikası",
+            "score": 0.407563336656569
+          },
+          {
+            "content": "# Yemek kartı ve yemek seçenekleri\n## Yemek seçenekleri\n\nOfis yemek alanında her gün vejetaryen yemek seçeneği bulunur. Vegan yemek seçenekleri için en geç bir önceki iş günü ofis ekibine haber verilmelidir. Haftalık yemek menüsü pazartesi sabahı ofis panosunda paylaşılır. Beslenme tercihleri yemek seçiminde dikkate alınır; yemek kartı limiti bu tercihlerden bağımsızdır.",
+            "title": "Yemek kartı ve yemek seçenekleri",
+            "score": 0.402812851344801
+          },
+          {
+            "content": "# İzin politikası\n## İzin öncesi iş devri\n\nİzne çıkmadan önce devam eden işler, yaklaşan teslim tarihleri ve ilgili dosya bağlantıları ekip ile paylaşılır. Acil işler için bir yedek sorumlu belirlenir. Takvimde ve e-posta otomatik yanıtında dönüş tarihi belirtilir. İzin sırasında rutin toplantılara katılım beklenmez.",
+            "title": "İzin politikası",
+            "score": 0.396570054590681
+          },
+          {
+            "content": "# Yemek kartı ve yemek seçenekleri\n## Yemek alanı ve saklama\n\nKişisel yiyecekler buzdolabına isim ve tarih etiketiyle konulur. Son kullanma tarihi geçen yiyecekler ortak alanda bırakılmaz. Yemek sonrası tepsi ve tabaklar toplama alanına götürülür; ortak masalar temiz bırakılır. Keskin kokulu yiyecekler sessiz çalışma alanında tüketilmez.",
+            "title": "Yemek kartı ve yemek seçenekleri",
+            "score": 0.393253995793304
+          },
+          {
+            "content": "# Yemek kartı ve yemek seçenekleri\n## Kayıp kart ve ödeme sorunu\n\nYemek kartı kaybolduğunda kartın kullanıma kapatılması için ofis ekibine aynı gün haber verilir. Başka bir çalışanın kartı kullanılmaz. Ödeme reddedilirse önce kart bakiyesi ve iş yerinin anlaşmalı olup olmadığı kontrol edilir. Sorun sürerse tarih, restoran adı ve hata açıklaması ofis ekibine iletilir; kart şifresi paylaşılmaz.",
+            "title": "Yemek kartı ve yemek seçenekleri",
+            "score": 0.385695775868886
+          },
+          {
+            "content": "# İzin politikası\n## İzin değişikliği ve iptali\n\nOnaylı yıllık iznin tarihini değiştirmek veya izni iptal etmek için ekip yöneticisine yazılı bilgi verilir. Yönetici onayından sonra şirket takvimi güncellenir. İptal edilen ve kullanılmayan izin günleri izin bakiyesine geri eklenir. Çalışan, onay gelmeden yeni tarihleri kesinleşmiş kabul etmemelidir.",
+            "title": "İzin politikası",
+            "score": 0.382936501394575
+          },
+          {
+            "content": "# Çalışma düzeni\n## Günlük ekip iletişimi\n\nÇalışanlar mesai başlangıcında güncel uygunluk durumunu ekip iletişim kanalında paylaşır. Takvimde toplantı, odaklanma zamanı ve izinler güncel tutulur. Acil işler ilgili ekip kanalında açıkça belirtilir; rutin talepler için mesai dışında anında yanıt beklenmez.",
+            "title": "Çalışma düzeni",
+            "score": 0.367146365883681
+          },
+          {
+            "content": "# Yemek kartı ve yemek seçenekleri\n## Gıda alerjisi ve içerik bilgisi\n\nGıda alerjisi olan çalışanlar yemek seçmeden önce menüdeki alerjen bilgisini ve yemeğin içeriğini yemek hizmeti sorumlusundan doğrulamalıdır. Vejetaryen veya vegan etiketi alerjen bulunmadığı anlamına gelmez. Ortak hazırlama alanları nedeniyle çapraz temas ihtimali olabilir; kesin içerik bilgisi olmadan güvenli olduğu varsayılmaz.",
+            "title": "Yemek kartı ve yemek seçenekleri",
+            "score": 0.366284084897732
+          },
+          {
+            "content": "# Çalışma düzeni\n## Odaklanma ve toplantı planlama\n\nToplantı davetinde gündem, beklenen çıktı ve gerekli katılımcılar belirtilir. Ortak toplantı saatleri dışında bir görüşme gerekiyorsa katılımcıların uygunluğu önceden sorulur. Odaklanma için ayrılan takvim blokları dikkate alınır. Toplantı kararları ilgili ekip kanalında kısa notlarla paylaşılır.",
+            "title": "Çalışma düzeni",
+            "score": 0.35951612157697
+          },
+          {
+            "content": "# Çalışma düzeni\n## Uzaktan çalışma\n\nHaftada 2 gün uzaktan çalışma mümkündür. Uzaktan çalışma günleri ekip yöneticisiyle önceden kararlaştırılır. Çarşamba günü ekiplerin ofiste birlikte çalışma günüdür. Uzaktan çalışırken şirket VPN bağlantısı kullanılmalıdır.",
+            "title": "Çalışma düzeni",
+            "score": 0.356579817666973
+          },
+          {
+            "content": "# Ofis kuralları\n## Misafir kabulü\n\nMisafir ziyareti öncesinde ev sahibi çalışan resepsiyona ziyaret saatini ve misafir adını bildirir. Misafirler girişte kayıt yaptırır ve ofis içinde ev sahibi çalışan eşliğinde bulunur. Ziyaret sonunda misafir kartı resepsiyona teslim edilir. Misafirlerin çalışan bilgisayarlarını veya giriş kartlarını kullanmasına izin verilmez.",
+            "title": "Ofis kuralları",
+            "score": 0.348780631785535
+          },
+          {
+            "content": "# Ofis kuralları\n## Ortak alanlar\n\nOfis sessiz çalışma alanlarında telefon görüşmesi yapılmaz. Görüşmeler telefon kabinlerinde veya toplantı odalarında yapılır. Ortak mutfak kullanımdan sonra temiz bırakılır. Ofise gelen misafirler resepsiyona kaydedilir.",
+            "title": "Ofis kuralları",
+            "score": 0.334617126677379
+          },
+          {
+            "content": "# Çalışma düzeni\n## İnternet kesintisi ve çalışma yeri değişikliği\n\nİnternet veya elektrik kesintisi çalışmayı engelliyorsa ekip yöneticisine mümkün olan ilk anda bilgi verilir. Beklenen erişim zamanı ve etkilenen toplantılar paylaşılır. Çalışma yerini değiştirmek gerekiyorsa yöneticiyle plan yapılır. Ortak alanlarda çalışırken ekranın başkaları tarafından görülmemesine dikkat edilir.",
+            "title": "Çalışma düzeni",
+            "score": 0.333155611947829
+          },
+          {
+            "content": "# Ofis kuralları\n## Toplantı odaları\n\nToplantı odaları şirket takviminden rezerve edilir. Rezervasyon başlangıcından 10 dakika sonra kullanılmayan oda serbest bırakılır. Toplantı bitiminde ekipman kapatılır ve masa düzenlenir.",
+            "title": "Ofis kuralları",
+            "score": 0.324539071443145
+          },
+          {
+            "content": "# Ofis kuralları\n## Giriş kartı ve güvenlik\n\nGiriş kartı kişiye özeldir ve başkalarıyla paylaşılmaz. Kayıp giriş kartı derhal ofis ekibine bildirilir. Tanınmayan kişilerin kartlı kapılardan çalışanı takip ederek giriş yapmasına izin verilmez; resepsiyondan destek istenir. Masadan ayrılırken bilgisayar ekranı kilitlenir.",
+            "title": "Ofis kuralları",
+            "score": 0.314091975188413
+          },
+          {
+            "content": "# Ofis kuralları\n## Acil durum ve çıkışlar\n\nAcil çıkış kapıları ve koridorlar eşya ile kapatılmaz. Alarm halinde bina tahliye yönlendirmeleri izlenir, asansör kullanılmaz ve toplanma alanına gidilir. Toplanma alanının konumu resepsiyondaki tahliye planında gösterilir. Bina görevlileri izin vermeden ofise geri dönülmez.",
+            "title": "Ofis kuralları",
+            "score": 0.305018934784366
+          },
+          {
+            "content": "# Çalışma düzeni\n## VPN ve teknik destek\n\nUzaktan çalışırken şirket kaynaklarına erişim için VPN bağlantısı açılır. VPN sorunu yaşanırsa bağlantı durumu ve hata mesajı teknik destek ekibine iletilir. Parola, tek kullanımlık kod veya API anahtarı destek mesajına eklenmez. Şirket belgeleri kişisel e-posta hesabına aktarılmaz.",
+            "title": "Çalışma düzeni",
+            "score": 0.285365326188586
+          },
+          {
+            "content": "# Ofis kuralları\n## Ortak ekipman ve arıza\n\nToplantı ekranı, kamera veya yazıcı arızası ofis ekibine cihazın konumu ve sorun açıklamasıyla bildirilir. Arızalı cihaz zorlanmaz ve yetkisiz tamir yapılmaz. Kullanılan adaptör ve kablolar iş bitiminde yerlerine bırakılır. Yazıcıdan çıkan şirket belgeleri bekletilmeden alınır.",
+            "title": "Ofis kuralları",
+            "score": 0.274238154107863
+          }
+        ]
+      }
+    ],
+    "vectorExtension": [
+      {
+        "extversion": "0.8.2"
+      }
+    ],
+    "settings": {
+      "dimensions": 1536,
+      "searchTopK": 5,
+      "searchMinScore": 0.4
+    }
+  }
+}

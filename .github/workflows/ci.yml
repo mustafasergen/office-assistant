@@ -1,0 +1,68 @@
+name: CI
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.34.6
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm lint
+      - run: pnpm typecheck
+      - run: pnpm test
+      - run: pnpm build
+        env:
+          NEXT_TELEMETRY_DISABLED: '1'
+  integration:
+    needs: quality
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.34.6
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm exec playwright install --with-deps chromium
+      - run: docker compose -p uplico-ci-test -f compose.test.yaml up --build --abort-on-container-exit --exit-code-from integration
+      - run: docker compose -p uplico-ci-test -f compose.test.yaml run --build --rm evaluation
+      - run: docker compose up --build -d --wait --wait-timeout 240
+      - run: pnpm test:e2e
+      - name: Verify persistence across container restart
+        run: node scripts/check-persistence.mjs
+      - name: Collect container logs
+        if: always()
+        run: |
+          mkdir -p test-results
+          docker compose logs --no-color > test-results/compose.log 2>&1
+          docker compose -p uplico-ci-test -f compose.test.yaml logs --no-color > test-results/integration.log 2>&1
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: test-diagnostics
+          path: |
+            test-results/
+            evaluation-results/
+            playwright-report/
+      - name: Cleanup
+        if: always()
+        run: |
+          docker compose down -v
+          docker compose -p uplico-ci-test -f compose.test.yaml down -v

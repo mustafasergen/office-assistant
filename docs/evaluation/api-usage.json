@@ -1,0 +1,19 @@
+{
+  "estimatedCostUsd": 0.8191852600000012,
+  "approvedLimitUsd": 2,
+  "totalCalls": 1886,
+  "chatCalls": 1661,
+  "embeddingCalls": 225,
+  "inputTokens": 1748002,
+  "outputTokens": 80121,
+  "pricing": {
+    "gpt-4.1-mini": {
+      "inputPerMillion": 0.4,
+      "outputPerMillion": 1.6
+    },
+    "text-embedding-3-small": {
+      "perMillion": 0.02
+    }
+  },
+  "note": "Usage-based estimate; excludes cached embedding reuses, not a billing receipt."
+}

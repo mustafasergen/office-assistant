@@ -1,0 +1,20 @@
+{
+  "publicTablesUnchanged": true,
+  "temporarySchemaRemoved": true,
+  "before": {
+    "users": "2b94ee1fdb26a7be970ccbe6e8b943c1a78b059ce4476da304947563d1ad83e5",
+    "threads": "8ff90ef296b0347fecbd80120da705406d9e9d25a0a82f41cf4c05191f857f54",
+    "messages": "563bcb342736ea48a239ae3039c39dd0a06d01ac4c1c585a93ac998b3cb7d464",
+    "memories": "beef008454f6733fd83dcb759ab0ac73de8076bd890f675fbaa05328a96a6043",
+    "documents": "d99f5ababf4cbec57eb90ffab970baedb89d2feecb90171f68923205f5299498",
+    "document_chunks": "0155ffbd5afcfdfb5e7404c5b4d8c46ad531e13f00442bb7a0fa30003691e9b5"
+  },
+  "after": {
+    "users": "2b94ee1fdb26a7be970ccbe6e8b943c1a78b059ce4476da304947563d1ad83e5",
+    "threads": "8ff90ef296b0347fecbd80120da705406d9e9d25a0a82f41cf4c05191f857f54",
+    "messages": "563bcb342736ea48a239ae3039c39dd0a06d01ac4c1c585a93ac998b3cb7d464",
+    "memories": "beef008454f6733fd83dcb759ab0ac73de8076bd890f675fbaa05328a96a6043",
+    "documents": "d99f5ababf4cbec57eb90ffab970baedb89d2feecb90171f68923205f5299498",
+    "document_chunks": "0155ffbd5afcfdfb5e7404c5b4d8c46ad531e13f00442bb7a0fa30003691e9b5"
+  }
+}

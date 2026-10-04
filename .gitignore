@@ -1,0 +1,16 @@
+node_modules/
+.next/
+dist/
+coverage/
+.env
+.env.*
+!.env.example
+*.tsbuildinfo
+test-results/
+playwright-report/
+.DS_Store
+delivery/
+
+# Local development notebook
+/PROJECT.MD
+evaluation-results/
