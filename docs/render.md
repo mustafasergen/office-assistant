@@ -26,7 +26,7 @@ Tarayıcı → Render HTTPS → Next.js 0.0.0.0:$PORT (10000)
 | Docker Build Context  | `.`                                               |
 | Docker Command        | Boş; Dockerfile `CMD` kullanılır                  |
 | Health Check Path     | `/api/health/ready`                               |
-| Automatic deploys     | Off; sonraki kod yayınları için Manual Deploy     |
+| Automatic deploys     | On Commit; `main` push sonrası otomatik deploy    |
 
 4. İstenen **DATABASE_URL** alanına Supabase Dashboard → Connect → **Session pooler** bağlantısını girin. Şablon:
 
@@ -104,3 +104,7 @@ docker compose --env-file /dev/null -p office-render-test -f compose.render-test
 `down -v` burada yalnız test projesine uygulanır. Başka projenin adını kullanmayın. Başlangıç/kapanış testleri gerçek yerel child-process ve geçici portlarla çalışır. CI'ya süreç testleri, Render imaj build'i, bu imaj üzerinde Playwright, hata logları ve cleanup eklendi; uzakta GitHub Actions bu hazırlık sırasında tetiklenmedi.
 
 Render Blueprint resmi JSON şemasıyla yerelde doğrulandı. Render kontrol panelinde gerçek servis oluşturma, Supabase bağlantısı ve platform healthcheck'i bu aşamada çalıştırılmadı. Referanslar: [Blueprint alanları](https://render.com/docs/blueprint-spec), [port bağlama](https://render.com/docs/web-services#port-binding), [healthcheck](https://render.com/docs/health-checks), [kapanış sinyalleri](https://render.com/docs/deploys#graceful-shutdown).
+
+## Mevcut serviste otomatik deploy
+
+`autoDeployTrigger: commit`, bağlı `main` branch’ine her push sonrası build/deploy tetikler. Dosyayı GitHub’a gönderdikten sonra Blueprint **Auto Sync** açıksa değişiklik uygulanır; kapalıysa Blueprint sayfasından **Manual Sync** yapın. Servis **Settings → Build & Deploy → Auto-Deploy** alanında **On Commit** görünmeli. Servis Blueprint dışında elle oluşturulduysa YAML tek başına uygulanmaz; aynı ayarı servis panelinde seçin. Bu ayar CI sonucunu beklemez; beklemek istenirse `checksPass` ayrı bir tercihtir. Kaynak: [Render deploy ayarları](https://render.com/docs/deploys).

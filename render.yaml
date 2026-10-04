@@ -8,7 +8,7 @@ services:
     region: frankfurt
     plan: 0.5c-512mb # 512 MB / 0.5 CPU; formerly Starter, $7/month (checked 2026-10-04).
     numInstances: 1
-    autoDeployTrigger: off
+    autoDeployTrigger: commit
     dockerfilePath: ./Dockerfile.render
     dockerContext: .
     healthCheckPath: /api/health/ready

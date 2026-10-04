@@ -18,7 +18,7 @@ import {
   Trash2,
 } from 'lucide-react';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { api } from '@/lib/api-client';
 import type { CompanyDocument, Memory, Message, Thread } from '@/lib/api-types';
@@ -55,7 +55,8 @@ function BrandMark({ small = false }: { small?: boolean }) {
   );
 }
 
-export function OfficeApp({ threadId }: { threadId?: string }) {
+export function OfficeApp() {
+  const threadId = usePathname().match(/^\/chat\/([^/]+)\/?$/)?.[1];
   const router = useRouter();
   const [threads, setThreads] = useState<Thread[]>([]);
   const [messages, setMessages] = useState<Message[]>([]);
@@ -73,9 +74,13 @@ export function OfficeApp({ threadId }: { threadId?: string }) {
   const [retry, setRetry] = useState(0);
   const conversationRef = useRef<HTMLElement>(null);
   const sendingRef = useRef(false);
+  const loadedConversation = useRef<{ id?: string; retry: number } | null>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
+    // A newly created thread already owns the messages on screen. URL promotion needs no reload.
+    if (loadedConversation.current?.id === threadId && loadedConversation.current?.retry === retry)
+      return;
     let cancelled = false;
     async function load() {
       setReady(false);
@@ -95,6 +100,7 @@ export function OfficeApp({ threadId }: { threadId?: string }) {
         setDocuments(documentList);
         setProvider(health.provider);
         setMessages(history);
+        loadedConversation.current = { id: threadId, retry };
         setReady(true);
       } catch (err) {
         if (!cancelled) setError(err instanceof Error ? err.message : 'Yüklenemedi.');
@@ -125,7 +131,14 @@ export function OfficeApp({ threadId }: { threadId?: string }) {
       setInput('');
       let id = threadId;
       try {
-        if (!id) id = (await api<Thread>('/threads', { method: 'POST' })).id;
+        if (!id) {
+          const thread = await api<Thread>('/threads', { method: 'POST' });
+          id = thread.id;
+          setThreads((previous) => [thread, ...previous]);
+          loadedConversation.current = { id, retry };
+          // Native history integrates with Next's usePathname without remounting the page.
+          window.history.replaceState(null, '', `/chat/${id}`);
+        }
         const optimistic: Message = {
           id: 'pending',
           role: 'user',
@@ -160,11 +173,10 @@ export function OfficeApp({ threadId }: { threadId?: string }) {
       } finally {
         sendingRef.current = false;
         setSending(false);
-        if (id && id !== threadId) router.replace(`/chat/${id}`);
-        inputRef.current?.focus();
+        inputRef.current?.focus({ preventScroll: true });
       }
     },
-    [ready, threadId, router, deletingThread],
+    [ready, threadId, retry, deletingThread],
   );
 
   async function newThread() {
@@ -488,7 +500,8 @@ export function OfficeApp({ threadId }: { threadId?: string }) {
               aria-label="Mesajın"
               rows={2}
               maxLength={4000}
-              disabled={!ready || sending || !!deletingThread}
+              disabled={!ready || !!deletingThread}
+              readOnly={sending}
               onKeyDown={(event) => {
                 if (event.key === 'Enter' && !event.shiftKey && !event.nativeEvent.isComposing) {
                   event.preventDefault();
