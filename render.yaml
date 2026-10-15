@@ -6,7 +6,7 @@ services:
     repo: https://github.com/mustafasergen/office-assistant
     branch: main
     region: frankfurt
-    plan: 0.5c-512mb # 512 MB / 0.5 CPU; formerly Starter, $7/month (checked 2026-10-04).
+    plan: free
     numInstances: 1
     autoDeployTrigger: commit
     dockerfilePath: ./Dockerfile.render
