@@ -12,7 +12,6 @@ services:
     dockerfilePath: ./Dockerfile.render
     dockerContext: .
     healthCheckPath: /api/health/ready
-    maxShutdownDelaySeconds: 90
     envVars:
       - key: NODE_ENV
         value: production
